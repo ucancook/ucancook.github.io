@@ -1,0 +1,72 @@
+{
+  "slug": "soy-chunk-veg-curry-bowl",
+  "title": "Soy Chunk Veg Curry Bowl",
+  "description": "A very high-protein soy-chunk curry with tomato, spinach, capsicum, beans, and Indian spices.",
+  "prepMinutes": 5,
+  "cookMinutes": 20,
+  "servings": 1,
+  "tags": [
+    "Special",
+    "Dinner",
+    "Indian",
+    "Healthy",
+    "High protein",
+    "Vegetarian"
+  ],
+  "ingredients": [
+    {
+      "amount": "35–40 g",
+      "item": "soy chunks",
+      "note": "dry weight"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "tomato puree"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "ginger"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "cumin"
+    },
+    {
+      "amount": "1/4 tsp",
+      "item": "turmeric"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "coriander powder"
+    },
+    {
+      "amount": "1/4 tsp",
+      "item": "garam masala"
+    },
+    {
+      "amount": "1 cup",
+      "item": "spinach, capsicum, or beans"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "oil"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "curd",
+      "note": "optional, for creaminess"
+    }
+  ],
+  "steps": [
+    "Boil the soy chunks for five minutes, rinse, and squeeze them thoroughly.",
+    "Heat the oil and add the cumin and ginger.",
+    "Add the tomato puree and spices and cook for four to five minutes.",
+    "Add the soy chunks and vegetables.",
+    "Cook for seven to eight minutes, until the curry is thick. Stir in curd at the end if using."
+  ],
+  "updated": "2026-07-17"
+}

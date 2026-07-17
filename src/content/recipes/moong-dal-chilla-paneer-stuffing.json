@@ -1,0 +1,75 @@
+{
+  "slug": "moong-dal-chilla-paneer-stuffing",
+  "title": "Moong Dal Chilla with Paneer Stuffing",
+  "description": "Thin moong-dal chillas filled with grated paneer and served with a cooling mint-curd dip.",
+  "prepMinutes": 10,
+  "cookMinutes": 20,
+  "servings": 2,
+  "tags": [
+    "Special",
+    "Breakfast",
+    "Indian",
+    "High protein",
+    "Vegetarian"
+  ],
+  "ingredients": [
+    {
+      "amount": "1/2 cup",
+      "item": "yellow or green moong dal",
+      "note": "soaked for 3–4 hours"
+    },
+    {
+      "amount": "1 small piece",
+      "item": "ginger"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "cumin"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    },
+    {
+      "amount": "50–75 g",
+      "item": "paneer",
+      "note": "grated"
+    },
+    {
+      "amount": "as desired",
+      "item": "coriander or mint",
+      "note": "optional"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "oil",
+      "note": "total"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "curd",
+      "note": "for mint-curd dip"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "mint",
+      "note": "chopped, for dip"
+    },
+    {
+      "amount": "1/4 tsp",
+      "item": "roasted cumin",
+      "note": "for dip"
+    }
+  ],
+  "steps": [
+    "Blend the soaked moong dal with ginger, cumin, salt, and a little water.",
+    "Adjust with water to make a thin, dosa-like batter.",
+    "Pour a portion onto a lightly oiled non-stick pan and cook like a chilla.",
+    "Add grated paneer to one half, fold, and cook briefly until warmed through.",
+    "Mix the curd, mint, roasted cumin, and salt, then serve alongside the chilla."
+  ],
+  "notes": [
+    "The stated cooking time assumes the moong dal is already soaked."
+  ],
+  "updated": "2026-07-17"
+}

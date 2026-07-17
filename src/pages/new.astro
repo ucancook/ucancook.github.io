@@ -1,0 +1,245 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { allTags, normalizeTag } from '../lib/recipes';
+
+const repo = import.meta.env.PUBLIC_GITHUB_REPO || 'youcancook/youcancook.github.io';
+const newUrl = `https://github.com/${repo}/new/main/src/content/recipes`;
+---
+
+<BaseLayout title="New recipe — You can Cook">
+  <section class="hero">
+    <div class="eyebrow">Recipe studio</div>
+    <h1>Check it.<br />Then save it.</h1>
+    <p class="lede">Validate the recipe, preview the exact JSON file, then open GitHub to save it.</p>
+  </section>
+
+  <div class="form-grid">
+    <form class="panel box" id="form">
+      <div class="field">
+        <label>RECIPE NAME *</label>
+        <input id="title" required placeholder="Lemon dal" />
+      </div>
+
+      <div class="field">
+        <label>DESCRIPTION *</label>
+        <textarea id="description" required></textarea>
+      </div>
+
+      <div class="two">
+        <div class="field">
+          <label>PREP MINUTES *</label>
+          <input id="prep" type="number" value="10" />
+        </div>
+        <div class="field">
+          <label>COOK MINUTES *</label>
+          <input id="cook" type="number" value="20" />
+        </div>
+        <div class="field">
+          <label>SERVINGS *</label>
+          <input id="servings" type="number" value="4" />
+        </div>
+        <div class="field">
+          <label>CALORIES / SERVING</label>
+          <input id="calories" type="number" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>TAGS * — choose at least two</label>
+        <div class="tag-picker" id="tag-picker" aria-label="Choose recipe tags">
+          {
+            allTags.map((tag) => (
+              <button
+                class="tag tag-choice"
+                type="button"
+                data-tag={tag}
+                data-tag-key={normalizeTag(tag)}
+                aria-pressed="false"
+              >
+                {tag}
+              </button>
+            ))
+          }
+        </div>
+        <input id="tags" type="hidden" value="" />
+        <p class="tag-selection-summary" id="tag-selection-summary">No tags selected.</p>
+      </div>
+
+      <div class="field">
+        <label>PHOTOS — optional, one URL or site path per line</label>
+        <textarea id="photos" placeholder="/photos/lemon-dal/finished-dish.jpg&#10;https://example.com/another-angle.jpg"></textarea>
+        <label class="file-picker-label" for="photo-files">Choose photos from this device</label>
+        <input id="photo-files" class="file-picker" type="file" accept="image/*" multiple />
+        <div id="photo-preview" class="photo-preview" aria-live="polite"></div>
+        <p class="tag-selection-summary">
+          Selected files are previewed locally and added as suggested paths. Upload the image files to
+          <code>public/photos/&lt;recipe-name&gt;/</code> in GitHub before publishing.
+        </p>
+        <a class="text-link" id="photo-upload" href={`https://github.com/${repo}/upload/main/public/photos`} target="_blank">Upload photos on GitHub</a>
+      </div>
+
+      <div class="field">
+        <label>INGREDIENTS * — amount | item | note</label>
+        <textarea id="ingredients" placeholder="1 cup | red lentils | rinsed&#10;3 cups | water"></textarea>
+      </div>
+
+      <div class="field">
+        <label>METHOD * — one step per line</label>
+        <textarea id="steps"></textarea>
+      </div>
+
+      <div class="field">
+        <label>NOTES — one per line</label>
+        <textarea id="notes"></textarea>
+      </div>
+
+      <p id="status"></p>
+
+      <div class="actions">
+        <button class="btn primary" type="button" id="check">
+          <Icon name="check" />
+          Check recipe
+        </button>
+        <button class="btn secondary" type="button" id="copy" disabled>
+          <Icon name="copy" />
+          Copy JSON
+        </button>
+        <a class="btn secondary" id="github" href={newUrl} target="_blank">Open GitHub</a>
+      </div>
+    </form>
+
+    <aside class="panel box">
+      <div class="eyebrow">Generated file</div>
+      <h2 id="preview">Waiting for validation</h2>
+      <p>Filename: <strong id="filename">recipe-name.json</strong></p>
+      <pre id="out">Your JSON will appear here.</pre>
+    </aside>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ newUrl }}>
+  const $ = (id) => document.getElementById(id);
+  const lines = (value) => value.split('\n').map((entry) => entry.trim()).filter(Boolean);
+  const slugify = (value) =>
+    value
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+
+  let json = '';
+  const selectedPhotoFiles = [];
+  const photoInput = $('photo-files');
+  const photoPreview = $('photo-preview');
+
+  const selectedTags = new Map();
+  const tagButtons = [...document.querySelectorAll('.tag-choice')];
+  const tagInput = $('tags');
+  const tagSummary = $('tag-selection-summary');
+
+  const syncTags = () => {
+    const values = [...selectedTags.values()];
+    tagInput.value = values.join(', ');
+    tagSummary.textContent = values.length
+      ? `${values.length} selected: ${values.join(', ')}`
+      : 'No tags selected.';
+  };
+
+  tagButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const key = button.dataset.tagKey;
+      const label = button.dataset.tag;
+      const isSelected = selectedTags.has(key);
+
+      if (isSelected) selectedTags.delete(key);
+      else selectedTags.set(key, label);
+
+      button.classList.toggle('active', !isSelected);
+      button.setAttribute('aria-pressed', String(!isSelected));
+      syncTags();
+    });
+  });
+
+  syncTags();
+
+  photoInput.addEventListener('change', () => {
+    selectedPhotoFiles.splice(0, selectedPhotoFiles.length, ...photoInput.files);
+    photoPreview.innerHTML = '';
+
+    selectedPhotoFiles.forEach((file) => {
+      const figure = document.createElement('figure');
+      const image = document.createElement('img');
+      const caption = document.createElement('figcaption');
+      image.src = URL.createObjectURL(file);
+      image.alt = file.name;
+      caption.textContent = file.name;
+      figure.append(image, caption);
+      photoPreview.append(figure);
+    });
+  });
+
+  $('check').onclick = () => {
+    try {
+      for (const id of ['title', 'description', 'tags', 'ingredients', 'steps']) {
+        if (!$(id).value.trim()) throw Error(`Missing ${id}.`);
+      }
+
+      const ingredients = lines($('ingredients').value).map((line, index) => {
+        const [amount, item, note] = line.split('|').map((part) => part?.trim());
+        if (!amount || !item) throw Error(`Ingredient line ${index + 1} needs “amount | item”.`);
+        return note ? { amount, item, note } : { amount, item };
+      });
+
+      const slug = slugify($('title').value);
+      const manualPhotoSources = lines($('photos').value);
+      const selectedFileSources = selectedPhotoFiles.map((file) => `/photos/${slug}/${file.name}`);
+      const photos = [...new Set([...manualPhotoSources, ...selectedFileSources])].map((src) => ({
+        src,
+        alt: $('title').value.trim(),
+      }));
+      const recipe = {
+        slug,
+        title: $('title').value.trim(),
+        description: $('description').value.trim(),
+        prepMinutes: +$('prep').value,
+        cookMinutes: +$('cook').value,
+        servings: +$('servings').value,
+        ...($('calories').value ? { calories: +$('calories').value } : {}),
+        ...(photos.length ? { photos } : {}),
+        tags: [...new Set(
+          $('tags').value
+            .split(',')
+            .map((tag) => tag.trim())
+            .filter(Boolean)
+            .map((tag) =>
+              ['chinese', 'japanese', 'japenese', 'thai'].includes(tag.toLowerCase())
+                ? 'Asian'
+                : tag,
+            ),
+        )],
+        ingredients,
+        steps: lines($('steps').value),
+        ...(lines($('notes').value).length ? { notes: lines($('notes').value) } : {}),
+        updated: new Date().toISOString().slice(0, 10),
+      };
+
+      if (recipe.tags.length < 2) throw Error('Add at least two tags.');
+
+      json = JSON.stringify(recipe, null, 2);
+      $('out').textContent = json;
+      $('preview').textContent = recipe.title;
+      $('filename').textContent = slug + '.json';
+      $('status').textContent = 'Recipe passes validation.';
+      $('copy').disabled = false;
+      $('github').href = `${newUrl}?filename=${encodeURIComponent(slug + '.json')}&value=${encodeURIComponent(json)}`;
+    } catch (error) {
+      $('status').textContent = error.message;
+    }
+  };
+
+  $('copy').onclick = async () => {
+    await navigator.clipboard.writeText(json);
+    $('copy').textContent = 'Copied';
+  };
+</script>

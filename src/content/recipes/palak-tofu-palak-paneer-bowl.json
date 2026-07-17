@@ -1,0 +1,66 @@
+{
+  "slug": "palak-tofu-palak-paneer-bowl",
+  "title": "Palak Tofu / Palak Paneer Bowl",
+  "description": "A quick spinach curry bowl made with either tofu or paneer and a lightly spiced tomato-ginger base.",
+  "prepMinutes": 5,
+  "cookMinutes": 15,
+  "servings": 1,
+  "tags": [
+    "Special",
+    "Dinner",
+    "Indian",
+    "Healthy",
+    "High protein",
+    "Vegetarian",
+    "Low carb"
+  ],
+  "ingredients": [
+    {
+      "amount": "150 g",
+      "item": "tofu or paneer"
+    },
+    {
+      "amount": "2 cups",
+      "item": "spinach or palak"
+    },
+    {
+      "amount": "1/2",
+      "item": "tomato"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "ginger"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "cumin"
+    },
+    {
+      "amount": "1/4 tsp",
+      "item": "turmeric"
+    },
+    {
+      "amount": "1/4 tsp",
+      "item": "garam masala"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "oil or ghee"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    }
+  ],
+  "steps": [
+    "Blanch or sauté the spinach for two to three minutes.",
+    "Blend the spinach with the tomato and ginger.",
+    "Heat the oil, add cumin, then add the spinach paste and spices.",
+    "Add the tofu or paneer cubes.",
+    "Cook for five to seven minutes and serve hot."
+  ],
+  "notes": [
+    "Use tofu for a vegan version and oil rather than ghee."
+  ],
+  "updated": "2026-07-17"
+}

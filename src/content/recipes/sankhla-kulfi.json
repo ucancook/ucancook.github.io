@@ -1,0 +1,53 @@
+{
+  "slug": "sankhla-kulfi",
+  "title": "Sankhla Kulfi",
+  "description": "A creamy traditional kulfi made by reducing milk into rabri with cardamom, saffron, and nuts.",
+  "prepMinutes": 10,
+  "cookMinutes": 60,
+  "servings": 8,
+  "tags": [
+    "Indian",
+    "Dessert",
+    "Vegetarian"
+  ],
+  "ingredients": [
+    {
+      "amount": "1 kg",
+      "item": "full-cream milk"
+    },
+    {
+      "amount": "50 g",
+      "item": "sugar"
+    },
+    {
+      "amount": "about 200 mg",
+      "item": "cardamom powder"
+    },
+    {
+      "amount": "1 pinch",
+      "item": "saffron"
+    },
+    {
+      "amount": "50 g",
+      "item": "cashews",
+      "note": "chopped"
+    },
+    {
+      "amount": "20 g",
+      "item": "pistachios",
+      "note": "chopped"
+    }
+  ],
+  "steps": [
+    "Boil the milk in a heavy-bottomed pan.",
+    "Stir continuously over medium heat until reduced to about half its original weight.",
+    "Add sugar and mix well.",
+    "Add cardamom powder five minutes before turning off the heat.",
+    "Cool slightly, add saffron, then refrigerate for six hours.",
+    "Mix in the chopped nuts, pour into moulds, and freeze until set."
+  ],
+  "notes": [
+    "Imported from the original Singh's Connoisseur Corner recipe collection."
+  ],
+  "updated": "2026-07-17"
+}

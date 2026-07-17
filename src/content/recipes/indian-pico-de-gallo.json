@@ -1,0 +1,65 @@
+{
+  "slug": "indian-pico-de-gallo",
+  "title": "Indian Pico de Gallo",
+  "description": "A tangy, spicy desi-style kachumber salsa for nachos, sides, or a fresh salad.",
+  "prepMinutes": 15,
+  "cookMinutes": 0,
+  "servings": 4,
+  "tags": [
+    "Indian",
+    "Salad",
+    "Vegan",
+    "Vegetarian",
+    "Quick"
+  ],
+  "ingredients": [
+    {
+      "amount": "1",
+      "item": "onion",
+      "note": "coarsely chopped"
+    },
+    {
+      "amount": "2 large",
+      "item": "tomatoes",
+      "note": "coarsely chopped"
+    },
+    {
+      "amount": "½",
+      "item": "lemon",
+      "note": "juiced"
+    },
+    {
+      "amount": "1 handful",
+      "item": "fresh coriander",
+      "note": "chopped"
+    },
+    {
+      "amount": "1",
+      "item": "green chilli or jalapeño",
+      "note": "vinegar-soaked and chopped"
+    },
+    {
+      "amount": "1–2 tbsp",
+      "item": "tomato ketchup"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt and red chilli powder"
+    },
+    {
+      "amount": "optional",
+      "item": "sweet onion or boiled corn"
+    }
+  ],
+  "steps": [
+    "Combine the onion and tomatoes in a bowl.",
+    "Add salt, chilli powder, and lemon juice, then mix by hand while lightly crushing the tomatoes.",
+    "Rest for 5–10 minutes.",
+    "Add the chilli or jalapeño and ketchup, then adjust seasoning.",
+    "Stir in coriander and any optional additions. Serve cold."
+  ],
+  "notes": [
+    "Imported from the original Singh's Connoisseur Corner recipe collection."
+  ],
+  "updated": "2026-07-17"
+}

@@ -1,0 +1,54 @@
+{
+  "slug": "greek-yogurt-hung-curd-protein-bowl",
+  "title": "Greek Yogurt / Hung Curd Protein Bowl",
+  "description": "A five-minute yogurt bowl with chia, walnuts, pumpkin seeds, cinnamon, and fresh fruit.",
+  "prepMinutes": 5,
+  "cookMinutes": 0,
+  "servings": 1,
+  "tags": [
+    "Special",
+    "Breakfast",
+    "Healthy",
+    "High protein",
+    "Vegetarian",
+    "Quick"
+  ],
+  "ingredients": [
+    {
+      "amount": "200 g",
+      "item": "Greek yogurt or hung curd"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "chia seeds"
+    },
+    {
+      "amount": "2–3 halves",
+      "item": "walnuts"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "pumpkin seeds"
+    },
+    {
+      "amount": "1 pinch",
+      "item": "cinnamon"
+    },
+    {
+      "amount": "1 small portion",
+      "item": "papaya or berries"
+    },
+    {
+      "amount": "to taste",
+      "item": "stevia",
+      "note": "optional; avoid sugar or honey if preferred"
+    }
+  ],
+  "steps": [
+    "Add the Greek yogurt or hung curd to a bowl.",
+    "Mix in the chia seeds, walnuts, pumpkin seeds, and cinnamon.",
+    "Add a small portion of papaya or berries.",
+    "Let the bowl rest for five minutes if using chia seeds, then serve."
+  ],
+  "updated": "2026-07-17"
+}

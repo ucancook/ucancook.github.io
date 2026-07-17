@@ -1,0 +1,60 @@
+{
+  "slug": "aam-ka-achaar-home",
+  "title": "Aam ka Achaar (Home)",
+  "description": "A large-batch family mango pickle cured in the sun with mustard oil and traditional spices.",
+  "prepMinutes": 45,
+  "cookMinutes": 0,
+  "servings": 40,
+  "tags": [
+    "Indian",
+    "Side dish",
+    "Vegan",
+    "Vegetarian"
+  ],
+  "ingredients": [
+    {
+      "amount": "1200 g",
+      "item": "salt"
+    },
+    {
+      "amount": "500 g",
+      "item": "red chilli powder"
+    },
+    {
+      "amount": "500 g",
+      "item": "turmeric"
+    },
+    {
+      "amount": "300 g",
+      "item": "fennel seeds"
+    },
+    {
+      "amount": "300 g",
+      "item": "fenugreek seeds"
+    },
+    {
+      "amount": "150 g",
+      "item": "nigella seeds"
+    },
+    {
+      "amount": "5 kg",
+      "item": "raw mangoes",
+      "note": "small cuts, fully dried"
+    },
+    {
+      "amount": "as needed",
+      "item": "mustard oil"
+    }
+  ],
+  "steps": [
+    "Combine all spices with mustard oil to make a thick masala concentrate.",
+    "Mix the completely dried mango pieces with the masala.",
+    "Transfer to a clean, dry jar and cover with cotton cloth rather than a tight lid.",
+    "Sun-cure for 4–10 days depending on the weather.",
+    "Add enough mustard oil to fully submerge the mangoes, then store in a cool, dry place."
+  ],
+  "notes": [
+    "Imported from the original Singh's Connoisseur Corner recipe collection."
+  ],
+  "updated": "2026-07-17"
+}

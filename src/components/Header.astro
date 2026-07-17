@@ -1,0 +1,70 @@
+---
+import Icon from './Icon.astro';
+import { recipes } from '../lib/recipes';
+
+const base = import.meta.env.BASE_URL;
+const recipeUrls = recipes.map((recipe) => `${base}recipes/${recipe.slug}/`);
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href={base} aria-label="You can Cook home">
+      <img class="brand-logo" src={`${base}brand/chef-logo.png`} alt="" width="40" height="40" />
+      <span class="brand-text">You can Cook</span>
+    </a>
+
+    <nav aria-label="Primary navigation">
+      <a class="round header-search" href={`${base}#recipe-search`} aria-label="Search recipes" title="Search recipes">
+        <Icon name="search" />
+        <span>Search</span>
+      </a>
+
+      <button
+        class="surprise-button"
+        id="surprise-me"
+        type="button"
+        data-recipes={JSON.stringify(recipeUrls)}
+        aria-label="Open a random recipe"
+      >
+        <span aria-hidden="true">✦</span>
+        <span>Surprise me</span>
+      </button>
+
+      <a class="round add-header" href={`${base}new/`} aria-label="Add recipe">
+        <Icon name="plus" />
+        <span>Add</span>
+      </a>
+
+      <button class="round" id="theme" type="button" aria-label="Toggle theme">
+        <Icon name="sun" />
+      </button>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  document.querySelector('#theme')?.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+  });
+
+  document.querySelector('.header-search')?.addEventListener('click', (event) => {
+    const searchInput = document.querySelector('#q');
+    if (!searchInput) return;
+    event.preventDefault();
+    document.querySelector('#recipe-search')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    window.setTimeout(() => searchInput.focus({ preventScroll: true }), 350);
+  });
+
+  document.querySelector('#surprise-me')?.addEventListener('click', (event) => {
+    const button = event.currentTarget;
+    const recipeUrls = JSON.parse(button.dataset.recipes || '[]');
+    if (!recipeUrls.length) return;
+
+    const currentPath = window.location.pathname;
+    const alternatives = recipeUrls.filter((url) => !currentPath.endsWith(url));
+    const choices = alternatives.length ? alternatives : recipeUrls;
+    window.location.assign(choices[Math.floor(Math.random() * choices.length)]);
+  });
+</script>

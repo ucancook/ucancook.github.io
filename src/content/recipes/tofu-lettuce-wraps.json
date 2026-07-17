@@ -1,0 +1,62 @@
+{
+  "slug": "tofu-lettuce-wraps",
+  "title": "Tofu Lettuce Wraps",
+  "description": "Crisp lettuce cups filled with a dry ginger-soy tofu stir-fry and crunchy vegetables.",
+  "prepMinutes": 7,
+  "cookMinutes": 8,
+  "servings": 1,
+  "tags": [
+    "Special",
+    "Dinner",
+    "Asian",
+    "Healthy",
+    "High protein",
+    "Vegan",
+    "Vegetarian",
+    "Low carb",
+    "Quick"
+  ],
+  "ingredients": [
+    {
+      "amount": "150 g",
+      "item": "tofu",
+      "note": "crumbled"
+    },
+    {
+      "amount": "4–5",
+      "item": "lettuce leaves"
+    },
+    {
+      "amount": "1/2",
+      "item": "capsicum"
+    },
+    {
+      "amount": "1 small amount",
+      "item": "carrot",
+      "note": "grated"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "ginger"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "soy sauce"
+    },
+    {
+      "amount": "to taste",
+      "item": "black pepper"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "oil"
+    }
+  ],
+  "steps": [
+    "Stir-fry the ginger, capsicum, and carrot in the oil.",
+    "Add the crumbled tofu, black pepper, and soy sauce.",
+    "Cook until the filling is fairly dry.",
+    "Spoon the tofu mixture into the lettuce leaves and serve immediately."
+  ],
+  "updated": "2026-07-17"
+}

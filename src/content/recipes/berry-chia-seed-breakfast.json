@@ -1,0 +1,81 @@
+{
+  "slug": "berry-chia-seed-breakfast",
+  "title": "Berry Chia Seed Breakfast",
+  "description": "A creamy make-ahead berry breakfast with banana, chia, hemp, flaxseed, and fresh morning toppings.",
+  "prepMinutes": 10,
+  "cookMinutes": 0,
+  "servings": 1,
+  "tags": [
+    "Breakfast",
+    "Healthy",
+    "Vegetarian"
+  ],
+  "ingredients": [
+    {
+      "amount": "1/2",
+      "item": "frozen banana"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "frozen blueberries and strawberries"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "plain yogurt or unsweetened almond milk"
+    },
+    {
+      "amount": "1/4–1/2 cup",
+      "item": "water",
+      "note": "as needed for blending"
+    },
+    {
+      "amount": "to taste",
+      "item": "stevia, sugar substitute, or honey",
+      "note": "optional"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "chia seeds"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "hemp seeds"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "ground flaxseed"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "almonds",
+      "note": "chopped"
+    },
+    {
+      "amount": "1/4 cup",
+      "item": "fresh blueberries",
+      "note": "for serving"
+    },
+    {
+      "amount": "1/2",
+      "item": "fresh banana",
+      "note": "sliced for serving"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "granola",
+      "note": "optional, for serving"
+    }
+  ],
+  "steps": [
+    "Blend the frozen banana, frozen blueberries and strawberries, and yogurt or almond milk until smooth, adding water as needed.",
+    "Taste and add stevia, another sugar substitute, or honey if desired.",
+    "Stir in the chia seeds, hemp seeds, ground flaxseed, and chopped almonds.",
+    "Transfer to a covered jar or bowl and refrigerate overnight.",
+    "In the morning, top with fresh blueberries, sliced banana, and optional granola just before eating."
+  ],
+  "notes": [
+    "Keep the granola separate overnight so it remains crunchy.",
+    "Use almond milk and a plant-based sweetener for a fully plant-based version."
+  ],
+  "updated": "2026-07-17"
+}

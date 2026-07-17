@@ -1,0 +1,81 @@
+---
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+
+const {
+  title = 'You can Cook',
+  description = 'Ingredient-first personal recipes that are easy to browse, save, and cook.',
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#c7ff57" />
+    <link rel="manifest" href={`${base}manifest.webmanifest`} />
+    <link rel="icon" href={`${base}favicon.png`} sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href={`${base}icons/icon-192.png`} />
+    <title>{title}</title>
+    <script is:inline>
+      document.documentElement.dataset.theme =
+        localStorage.getItem('theme') ||
+        (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    </script>
+  </head>
+  <body>
+    <Header />
+    <main><slot /></main>
+    <footer class="site-footer">
+      <p><strong>You can Cook</strong> — initiated by Chahat Singh, run and collected by food lovers, for everyone.</p>
+    </footer>
+    <script define:vars={{ base }}>
+      if ('serviceWorker' in navigator) {
+        addEventListener('load', () => navigator.serviceWorker.register(base + 'sw.js'));
+      }
+    </script>
+    <script is:inline>
+      (() => {
+        const key = 'you-can-cook-favorites';
+        const getFavorites = () => {
+          try { return new Set(JSON.parse(localStorage.getItem(key) || '[]')); }
+          catch { return new Set(); }
+        };
+        const saveFavorites = (set) => {
+          localStorage.setItem(key, JSON.stringify([...set]));
+          window.dispatchEvent(new CustomEvent('favorites-changed', { detail: [...set] }));
+        };
+        const paint = () => {
+          const favorites = getFavorites();
+          document.querySelectorAll('[data-favorite-slug]').forEach((button) => {
+            const active = favorites.has(button.dataset.favoriteSlug);
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-pressed', String(active));
+            button.setAttribute('aria-label', active ? 'Remove from favorites' : 'Add to favorites');
+            const label = button.querySelector('[data-favorite-label]');
+            if (label) label.textContent = active ? 'Saved' : 'Save';
+          });
+        };
+        document.addEventListener('click', (event) => {
+          const button = event.target.closest('[data-favorite-slug]');
+          if (!button) return;
+          event.preventDefault();
+          event.stopPropagation();
+          const favorites = getFavorites();
+          const slug = button.dataset.favoriteSlug;
+          favorites.has(slug) ? favorites.delete(slug) : favorites.add(slug);
+          saveFavorites(favorites);
+          paint();
+        });
+        window.YouCanCookFavorites = { get: getFavorites, paint };
+        document.readyState === 'loading'
+          ? document.addEventListener('DOMContentLoaded', paint, { once: true })
+          : paint();
+        window.addEventListener('favorites-changed', paint);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+{
+  "slug": "paneer-tikka",
+  "title": "Paneer Tikka",
+  "description": "Quick tawa-cooked paneer and capsicum coated in a tangy spiced-curd marinade.",
+  "prepMinutes": 8,
+  "cookMinutes": 12,
+  "servings": 2,
+  "tags": [
+    "Special",
+    "Dinner",
+    "Appetizer",
+    "Indian",
+    "High protein",
+    "Vegetarian",
+    "Low carb",
+    "Quick"
+  ],
+  "ingredients": [
+    {
+      "amount": "150 g",
+      "item": "paneer",
+      "note": "cubed"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "thick curd"
+    },
+    {
+      "amount": "1/4 tsp",
+      "item": "turmeric"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "red chilli or paprika"
+    },
+    {
+      "amount": "1/4 tsp",
+      "item": "garam masala"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "roasted cumin"
+    },
+    {
+      "amount": "1/2",
+      "item": "lemon",
+      "note": "juice"
+    },
+    {
+      "amount": "1/2",
+      "item": "capsicum",
+      "note": "cubed"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "oil"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    }
+  ],
+  "steps": [
+    "Mix the curd, turmeric, chilli or paprika, garam masala, roasted cumin, lemon juice, and salt.",
+    "Coat the paneer and capsicum in the marinade.",
+    "Heat the oil on a tawa or skillet and cook until browned on all sides.",
+    "Serve hot with mint-curd dip."
+  ],
+  "updated": "2026-07-17"
+}

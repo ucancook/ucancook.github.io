@@ -1,0 +1,71 @@
+{
+  "slug": "paneer-bhurji-bowl",
+  "title": "Paneer Bhurji Bowl",
+  "description": "A quick, high-protein paneer scramble with capsicum, tomato, spinach, and warm Indian spices.",
+  "prepMinutes": 5,
+  "cookMinutes": 10,
+  "servings": 1,
+  "tags": [
+    "Special",
+    "Breakfast",
+    "Dinner",
+    "Indian",
+    "High protein",
+    "Vegetarian",
+    "Quick"
+  ],
+  "ingredients": [
+    {
+      "amount": "100–150 g",
+      "item": "paneer",
+      "note": "crumbled"
+    },
+    {
+      "amount": "1/2",
+      "item": "capsicum",
+      "note": "chopped"
+    },
+    {
+      "amount": "1/2",
+      "item": "tomato",
+      "note": "chopped"
+    },
+    {
+      "amount": "1 handful",
+      "item": "spinach"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "cumin seeds"
+    },
+    {
+      "amount": "1/4 tsp",
+      "item": "turmeric"
+    },
+    {
+      "amount": "to taste",
+      "item": "black pepper or red chilli"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "oil or ghee"
+    },
+    {
+      "amount": "as desired",
+      "item": "coriander and lemon",
+      "note": "optional"
+    }
+  ],
+  "steps": [
+    "Heat the oil or ghee in a pan and add the cumin seeds.",
+    "Add the capsicum and tomato and cook for two to three minutes.",
+    "Add the spinach, turmeric, chilli or pepper, and salt.",
+    "Add the crumbled paneer and cook for three to four minutes.",
+    "Finish with coriander and lemon, if using."
+  ],
+  "updated": "2026-07-17"
+}

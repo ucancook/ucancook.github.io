@@ -1,0 +1,68 @@
+{
+  "slug": "pahadi-maggi",
+  "title": "Pahadi Maggi",
+  "description": "A warm, spicy hill-style noodle bowl with onion, tomato, masala, and fresh coriander.",
+  "prepMinutes": 10,
+  "cookMinutes": 15,
+  "servings": 2,
+  "tags": [
+    "Indian",
+    "Dinner",
+    "Quick"
+  ],
+  "ingredients": [
+    {
+      "amount": "1 packet",
+      "item": "Maggi noodles"
+    },
+    {
+      "amount": "1 packet",
+      "item": "Maggi tastemaker"
+    },
+    {
+      "amount": "1",
+      "item": "onion",
+      "note": "chopped"
+    },
+    {
+      "amount": "2",
+      "item": "tomatoes",
+      "note": "chopped"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "ginger-garlic paste"
+    },
+    {
+      "amount": "1",
+      "item": "cardamom pod"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "chicken or meat masala"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "neutral oil"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt and red chilli powder"
+    },
+    {
+      "amount": "for garnish",
+      "item": "coriander leaves"
+    }
+  ],
+  "steps": [
+    "Heat oil and lightly sauté the onion.",
+    "Add tomatoes and cook until slightly soft.",
+    "Add ginger-garlic paste, salt, chilli powder, and masala; sauté briefly.",
+    "Add enough water for a soupy consistency, then add tastemaker and cardamom.",
+    "Add noodles and cook until done. Garnish with coriander."
+  ],
+  "notes": [
+    "Imported from the original Singh's Connoisseur Corner recipe collection."
+  ],
+  "updated": "2026-07-17"
+}

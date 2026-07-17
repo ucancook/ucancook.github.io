@@ -1,0 +1,68 @@
+{
+  "slug": "mocha-almond-chia-pudding",
+  "title": "Mocha Almond Chia Pudding",
+  "description": "A make-ahead chocolate-coffee chia breakfast with hemp seeds, almonds, granola, and blueberries.",
+  "prepMinutes": 8,
+  "cookMinutes": 0,
+  "servings": 1,
+  "tags": [
+    "Breakfast",
+    "Healthy",
+    "Vegan",
+    "Vegetarian",
+    "Quick"
+  ],
+  "ingredients": [
+    {
+      "amount": "3 tbsp",
+      "item": "chia seeds"
+    },
+    {
+      "amount": "3/4 cup",
+      "item": "unsweetened almond milk"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "unsweetened cocoa powder"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "instant coffee or espresso powder"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "hemp seeds"
+    },
+    {
+      "amount": "1–2 tsp",
+      "item": "maple syrup",
+      "note": "optional, to taste"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "granola"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "almonds",
+      "note": "chopped"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "blueberries"
+    }
+  ],
+  "steps": [
+    "Whisk the almond milk, cocoa powder, coffee, and optional maple syrup in a jar until smooth.",
+    "Stir in the chia seeds and hemp seeds. Wait five minutes, stir again to break up any clumps, then cover.",
+    "Refrigerate for at least four hours or overnight.",
+    "Before eating, stir well and top with granola, chopped almonds, and blueberries."
+  ],
+  "notes": [
+    "The quantities listed are for one serving.",
+    "For meal preparation, multiply the chia mixture by four and divide it among four jars.",
+    "Keep the granola and almonds separate until serving so they remain crisp.",
+    "Use decaffeinated coffee powder if preferred."
+  ],
+  "updated": "2026-07-17"
+}

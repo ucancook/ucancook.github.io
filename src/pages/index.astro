@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { recipes, allTags, normalizeTag } from '../lib/recipes';
+
+const base = import.meta.env.BASE_URL;
+const initialBatchSize = 12;
+const initialRecipes = recipes.slice(0, initialBatchSize);
+const featuredRecipe = recipes.find((recipe) => recipe.photos?.[0]) || recipes[0];
+---
+
+<BaseLayout title="You can Cook — personal recipes">
+  <section class="hero editorial-hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Personal recipe library</div>
+      <h1>Start with Ingredients<br />and love.</h1>
+      <p class="lede">A fast, searchable collection built around what goes into the food—not a wall of backstory.</p>
+      <p class="community-line">Initiated by Chahat Singh. Built by food lovers, for everyone.</p>
+    </div>
+
+    {featuredRecipe && (
+      <a class="featured-recipe" href={`${base}recipes/${featuredRecipe.slug}/`} aria-label={`Featured recipe: ${featuredRecipe.title}`}>
+        <div class="featured-media">
+          {featuredRecipe.photos?.[0] ? (
+            <img src={featuredRecipe.photos[0].src} alt={featuredRecipe.photos[0].alt || featuredRecipe.title} decoding="async" />
+          ) : (
+            <div class="featured-monogram" aria-hidden="true">YC</div>
+          )}
+        </div>
+        <div class="featured-copy">
+          <div>
+            <div class="eyebrow">Featured recipe</div>
+            <h2>{featuredRecipe.title}</h2>
+            <p>{featuredRecipe.description}</p>
+          </div>
+          <div class="featured-footer">
+            <span>{featuredRecipe.prepMinutes + featuredRecipe.cookMinutes} min</span>
+            <span>Cook this →</span>
+          </div>
+        </div>
+      </a>
+    )}
+  </section>
+
+  <section class="panel controls" id="recipe-search">
+    <label class="search">
+      <Icon name="search" />
+      <input id="q" type="search" placeholder="Search ingredients, recipes, or tags…" />
+    </label>
+
+    <div class="tags" id="tag-filters" aria-label="Recipe filters">
+      <button class="tag active" type="button" data-tag="all" aria-pressed="true">All</button>
+      <button class="tag favorites-filter" type="button" data-tag="__favorites__" aria-pressed="false">♥ Favorites</button>
+      {allTags.map((tag) => (
+        <button class="tag" type="button" data-tag={normalizeTag(tag)} aria-pressed="false">{tag}</button>
+      ))}
+    </div>
+
+    <div class="filter-summary" id="filter-summary" data-total={recipes.length} data-initial={initialRecipes.length}>
+      Showing {initialRecipes.length} of {recipes.length} recipes
+    </div>
+  </section>
+
+  <section class="grid" id="recipe-grid">
+    {initialRecipes.map((recipe, index) => (
+      <a
+        class="card panel"
+        href={`${base}recipes/${recipe.slug}/`}
+        data-slug={recipe.slug}
+        data-search={`${recipe.title} ${recipe.description} ${recipe.tags.join(' ')} ${recipe.ingredients.map((item) => item.item).join(' ')}`.toLowerCase()}
+        data-tags={recipe.tags.map((tag) => normalizeTag(tag)).join(',')}
+      >
+        {recipe.photos?.[0] ? (
+          <div class="card-media">
+            <img class="card-photo" src={recipe.photos[0].src} alt={recipe.photos[0].alt || recipe.title} loading="lazy" decoding="async" />
+            <button class="favorite-button card-favorite" type="button" data-favorite-slug={recipe.slug} aria-pressed="false" aria-label="Add to favorites"><Icon name="heart" /></button>
+          </div>
+        ) : (
+          <button class="favorite-button card-favorite" type="button" data-favorite-slug={recipe.slug} aria-pressed="false" aria-label="Add to favorites"><Icon name="heart" /></button>
+        )}
+        <div class="card-copy">
+          <div class="eyebrow">{String(index + 1).padStart(2, '0')}</div>
+          <h2>{recipe.title}</h2>
+          <p>{recipe.description}</p>
+        </div>
+        <div>
+          <div class="tags recipe-tags">
+            {recipe.tags.slice(0, 3).map((tag) => <span class="pill">{tag}</span>)}
+            {recipe.tags.length > 3 && <span class="pill more-tags">+{recipe.tags.length - 3}</span>}
+          </div>
+          <div class="meta" style="margin-top:14px"><Icon name="clock" size={16} />{recipe.prepMinutes + recipe.cookMinutes} min · {recipe.ingredients.length} ingredients</div>
+        </div>
+      </a>
+    ))}
+
+    <div id="empty" class="panel box empty-state" hidden>
+      <div class="empty-icon">⌕</div>
+      <h2>No recipes found</h2>
+      <p>Try another search, remove a filter, or add the recipe you were hoping to find.</p>
+      <div class="actions"><button class="btn secondary" id="clear-filters" type="button">Clear filters</button><a class="btn primary" href={`${base}new/`}>Add recipe</a></div>
+    </div>
+  </section>
+
+  <div class="recipe-loader" id="recipe-loader" aria-live="polite">
+    <div class="loader-spinner" id="loader-spinner" hidden></div>
+    <button class="btn secondary" id="load-more" type="button" hidden>Load more recipes</button>
+    <button class="btn secondary" id="retry-load" type="button" hidden><Icon name="refresh" /> Retry</button>
+    <span id="load-status">Scroll for more recipes</span>
+  </div>
+  <div id="load-sentinel" aria-hidden="true"></div>
+
+  <a class="fab" href={`${base}new/`}><Icon name="plus" /><span>Add recipe</span></a>
+</BaseLayout>
+
+<script define:vars={{ base, initialBatchSize }}>
+  const normalizeTag = (value) => value.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+  const initRecipeBrowser = () => {
+    const searchInput = document.querySelector('#q');
+    const filterButtons = [...document.querySelectorAll('#tag-filters .tag')];
+    const grid = document.querySelector('#recipe-grid');
+    const emptyState = document.querySelector('#empty');
+    const clearFilters = document.querySelector('#clear-filters');
+    const summary = document.querySelector('#filter-summary');
+    const sentinel = document.querySelector('#load-sentinel');
+    const loadStatus = document.querySelector('#load-status');
+    const loadMoreButton = document.querySelector('#load-more');
+    const retryButton = document.querySelector('#retry-load');
+    const spinner = document.querySelector('#loader-spinner');
+    if (!searchInput || !filterButtons.length || !grid || !emptyState || !summary || !sentinel) return;
+
+    const totalRecipes = Number(summary.dataset.total || 0);
+    const batchSize = Number(initialBatchSize) || 12;
+    let renderedCount = Number(summary.dataset.initial || 0);
+    let activeTag = 'all';
+    let fullIndex = null;
+    let loading = false;
+    let filteredResults = null;
+
+    const favorites = () => window.YouCanCookFavorites?.get?.() || new Set();
+    const heartSvg = () => '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>';
+    const clockSvg = () => '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>';
+
+    const createCard = (recipe) => {
+      const card = document.createElement('a');
+      card.className = 'card panel';
+      card.href = `${base}recipes/${recipe.slug}/`;
+      card.dataset.slug = recipe.slug;
+      card.dataset.search = recipe.search;
+      card.dataset.tags = recipe.normalizedTags.join(',');
+      let media = null;
+      const favorite = document.createElement('button');
+      favorite.className = 'favorite-button card-favorite';
+      favorite.type = 'button';
+      favorite.dataset.favoriteSlug = recipe.slug;
+      favorite.setAttribute('aria-pressed', 'false');
+      favorite.setAttribute('aria-label', 'Add to favorites');
+      favorite.innerHTML = heartSvg();
+      if (recipe.photo?.src) {
+        media = document.createElement('div');
+        media.className = 'card-media';
+        media.innerHTML = `<img class="card-photo" src="${recipe.photo.src}" alt="${recipe.photo.alt || recipe.title}" loading="lazy" decoding="async">`;
+        media.append(favorite);
+      }
+      const copy = document.createElement('div');
+      copy.className = 'card-copy';
+      copy.innerHTML = `<div class="eyebrow">${String(recipe.index).padStart(2, '0')}</div><h2></h2><p></p>`;
+      copy.querySelector('h2').textContent = recipe.title;
+      copy.querySelector('p').textContent = recipe.description;
+      const footer = document.createElement('div');
+      const tags = document.createElement('div');
+      tags.className = 'tags recipe-tags';
+      recipe.tags.slice(0, 3).forEach((tag) => { const pill = document.createElement('span'); pill.className = 'pill'; pill.textContent = tag; tags.append(pill); });
+      if (recipe.tags.length > 3) { const more = document.createElement('span'); more.className = 'pill more-tags'; more.textContent = `+${recipe.tags.length - 3}`; tags.append(more); }
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      meta.style.marginTop = '14px';
+      meta.innerHTML = clockSvg();
+      meta.append(document.createTextNode(`${recipe.prepMinutes + recipe.cookMinutes} min · ${recipe.ingredientCount} ingredients`));
+      footer.append(tags, meta);
+      if (media) card.append(media, copy, footer);
+      else card.append(favorite, copy, footer);
+      return card;
+    };
+
+    const setLoading = (value) => { loading = value; spinner.hidden = !value; };
+    const fetchIndex = async () => {
+      if (fullIndex) return fullIndex;
+      setLoading(true); retryButton.hidden = true; loadStatus.textContent = 'Loading recipe collection…';
+      const response = await fetch(`${base}recipe-index.json`);
+      if (!response.ok) throw new Error('The recipe collection could not be loaded.');
+      fullIndex = await response.json();
+      return fullIndex;
+    };
+    const existingSlugs = () => new Set([...grid.querySelectorAll('.card')].map((card) => card.dataset.slug));
+    const appendRecipes = (items) => {
+      const known = existingSlugs(); const fragment = document.createDocumentFragment();
+      items.forEach((recipe) => { if (!known.has(recipe.slug)) { fragment.append(createCard(recipe)); known.add(recipe.slug); } });
+      grid.insertBefore(fragment, emptyState); window.YouCanCookFavorites?.paint?.();
+    };
+    const updateSummary = (shown, matched = totalRecipes) => {
+      const label = filterButtons.find((button) => button.dataset.tag === activeTag)?.textContent?.trim() || 'All';
+      const search = searchInput.value.trim();
+      if (activeTag === 'all' && !search) summary.textContent = shown >= totalRecipes ? `Showing all ${totalRecipes} recipes` : `Showing ${shown} of ${totalRecipes} recipes`;
+      else summary.textContent = [`${matched} recipe${matched === 1 ? '' : 's'}`, ...(activeTag !== 'all' ? [label] : []), ...(search ? [`search: “${search}”`] : [])].join(' · ');
+    };
+    const updateLoader = () => {
+      const source = filteredResults || fullIndex;
+      const complete = source ? renderedCount >= source.length : renderedCount >= totalRecipes;
+      sentinel.hidden = complete; loadMoreButton.hidden = complete;
+      if (!loading) loadStatus.textContent = complete ? (source?.length ? 'All matching recipes are loaded' : '') : 'Scroll for more recipes';
+    };
+    const loadNextBatch = async () => {
+      if (loading) return;
+      try {
+        const index = await fetchIndex();
+        const source = filteredResults || index;
+        const next = source.slice(renderedCount, renderedCount + batchSize);
+        appendRecipes(next); renderedCount += next.length;
+        updateSummary(renderedCount, source.length); emptyState.hidden = source.length > 0; updateLoader();
+      } catch (error) {
+        loadStatus.textContent = error instanceof Error ? error.message : 'Could not load more recipes.';
+        retryButton.hidden = false; loadMoreButton.hidden = true;
+      } finally { setLoading(false); updateLoader(); }
+    };
+    const applyFilters = async () => {
+      if (loading) return;
+      try {
+        const index = await fetchIndex();
+        const search = searchInput.value.toLowerCase().trim();
+        const saved = favorites();
+        filteredResults = index.filter((recipe) => {
+          const matchesSearch = !search || recipe.search.includes(search);
+          const matchesTag = activeTag === 'all' || (activeTag === '__favorites__' ? saved.has(recipe.slug) : recipe.normalizedTags.includes(activeTag));
+          return matchesSearch && matchesTag;
+        });
+        grid.querySelectorAll('.card').forEach((card) => card.remove());
+        renderedCount = Math.min(batchSize, filteredResults.length);
+        appendRecipes(filteredResults.slice(0, renderedCount));
+        emptyState.hidden = filteredResults.length > 0;
+        updateSummary(renderedCount, filteredResults.length); updateLoader();
+      } catch (error) {
+        loadStatus.textContent = error instanceof Error ? error.message : 'Could not filter recipes.'; retryButton.hidden = false;
+      } finally { setLoading(false); }
+    };
+
+    let timer;
+    searchInput.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(applyFilters, 180); });
+    filterButtons.forEach((button) => button.addEventListener('click', () => {
+      activeTag = button.dataset.tag || 'all';
+      filterButtons.forEach((item) => { const selected = item === button; item.classList.toggle('active', selected); item.setAttribute('aria-pressed', String(selected)); });
+      applyFilters();
+    }));
+    clearFilters?.addEventListener('click', () => {
+      searchInput.value = ''; activeTag = 'all';
+      filterButtons.forEach((item) => { const selected = item.dataset.tag === 'all'; item.classList.toggle('active', selected); item.setAttribute('aria-pressed', String(selected)); });
+      applyFilters();
+    });
+    loadMoreButton.addEventListener('click', loadNextBatch); retryButton.addEventListener('click', () => { fullIndex = null; loadNextBatch(); });
+    window.addEventListener('favorites-changed', () => { if (activeTag === '__favorites__') applyFilters(); });
+    new IntersectionObserver((entries) => { if (entries.some((entry) => entry.isIntersecting)) loadNextBatch(); }, { rootMargin: '500px 0px' }).observe(sentinel);
+    updateSummary(renderedCount); updateLoader(); window.YouCanCookFavorites?.paint?.();
+  };
+  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', initRecipeBrowser, { once: true }) : initRecipeBrowser();
+</script>

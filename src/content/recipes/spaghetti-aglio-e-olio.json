@@ -1,0 +1,58 @@
+{
+  "slug": "spaghetti-aglio-e-olio",
+  "title": "Spaghetti Aglio e Olio",
+  "description": "A classic Neapolitan pasta with garlic, olive oil, chilli, and parsley.",
+  "prepMinutes": 10,
+  "cookMinutes": 20,
+  "servings": 4,
+  "tags": [
+    "Italian",
+    "Dinner",
+    "Vegetarian",
+    "Quick"
+  ],
+  "ingredients": [
+    {
+      "amount": "400 g",
+      "item": "spaghetti"
+    },
+    {
+      "amount": "100 ml",
+      "item": "extra-virgin olive oil"
+    },
+    {
+      "amount": "4 cloves",
+      "item": "garlic",
+      "note": "thinly sliced"
+    },
+    {
+      "amount": "1 small",
+      "item": "red chilli",
+      "note": "or ½ tsp chilli flakes"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    },
+    {
+      "amount": "for garnish",
+      "item": "fresh parsley",
+      "note": "chopped"
+    },
+    {
+      "amount": "optional",
+      "item": "Parmigiano-Reggiano",
+      "note": "grated"
+    }
+  ],
+  "steps": [
+    "Cook spaghetti in salted water until al dente, reserving one cup of pasta water.",
+    "Gently sauté garlic and chilli in olive oil until fragrant and golden without burning.",
+    "Add the drained spaghetti and toss thoroughly, loosening with reserved pasta water as needed.",
+    "Finish with parsley and optional cheese. Serve immediately."
+  ],
+  "notes": [
+    "Imported from the original Singh's Connoisseur Corner recipe collection."
+  ],
+  "updated": "2026-07-17"
+}

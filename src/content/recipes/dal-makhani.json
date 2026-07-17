@@ -1,0 +1,90 @@
+{
+  "slug": "dal-makhani",
+  "title": "Dal Makhani",
+  "description": "Slow-cooked black lentils and kidney beans enriched with butter, cream, tomato, and gentle spices.",
+  "prepMinutes": 30,
+  "cookMinutes": 105,
+  "servings": 6,
+  "tags": [
+    "Indian",
+    "Dinner",
+    "Vegetarian",
+    "High protein"
+  ],
+  "photos": [
+    {
+      "src": "https://chahatdeep.github.io/chef/Indian/Imgs/DalMakhani.jpg",
+      "alt": "Dal Makhani",
+      "credit": "From the original Singh's Connoisseur Corner website"
+    }
+  ],
+  "ingredients": [
+    {
+      "amount": "¾ cup",
+      "item": "whole black lentils",
+      "note": "165 g"
+    },
+    {
+      "amount": "¼ cup",
+      "item": "kidney beans",
+      "note": "60 g"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "ghee"
+    },
+    {
+      "amount": "3 tbsp",
+      "item": "butter",
+      "note": "divided"
+    },
+    {
+      "amount": "1 medium",
+      "item": "white onion",
+      "note": "finely grated"
+    },
+    {
+      "amount": "2 tsp",
+      "item": "ginger-garlic paste"
+    },
+    {
+      "amount": "½ cup",
+      "item": "tomato purée"
+    },
+    {
+      "amount": "½ tsp",
+      "item": "Kashmiri chilli powder"
+    },
+    {
+      "amount": "¼ tsp",
+      "item": "garam masala",
+      "note": "optional"
+    },
+    {
+      "amount": "¼ cup",
+      "item": "cream"
+    },
+    {
+      "amount": "½ tsp",
+      "item": "sugar"
+    },
+    {
+      "amount": "as needed",
+      "item": "salt and water"
+    }
+  ],
+  "steps": [
+    "Soak the lentils and kidney beans overnight, then drain.",
+    "Pressure-cook with salt and water until very soft; let the pressure release naturally.",
+    "Simmer the cooked lentils on low heat while preparing the masala.",
+    "Heat butter and ghee, sauté grated onion until golden, then add ginger-garlic paste.",
+    "Add tomato purée and cook until the fat separates.",
+    "Stir in the lentils, spices, salt, and water. Simmer uncovered for about 45 minutes, stirring often.",
+    "Add sugar, remaining butter, and cream. Simmer 10 minutes more and serve hot."
+  ],
+  "notes": [
+    "For smokiness, use the optional dhungar charcoal method.",
+    "Imported from the original Singh's Connoisseur Corner recipe collection."
+  ],
+  "updated": "2026-07-17"
+}
