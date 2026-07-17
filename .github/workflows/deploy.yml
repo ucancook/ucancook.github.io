@@ -17,6 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -25,6 +26,7 @@ jobs:
         shell: bash
         run: |
           REPO_NAME="${GITHUB_REPOSITORY#*/}"
+
           if [[ "$REPO_NAME" == *.github.io ]]; then
             echo "base_path=/" >> "$GITHUB_OUTPUT"
             echo "site_url=https://$REPO_NAME" >> "$GITHUB_OUTPUT"
@@ -44,9 +46,11 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
