@@ -34,6 +34,8 @@ jobs:
           fi
 
       - uses: withastro/action@v3
+        with:
+          node-version: 22.12.0
         env:
           PUBLIC_GITHUB_REPO: ${{ github.repository }}
           SITE_URL: ${{ steps.pages.outputs.site_url }}
