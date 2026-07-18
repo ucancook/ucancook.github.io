@@ -30,12 +30,15 @@
       "item": "instant coffee or espresso powder"
     },
     {
-      "amount": "1 tbsp",
+      "amount": "2 tbsp",
       "item": "hemp seeds"
     },
     {
+      "amount": "1 tbps",
+      "item": "flax seeds"
+    {
       "amount": "1–2 tsp",
-      "item": "maple syrup",
+      "item": "maple syrup or stevia/monk fruit",
       "note": "optional, to taste"
     },
     {
@@ -49,7 +52,7 @@
     },
     {
       "amount": "1/2 cup",
-      "item": "blueberries"
+      "item": "blueberries and/or banana/kiwi"
     }
   ],
   "steps": [
