@@ -1,0 +1,65 @@
+{
+  "slug": "overnight-protein-rolled-oats",
+  "title": "Overnight Protein Rolled Oats",
+  "description": "A creamy overnight oats recipe with rolled oats, Greek yogurt, chia seeds, hemp seeds, and fresh berries for a high-protein breakfast.",
+  "prepMinutes": 5,
+  "cookMinutes": 0,
+  "servings": 1,
+  "tags": [
+    "Special",
+    "Breakfast",
+    "Healthy",
+    "High protein",
+    "Vegetarian",
+    "Quick",
+    "Meal Prep"
+  ],
+  "ingredients": [
+    {
+      "amount": "1/2 cup (45 g)",
+      "item": "rolled oats"
+    },
+    {
+      "amount": "150 g",
+      "item": "Greek yogurt or hung curd"
+    },
+    {
+      "amount": "1/2 cup (120 ml)",
+      "item": "milk",
+      "note": "dairy or unsweetened soy milk"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "chia seeds"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "hemp seeds"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "pumpkin seeds"
+    },
+    {
+      "amount": "2–3 halves",
+      "item": "walnuts",
+      "note": "roughly chopped"
+    },
+    {
+      "amount": "1 small portion",
+      "item": "berries"
+    },
+    {
+      "amount": "to taste",
+      "item": "stevia",
+      "note": "optional; avoid sugar or honey if preferred"
+    }
+  ],
+  "steps": [
+    "Combine the rolled oats, milk, Greek yogurt or hung curd, chia seeds, hemp seeds, pumpkin seeds, and stevia in a jar or bowl.",
+    "Mix well until everything is evenly combined.",
+    "Cover and refrigerate overnight or for at least 6 hours.",
+    "Top with walnuts and fresh berries before serving. Add a splash of milk if you prefer a thinner consistency."
+  ],
+  "updated": "2026-07-18"
+}
