@@ -1,8 +1,8 @@
 {
   "slug": "palak-tofu-palak-paneer-bowl",
   "title": "Palak Tofu / Palak Paneer Bowl",
-  "description": "A quick spinach curry bowl made with either tofu or paneer and a lightly spiced tomato-ginger base.",
-  "prepMinutes": 5,
+  "description": "A quick spinach curry made with tofu or paneer in a lightly spiced palak gravy with an optional creamy yogurt finish.",
+  "prepMinutes": 10,
   "cookMinutes": 15,
   "servings": 1,
   "tags": [
@@ -17,35 +17,48 @@
   "ingredients": [
     {
       "amount": "150 g",
-      "item": "tofu or paneer"
+      "item": "tofu or paneer",
+      "note": "cut into cubes"
     },
     {
       "amount": "2 cups",
-      "item": "spinach or palak"
+      "item": "spinach (palak)"
     },
     {
       "amount": "1/2",
-      "item": "tomato"
+      "item": "onion",
+      "note": "thinly sliced"
+    },
+    {
+      "amount": "1/2",
+      "item": "tomato",
+      "note": "diced or crushed; optional for a tangy flavor"
     },
     {
       "amount": "1/2 tsp",
-      "item": "ginger"
+      "item": "ginger",
+      "note": "for blending with the spinach"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "garlic paste"
     },
     {
       "amount": "1/2 tsp",
-      "item": "cumin"
+      "item": "cumin seeds"
     },
     {
       "amount": "1/4 tsp",
-      "item": "turmeric"
-    },
-    {
-      "amount": "1/4 tsp",
-      "item": "garam masala"
+      "item": "black pepper"
     },
     {
       "amount": "1 tsp",
       "item": "oil or ghee"
+    },
+    {
+      "amount": "1–2 tbsp",
+      "item": "beaten yogurt or milk",
+      "note": "optional, for a creamier curry"
     },
     {
       "amount": "to taste",
@@ -53,14 +66,16 @@
     }
   ],
   "steps": [
-    "Blanch or sauté the spinach for two to three minutes.",
-    "Blend the spinach with the tomato and ginger.",
-    "Heat the oil, add cumin, then add the spinach paste and spices.",
-    "Add the tofu or paneer cubes.",
-    "Cook for five to seven minutes and serve hot."
+    "Blanch the spinach for 2–3 minutes, then blend it with the ginger until smooth.",
+    "Heat the oil or ghee in a pan. Add the cumin seeds, garlic paste, sliced onions, and black pepper. Cook until the onions are light golden brown.",
+    "Add the diced or crushed tomato (if using) and cook for 2–3 minutes until softened.",
+    "Add the tofu or paneer cubes and cook for 2 minutes.",
+    "Pour in the blended spinach and mix well. Simmer for 3–5 minutes.",
+    "Stir in the beaten yogurt or milk, if using, and cook for another minute without boiling. Serve hot."
   ],
   "notes": [
-    "Use tofu for a vegan version and oil rather than ghee."
+    "Skip the yogurt and use milk or a plant-based alternative for a vegan version with tofu.",
+    "The tomato is optional if you prefer a less tangy, more traditional palak flavor."
   ],
-  "updated": "2026-07-17"
+  "updated": "2026-07-18"
 }
