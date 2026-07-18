@@ -1408,3 +1408,109 @@ pre {
     display: none;
   }
 }
+
+/* Mobile stability fixes: prevent accumulated wide content from shifting the viewport. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.site-header svg,
+.round svg,
+.header-search svg,
+.add-header svg {
+  display: block;
+  flex: 0 0 auto;
+  color: currentColor;
+  opacity: 1;
+}
+
+@media (max-width: 800px) {
+  .site-header,
+  .header-inner,
+  main,
+  .form-grid,
+  .panel,
+  .box,
+  form,
+  aside,
+  .field,
+  .two,
+  pre {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  main {
+    width: 100%;
+    padding-inline: 16px;
+  }
+
+  .header-inner {
+    width: 100%;
+  }
+
+  .site-header nav {
+    overflow: visible;
+  }
+
+  .header-search,
+  #theme {
+    color: var(--text);
+  }
+
+  .add-header {
+    color: #182007;
+  }
+
+  .field input,
+  .field textarea {
+    display: block;
+    max-width: 100%;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .actions .btn,
+  .actions > a,
+  .actions > button {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    text-align: center;
+  }
+
+  pre {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .editorial-hero h1,
+  .hero h1 {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}
+
+@media (max-width: 380px) {
+  main {
+    padding-inline: 12px;
+  }
+
+  .add-header {
+    width: 38px;
+    min-width: 38px;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .add-header span {
+    display: none;
+  }
+}
