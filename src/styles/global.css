@@ -605,7 +605,9 @@ pre {
   }
 
   .brand-text {
-    display: none;
+    display: inline;
+    font-size: 0.95rem;
+    line-height: 1;
   }
 
   .surprise-button {
@@ -1512,5 +1514,81 @@ body {
 
   .add-header span {
     display: none;
+  }
+}
+
+
+/* Keep the brand name visible on phones; compact actions instead. */
+@media (max-width: 800px) {
+  .brand {
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .brand-text {
+    display: inline !important;
+    font-size: 0.95rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner {
+    padding-inline: 8px;
+  }
+
+  .brand-logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .brand-text {
+    font-size: 0.88rem;
+  }
+
+  .site-header nav {
+    gap: 4px;
+  }
+
+  .header-search,
+  .surprise-button,
+  .round,
+  .add-header {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    min-height: 36px;
+    padding: 0;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+
+  .add-header span,
+  .header-search span,
+  .surprise-button > span:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  .brand-text {
+    font-size: 0.8rem;
+  }
+
+  .brand-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .header-search,
+  .surprise-button,
+  .round,
+  .add-header {
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+    min-height: 34px;
   }
 }

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'you-can-cook-v18';
+const CACHE_NAME = 'you-can-cook-v99';
 const OFFLINE_URLS = ['./', './manifest.webmanifest', './favicon.png'];
 
 self.addEventListener('install', (event) => {
