@@ -1615,3 +1615,42 @@ body {
     padding-top: 0 !important;
   }
 }
+/* Compact the desktop homepage hero and reduce unused vertical space. */
+@media (min-width: 901px) {
+  .editorial-hero {
+    align-items: center !important;
+    padding-top: 54px;
+    padding-bottom: 34px;
+  }
+
+  .editorial-hero .hero-copy {
+    align-self: center !important;
+  }
+
+  .featured-recipe {
+    min-height: 0;
+  }
+
+  .featured-media {
+    min-height: 250px;
+    height: 250px;
+  }
+
+  .featured-copy {
+    padding: 20px 22px;
+  }
+
+  .featured-copy h2 {
+    font-size: clamp(2rem, 3.2vw, 3rem);
+    line-height: 0.98;
+  }
+
+  .featured-copy p {
+    font-size: 0.94rem;
+  }
+
+  .featured-footer {
+    margin-top: 16px;
+    padding-top: 14px;
+  }
+}
