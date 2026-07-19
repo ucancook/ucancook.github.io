@@ -67,6 +67,21 @@ const base = import.meta.env.BASE_URL;
   <body>
     <Header />
     <main><slot /></main>
+
+    <aside class="install-app-prompt" id="install-app-prompt" hidden aria-labelledby="install-app-title">
+      <div class="install-app-icon" aria-hidden="true">
+        <img src={`${base}brand/chef-logo.png`} alt="" width="48" height="48" />
+      </div>
+      <div class="install-app-copy">
+        <strong id="install-app-title">Install You can Cook</strong>
+        <span id="install-app-message">Open recipes faster and keep the app on your home screen.</span>
+        <span class="install-ios-help" id="install-ios-help" hidden>Tap Share, then choose Add to Home Screen.</span>
+      </div>
+      <div class="install-app-actions">
+        <button class="btn primary install-app-button" id="install-app-button" type="button">Install app</button>
+        <button class="install-dismiss-button" id="install-dismiss-button" type="button" aria-label="Dismiss install suggestion">Not now</button>
+      </div>
+    </aside>
     <footer class="site-footer">
       <p><strong>You can Cook</strong> — initiated by Chahat Singh, run and collected by food lovers, for everyone.</p>
     </footer>
@@ -113,6 +128,81 @@ const base = import.meta.env.BASE_URL;
           ? document.addEventListener('DOMContentLoaded', paint, { once: true })
           : paint();
         window.addEventListener('favorites-changed', paint);
+      })();
+    </script>
+    <script is:inline>
+      (() => {
+        const prompt = document.querySelector('#install-app-prompt');
+        const installButton = document.querySelector('#install-app-button');
+        const dismissButton = document.querySelector('#install-dismiss-button');
+        const message = document.querySelector('#install-app-message');
+        const iosHelp = document.querySelector('#install-ios-help');
+        const dismissalKey = 'you-can-cook-install-dismissed';
+        const dismissalDays = 14;
+        let deferredPrompt = null;
+
+        const isStandalone =
+          matchMedia('(display-mode: standalone)').matches ||
+          window.navigator.standalone === true;
+
+        const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+        const isSafari = /safari/i.test(navigator.userAgent) && !/crios|fxios|edgios/i.test(navigator.userAgent);
+
+        const recentlyDismissed = () => {
+          const dismissedAt = Number(localStorage.getItem(dismissalKey) || 0);
+          return dismissedAt && Date.now() - dismissedAt < dismissalDays * 24 * 60 * 60 * 1000;
+        };
+
+        const showPrompt = () => {
+          if (!prompt || isStandalone || recentlyDismissed()) return;
+          prompt.hidden = false;
+        };
+
+        const hidePrompt = () => {
+          if (prompt) prompt.hidden = true;
+        };
+
+        window.addEventListener('beforeinstallprompt', (event) => {
+          event.preventDefault();
+          deferredPrompt = event;
+          if (message) message.textContent = 'Open recipes faster and keep the app on your home screen.';
+          if (iosHelp) iosHelp.hidden = true;
+          window.setTimeout(showPrompt, 1200);
+        });
+
+        if (isIOS && isSafari && !isStandalone) {
+          if (message) message.textContent = 'Save this recipe app to your iPhone or iPad.';
+          if (installButton) installButton.textContent = 'Show how';
+          window.setTimeout(showPrompt, 1600);
+        }
+
+        installButton?.addEventListener('click', async () => {
+          if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const choice = await deferredPrompt.userChoice;
+            deferredPrompt = null;
+            if (choice.outcome === 'accepted') hidePrompt();
+            return;
+          }
+
+          if (isIOS && isSafari) {
+            if (iosHelp) iosHelp.hidden = false;
+            if (installButton) installButton.hidden = true;
+          }
+        });
+
+        dismissButton?.addEventListener('click', () => {
+          localStorage.setItem(dismissalKey, String(Date.now()));
+          hidePrompt();
+        });
+
+        window.addEventListener('appinstalled', () => {
+          deferredPrompt = null;
+          localStorage.removeItem(dismissalKey);
+          hidePrompt();
+        });
+
+        if (isStandalone) hidePrompt();
       })();
     </script>
   </body>

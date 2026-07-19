@@ -1894,3 +1894,104 @@ body {
     order: 2;
   }
 }
+
+/* Installable PWA prompt */
+.install-app-prompt {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 90;
+  width: min(430px, calc(100vw - 32px));
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px 14px;
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--solid) 94%, transparent);
+  color: var(--text);
+  box-shadow: 0 22px 70px #00000038;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.install-app-icon {
+  grid-row: 1 / span 2;
+}
+
+.install-app-icon img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+}
+
+.install-app-copy {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.install-app-copy strong {
+  font-size: 1rem;
+}
+
+.install-app-copy span {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.install-ios-help {
+  margin-top: 5px;
+  color: var(--text) !important;
+  font-weight: 700;
+}
+
+.install-app-actions {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.install-app-button {
+  min-height: 38px;
+  padding: 0 14px;
+}
+
+.install-dismiss-button {
+  min-height: 38px;
+  padding: 0 10px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.install-dismiss-button:hover {
+  color: var(--text);
+}
+
+@media (max-width: 600px) {
+  .install-app-prompt {
+    right: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    width: calc(100vw - 24px);
+    border-radius: 20px;
+  }
+
+  .install-app-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+  }
+}
+
+@media print {
+  .install-app-prompt {
+    display: none !important;
+  }
+}
