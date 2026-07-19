@@ -30,7 +30,7 @@ export const normalizeTag = (value: string) =>
 const cuisineAliases = new Set(['chinese', 'japanese', 'japenese', 'thai']);
 const removedTags = new Set([
   'brunch', 'lunch', 'snack', 'high fiber', 'one pot', 'meal prep',
-  'kid friendly', 'dairy free', 'gluten free',
+  'kid friendly', 'dairy free', 'gluten free', 'gluten-free', 'mid calorie', 'high calorie',
 ]);
 
 const consolidateTags = (tags: string[]) => {
@@ -75,7 +75,7 @@ const tagCatalog = [
   'Special', 'Breakfast', 'Dinner', 'Appetizer', 'Side dish', 'Soup', 'Salad', 'Dessert', 'Drink',
   'Indian', 'Italian', 'Mexican', 'Asian', 'Mediterranean', 'Middle Eastern', 'American',
   'Healthy', 'High protein', 'Vegan', 'Vegetarian', 'Low carb',
-  'Low calorie', 'Mid calorie', 'High calorie', 'Quick',
+  'Low calorie', 'Quick',
 ];
 
 export const allTags = [
