@@ -1,0 +1,97 @@
+{
+  "slug": "aam-panna",
+  "title": "Aam Panna",
+  "description": "A refreshing North Indian summer drink made from raw mangoes, fresh mint, roasted spices, and a sweet-tangy concentrate that keeps well in the refrigerator.",
+  "prepMinutes": 15,
+  "cookMinutes": 30,
+  "servings": 10,
+  "tags": [
+    "Indian",
+    "Drink",
+    "Summer",
+    "Healthy",
+    "Vegetarian",
+    "Make Ahead",
+    "Gluten-free"
+  ],
+  "ingredients": [
+    {
+      "amount": "1 kg",
+      "item": "raw mangoes"
+    },
+    {
+      "amount": "2 cups",
+      "item": "water",
+      "note": "for cooking"
+    },
+    {
+      "amount": "1 inch",
+      "item": "ginger"
+    },
+    {
+      "amount": "1",
+      "item": "green chili",
+      "note": "optional"
+    },
+    {
+      "amount": "1 cup",
+      "item": "jaggery or sugar",
+      "note": "adjust to taste"
+    },
+    {
+      "amount": "1 cup",
+      "item": "fresh mint leaves"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "black salt"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "regular salt"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "roasted cumin powder"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "fennel powder"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "black pepper"
+    },
+    {
+      "amount": "2",
+      "item": "green cardamom pods",
+      "note": "seeds only"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "lemon juice",
+      "note": "optional"
+    },
+    {
+      "amount": "as needed",
+      "item": "cold water and ice"
+    }
+  ],
+  "steps": [
+    "Pressure cook the raw mangoes with the water for 4-5 whistles, or simmer until completely soft.",
+    "Cool, peel the mangoes, and scrape all the pulp away from the seed.",
+    "Dry roast the cumin seeds, fennel seeds (if using whole), black pepper, and cardamom seeds until fragrant. Grind into a fine powder.",
+    "Blend together the mango pulp, ginger, mint leaves, green chili (if using), jaggery or sugar, black salt, regular salt, the roasted spice powder, and lemon juice until completely smooth.",
+    "Taste the concentrate and adjust the sweetness, salt, or tanginess. It should taste stronger than you want since it will be diluted.",
+    "Transfer the concentrate to a clean jar and refrigerate. It keeps well for about a week.",
+    "To serve, add 3-4 tablespoons of concentrate to a glass, fill with cold water, add ice, stir well, and garnish with fresh mint."
+  ],
+  "notes": [
+    "For the best flavor, roast and freshly grind the spices instead of using pre-ground powders.",
+    "Jaggery gives a deeper, more traditional flavor, while sugar produces a brighter green color.",
+    "If the mangoes are extremely sour, increase the sweetener slightly.",
+    "The concentrate can also be frozen into ice cubes for quick servings.",
+    "For a smoky flavor, roast the raw mangoes over an open flame instead of pressure cooking before extracting the pulp."
+  ],
+  "updated": "2026-07-18"
+}
