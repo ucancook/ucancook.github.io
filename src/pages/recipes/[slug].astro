@@ -109,12 +109,26 @@ const schema = {
     <aside class="panel box ingredients">
       <div class="eyebrow">The important part</div>
       <h2>Ingredients</h2>
-      <p class="ingredient-hint">Tap ingredients to check them off while cooking.</p>
+      <div class="ingredient-heading-row">
+        <p class="ingredient-hint">Tap ingredients to check them off while cooking.</p>
+        <div
+          class="serving-control"
+          id="recipe-serving-control"
+          data-serving-slug={recipe.slug}
+          data-base-servings={recipe.servings}
+          aria-label="Adjust servings"
+        >
+          <span>Servings</span>
+          <button type="button" data-serving-action="decrease" aria-label="Decrease servings">&minus;</button>
+          <strong data-serving-value>{recipe.servings}</strong>
+          <button type="button" data-serving-action="increase" aria-label="Increase servings">+</button>
+        </div>
+      </div>
       <ul>{recipe.ingredients.map((item, index) => (
         <li class="ingredient-check-row">
           <label>
             <input type="checkbox" class="ingredient-check" data-index={index} />
-            <span class="amount">{item.amount}</span>
+            <span class="amount" data-scalable-amount data-base-amount={item.amount}>{item.amount}</span>
             <span>{item.item}{item.note && <small class="note">{item.note}</small>}</span>
           </label>
         </li>
@@ -201,7 +215,7 @@ const schema = {
         <aside class="cook-ingredients">
           <h3>Ingredients</h3>
           <ul>{recipe.ingredients.map((item, index) => (
-            <li><label><input type="checkbox" class="cook-ingredient-check" data-index={index} /><span><strong>{item.amount}</strong> {item.item}{item.note && <small>{item.note}</small>}</span></label></li>
+            <li><label><input type="checkbox" class="cook-ingredient-check" data-index={index} /><span><strong data-scalable-amount data-base-amount={item.amount}>{item.amount}</strong> {item.item}{item.note && <small>{item.note}</small>}</span></label></li>
           ))}</ul>
         </aside>
         <section class="cook-step-panel">
@@ -218,6 +232,132 @@ const schema = {
 </BaseLayout>
 
 <script define:vars={{ recipeTitle: recipe.title, recipeDescription: recipe.description, recipeSlug: recipe.slug, suggestedPhotoFilename }}>
+  const servingPreferenceKey = 'you-can-cook-serving-preferences';
+  const servingControl = document.querySelector('#recipe-serving-control');
+  const servingSlug = servingControl?.dataset.servingSlug || recipeSlug;
+  const baseServings = Math.max(1, Number(servingControl?.dataset.baseServings || 1));
+
+  const readServingPreferences = () => {
+    try {
+      const value = JSON.parse(localStorage.getItem(servingPreferenceKey) || '{}');
+      return value && typeof value === 'object' ? value : {};
+    } catch {
+      return {};
+    }
+  };
+
+  const saveServingPreference = (servings) => {
+    const preferences = readServingPreferences();
+    preferences[servingSlug] = servings;
+    localStorage.setItem(servingPreferenceKey, JSON.stringify(preferences));
+    window.dispatchEvent(new CustomEvent('servings-changed', {
+      detail: { slug: servingSlug, servings },
+    }));
+  };
+
+  const fractionGlyphs = {
+    'Â¼': 1 / 4, 'Â½': 1 / 2, 'Â¾': 3 / 4,
+    'â…“': 1 / 3, 'â…”': 2 / 3,
+    'â…›': 1 / 8, 'â…œ': 3 / 8, 'â…': 5 / 8, 'â…ž': 7 / 8,
+  };
+
+  const parseNumberToken = (token) => {
+    const value = String(token || '').trim();
+    if (!value) return null;
+
+    if (fractionGlyphs[value] != null) return fractionGlyphs[value];
+
+    const glyphMatch = value.match(/^(\d+)?([Â¼Â½Â¾â…“â…”â…›â…œâ…â…ž])$/);
+    if (glyphMatch) {
+      return Number(glyphMatch[1] || 0) + fractionGlyphs[glyphMatch[2]];
+    }
+
+    const mixed = value.match(/^(\d+)\s+(\d+)\/(\d+)$/);
+    if (mixed) return Number(mixed[1]) + Number(mixed[2]) / Number(mixed[3]);
+
+    const fraction = value.match(/^(\d+)\/(\d+)$/);
+    if (fraction) return Number(fraction[1]) / Number(fraction[2]);
+
+    const number = Number(value);
+    return Number.isFinite(number) ? number : null;
+  };
+
+  const gcd = (a, b) => b ? gcd(b, a % b) : a;
+
+  const formatScaledNumber = (value) => {
+    if (!Number.isFinite(value)) return '';
+    if (Math.abs(value - Math.round(value)) < 0.001) return String(Math.round(value));
+
+    const eighths = Math.round(value * 8);
+    if (Math.abs(value - eighths / 8) < 0.025) {
+      const whole = Math.floor(eighths / 8);
+      const numerator = eighths % 8;
+      if (!numerator) return String(whole);
+      const divisor = gcd(numerator, 8);
+      const fraction = `${numerator / divisor}/${8 / divisor}`;
+      return whole ? `${whole} ${fraction}` : fraction;
+    }
+
+    return String(Math.round(value * 100) / 100);
+  };
+
+  const scaleAmount = (amount, factor) => {
+    const original = String(amount || '').trim();
+    if (!original || Math.abs(factor - 1) < 0.001) return original;
+
+    const range = original.match(/^(\d+(?:\.\d+)?|\d+\s+\d+\/\d+|\d+\/\d+|\d*[Â¼Â½Â¾â…“â…”â…›â…œâ…â…ž])\s*([â€“-])\s*(\d+(?:\.\d+)?|\d+\s+\d+\/\d+|\d+\/\d+|\d*[Â¼Â½Â¾â…“â…”â…›â…œâ…â…ž])(.*)$/);
+    if (range) {
+      const first = parseNumberToken(range[1]);
+      const second = parseNumberToken(range[3]);
+      if (first != null && second != null) {
+        return `${formatScaledNumber(first * factor)}${range[2]}${formatScaledNumber(second * factor)}${range[4]}`;
+      }
+    }
+
+    const leading = original.match(/^(\d+(?:\.\d+)?|\d+\s+\d+\/\d+|\d+\/\d+|\d*[Â¼Â½Â¾â…“â…”â…›â…œâ…â…ž])(.*)$/);
+    if (!leading) return original;
+
+    const numeric = parseNumberToken(leading[1]);
+    return numeric == null
+      ? original
+      : `${formatScaledNumber(numeric * factor)}${leading[2]}`;
+  };
+
+  const applyRecipeServings = (servings, persist = true) => {
+    const next = Math.max(1, Math.min(24, Math.round(Number(servings) || baseServings)));
+    const factor = next / baseServings;
+
+    document.querySelectorAll('[data-scalable-amount]').forEach((element) => {
+      element.textContent = scaleAmount(element.dataset.baseAmount || '', factor);
+    });
+
+    document.querySelectorAll('[data-serving-value]').forEach((element) => {
+      element.textContent = String(next);
+    });
+
+    document.querySelectorAll('[data-recipe-serving-meta]').forEach((element) => {
+      element.textContent = String(next);
+    });
+
+    servingControl?.querySelector('[data-serving-action="decrease"]')
+      ?.toggleAttribute('disabled', next <= 1);
+    servingControl?.querySelector('[data-serving-action="increase"]')
+      ?.toggleAttribute('disabled', next >= 24);
+
+    if (persist) saveServingPreference(next);
+    return next;
+  };
+
+  servingControl?.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-serving-action]');
+    if (!button) return;
+
+    const current = Number(servingControl.querySelector('[data-serving-value]')?.textContent || baseServings);
+    applyRecipeServings(button.dataset.servingAction === 'increase' ? current + 1 : current - 1);
+  });
+
+  const initialServingPreference = readServingPreferences()[servingSlug] || baseServings;
+  applyRecipeServings(initialServingPreference, false);
   const shoppingKey = 'you-can-cook-shopping-recipes';
   const shoppingButton = document.querySelector('#shopping-list-toggle');
 
@@ -255,7 +395,7 @@ const schema = {
     if (existingIndex >= 0) {
       items.splice(existingIndex, 1);
     } else {
-      items.push({ slug, title, ingredients });
+      items.push({ slug, title, ingredients, servings: baseServings });
     }
 
     saveShoppingRecipes(items);

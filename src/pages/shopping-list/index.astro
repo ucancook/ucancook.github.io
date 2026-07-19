@@ -6,6 +6,7 @@ const base = import.meta.env.BASE_URL;
 const recipeIndex = recipes.map((recipe) => ({
   slug: recipe.slug,
   title: recipe.title,
+  servings: recipe.servings,
   ingredients: recipe.ingredients,
 }));
 ---
@@ -50,6 +51,7 @@ const recipeIndex = recipes.map((recipe) => ({
 <script define:vars={{ base }}>
   const storageKey = 'you-can-cook-shopping-recipes';
   const checkedKey = 'you-can-cook-shopping-checked';
+  const servingKey = 'you-can-cook-serving-preferences';
   const shell = document.querySelector('.shopping-list-shell');
   const recipeIndex = JSON.parse(shell?.dataset.recipeIndex || '[]');
   const groupsRoot = document.querySelector('#shopping-groups');
@@ -70,6 +72,73 @@ const recipeIndex = recipes.map((recipe) => ({
 
   const titleCase = (value) =>
     String(value || '').replace(/\b\w/g, (letter) => letter.toUpperCase());
+  const readServingPreferences = () => {
+    try {
+      const value = JSON.parse(localStorage.getItem(servingKey) || '{}');
+      return value && typeof value === 'object' ? value : {};
+    } catch {
+      return {};
+    }
+  };
+
+  const saveServingPreference = (slug, servings) => {
+    const preferences = readServingPreferences();
+    preferences[slug] = servings;
+    localStorage.setItem(servingKey, JSON.stringify(preferences));
+  };
+
+  const parseNumberToken = (token) => {
+    const value = String(token || '').trim();
+    const mixed = value.match(/^(\d+)\s+(\d+)\/(\d+)$/);
+    if (mixed) return Number(mixed[1]) + Number(mixed[2]) / Number(mixed[3]);
+
+    const fraction = value.match(/^(\d+)\/(\d+)$/);
+    if (fraction) return Number(fraction[1]) / Number(fraction[2]);
+
+    const number = Number(value);
+    return Number.isFinite(number) ? number : null;
+  };
+
+  const gcd = (a, b) => b ? gcd(b, a % b) : a;
+
+  const formatScaledNumber = (value) => {
+    if (!Number.isFinite(value)) return '';
+    if (Math.abs(value - Math.round(value)) < 0.001) return String(Math.round(value));
+
+    const eighths = Math.round(value * 8);
+    if (Math.abs(value - eighths / 8) < 0.025) {
+      const whole = Math.floor(eighths / 8);
+      const numerator = eighths % 8;
+      if (!numerator) return String(whole);
+      const divisor = gcd(numerator, 8);
+      const fraction = `${numerator / divisor}/${8 / divisor}`;
+      return whole ? `${whole} ${fraction}` : fraction;
+    }
+
+    return String(Math.round(value * 100) / 100);
+  };
+
+  const scaleAmount = (amount, factor) => {
+    const original = String(amount || '').trim();
+    if (!original || Math.abs(factor - 1) < 0.001) return original;
+
+    const range = original.match(/^(\d+(?:\.\d+)?|\d+\s+\d+\/\d+|\d+\/\d+)\s*([â€“-])\s*(\d+(?:\.\d+)?|\d+\s+\d+\/\d+|\d+\/\d+)(.*)$/);
+    if (range) {
+      const first = parseNumberToken(range[1]);
+      const second = parseNumberToken(range[3]);
+      if (first != null && second != null) {
+        return `${formatScaledNumber(first * factor)}${range[2]}${formatScaledNumber(second * factor)}${range[4]}`;
+      }
+    }
+
+    const leading = original.match(/^(\d+(?:\.\d+)?|\d+\s+\d+\/\d+|\d+\/\d+)(.*)$/);
+    if (!leading) return original;
+
+    const numeric = parseNumberToken(leading[1]);
+    return numeric == null
+      ? original
+      : `${formatScaledNumber(numeric * factor)}${leading[2]}`;
+  };
 
   const readRecipes = () => {
     try {
@@ -79,7 +148,7 @@ const recipeIndex = recipes.map((recipe) => ({
       return stored
         .map((storedRecipe) => {
           const fresh = recipeIndex.find((recipe) => recipe.slug === storedRecipe.slug);
-          return fresh || storedRecipe;
+          return fresh ? { ...fresh, selectedServings: storedRecipe.selectedServings } : storedRecipe;
         })
         .filter((recipe) => recipe?.slug && Array.isArray(recipe.ingredients));
     } catch {
@@ -107,7 +176,16 @@ const recipeIndex = recipes.map((recipe) => ({
   const buildGroups = (selectedRecipes) => {
     const grouped = new Map();
 
+    const servingPreferences = readServingPreferences();
+
+
     selectedRecipes.forEach((recipe) => {
+
+      const base = Math.max(1, Number(recipe.servings || 1));
+
+      const selected = Math.max(1, Number(servingPreferences[recipe.slug] || recipe.selectedServings || base));
+
+      const factor = selected / base;
       recipe.ingredients.forEach((ingredient) => {
         const key = normalizeIngredient(ingredient.item);
         if (!key) return;
@@ -117,7 +195,7 @@ const recipeIndex = recipes.map((recipe) => ({
         }
 
         grouped.get(key).entries.push({
-          amount: ingredient.amount || '',
+          amount: scaleAmount(ingredient.amount || '', factor),
           note: ingredient.note || '',
           recipeTitle: recipe.title,
         });
@@ -167,8 +245,23 @@ const recipeIndex = recipes.map((recipe) => ({
       recipeChips.innerHTML = selectedRecipes
         .map((recipe) => `
           <div class="shopping-recipe-chip">
+
             <a href="${base}recipes/${recipe.slug}/">${recipe.title}</a>
-            <button type="button" data-remove-recipe="${recipe.slug}" aria-label="Remove ${recipe.title} from shopping list">&times;</button>
+
+            <div class="shopping-serving-control" data-shopping-serving="${recipe.slug}" data-base-servings="${recipe.servings || 1}">
+
+              <button type="button" data-shopping-serving-action="decrease" aria-label="Decrease servings for ${recipe.title}">&minus;</button>
+
+              <strong>${readServingPreferences()[recipe.slug] || recipe.selectedServings || recipe.servings || 1}</strong>
+
+              <button type="button" data-shopping-serving-action="increase" aria-label="Increase servings for ${recipe.title}">+</button>
+
+              <span>servings</span>
+
+            </div>
+
+            <button class="shopping-recipe-remove" type="button" data-remove-recipe="${recipe.slug}" aria-label="Remove ${recipe.title} from shopping list">&times;</button>
+
           </div>
         `)
         .join('');
@@ -228,7 +321,21 @@ const recipeIndex = recipes.map((recipe) => ({
   });
 
   document.addEventListener('click', async (event) => {
-    const removeButton = event.target.closest('[data-remove-recipe]');
+    const servingButton = event.target.closest('[data-shopping-serving-action]');
+    if (servingButton) {
+      const control = servingButton.closest('[data-shopping-serving]');
+      const slug = control?.dataset.shoppingServing;
+      const base = Math.max(1, Number(control?.dataset.baseServings || 1));
+      const current = Math.max(1, Number(control?.querySelector('strong')?.textContent || base));
+      const next = Math.max(1, Math.min(24,
+        servingButton.dataset.shoppingServingAction === 'increase' ? current + 1 : current - 1
+      ));
+    
+      saveServingPreference(slug, next);
+      render();
+      return;
+    }
+        const removeButton = event.target.closest('[data-remove-recipe]');
     if (removeButton) {
       const next = readRecipes().filter((recipe) => recipe.slug !== removeButton.dataset.removeRecipe);
       saveRecipes(next);
