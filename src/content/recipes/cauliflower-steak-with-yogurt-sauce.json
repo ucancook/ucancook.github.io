@@ -1,0 +1,144 @@
+{
+  "slug": "cauliflower-steak-with-yogurt-sauce",
+  "title": "Roasted Cauliflower Steak with Beet or Mint Yogurt Sauce",
+  "description": "A roasted cauliflower steak with melted mozzarella served over either a mildly sweet spicy beet yogurt sauce or a refreshing mint yogurt sauce.",
+  "prepMinutes": 15,
+  "cookMinutes": 30,
+  "servings": 2,
+  "tags": [
+    "Special",
+    "Dinner",
+    "Vegetarian",
+    "Healthy",
+    "Low carb",
+    "High protein",
+    "Gluten-free"
+  ],
+  "ingredients": [
+    {
+      "amount": "1 medium",
+      "item": "cauliflower"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "olive oil"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "paprika"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "garlic powder"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "black pepper"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    },
+    {
+      "amount": "75 g",
+      "item": "mozzarella",
+      "note": "shredded"
+    },
+    {
+      "amount": "4-6",
+      "item": "fresh basil leaves",
+      "note": "optional"
+    }
+  ],
+  "steps": [
+    "Slice the cauliflower into 1-inch thick steaks, keeping the stem intact.",
+    "Brush both sides with olive oil and season with paprika, garlic powder, black pepper, and salt.",
+    "Roast at 425°F (220°C) for 20 minutes. Flip and roast for another 8–10 minutes until tender.",
+    "Top with mozzarella and basil leaves. Bake or broil for 2–3 minutes until the cheese melts.",
+    "Spread your preferred yogurt sauce onto a serving plate and place the cauliflower steak on top. Finish with a light sprinkle of paprika."
+  ],
+  "variations": [
+    {
+      "title": "Spicy Sweet Beet Yogurt Sauce",
+      "ingredients": [
+        {
+          "amount": "1 small",
+          "item": "cooked beet"
+        },
+        {
+          "amount": "1/2 cup",
+          "item": "Greek yogurt"
+        },
+        {
+          "amount": "1 tsp",
+          "item": "lemon juice"
+        },
+        {
+          "amount": "1/2 tsp",
+          "item": "red chili flakes"
+        },
+        {
+          "amount": "1/2 tsp",
+          "item": "smoked paprika"
+        },
+        {
+          "amount": "1 tsp",
+          "item": "maple syrup or stevia",
+          "note": "optional, for mild sweetness"
+        },
+        {
+          "amount": "to taste",
+          "item": "salt"
+        }
+      ],
+      "steps": [
+        "Blend all ingredients until completely smooth.",
+        "Chill for 15 minutes before serving."
+      ]
+    },
+    {
+      "title": "Mint Yogurt Sauce",
+      "ingredients": [
+        {
+          "amount": "1/2 cup",
+          "item": "Greek yogurt"
+        },
+        {
+          "amount": "1/4 cup",
+          "item": "fresh mint leaves"
+        },
+        {
+          "amount": "1 tbsp",
+          "item": "fresh cilantro"
+        },
+        {
+          "amount": "1",
+          "item": "green chili",
+          "note": "optional"
+        },
+        {
+          "amount": "1 tsp",
+          "item": "lemon juice"
+        },
+        {
+          "amount": "1 small",
+          "item": "garlic clove"
+        },
+        {
+          "amount": "to taste",
+          "item": "salt"
+        }
+      ],
+      "steps": [
+        "Blend the mint, cilantro, garlic, chili, lemon juice, and salt into a smooth paste.",
+        "Fold into the Greek yogurt and chill before serving."
+      ]
+    }
+  ],
+  "notes": [
+    "For crispier edges, roast the cauliflower on a preheated baking sheet.",
+    "Paneer can be added on top before the mozzarella for extra protein.",
+    "The beet sauce pairs well with smoked paprika, while the mint sauce complements a squeeze of fresh lemon."
+  ],
+  "updated": "2026-07-18"
+}
