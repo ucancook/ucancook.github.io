@@ -1,0 +1,79 @@
+{
+  "slug": "cucumber-mint-cooler",
+  "title": "Cucumber Mint Cooler",
+  "description": "A refreshing cucumber and mint cooler with lemon, ginger, and a hint of black salt. Perfect for hot summer days.",
+  "prepMinutes": 10,
+  "cookMinutes": 0,
+  "servings": 4,
+  "tags": [
+    "Drink",
+    "Summer",
+    "Healthy",
+    "Vegetarian",
+    "Quick",
+    "Gluten-free"
+  ],
+  "ingredients": [
+    {
+      "amount": "2 medium",
+      "item": "English cucumbers",
+      "note": "peeled if the skin is thick"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "fresh mint leaves"
+    },
+    {
+      "amount": "1 inch",
+      "item": "fresh ginger"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "fresh lemon juice"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "honey or stevia",
+      "note": "adjust to taste"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "black salt"
+    },
+    {
+      "amount": "1/4 tsp",
+      "item": "roasted cumin powder"
+    },
+    {
+      "amount": "1/4 tsp",
+      "item": "black pepper"
+    },
+    {
+      "amount": "2 cups",
+      "item": "cold water"
+    },
+    {
+      "amount": "1 cup",
+      "item": "ice cubes"
+    },
+    {
+      "amount": "to taste",
+      "item": "regular salt"
+    }
+  ],
+  "steps": [
+    "Roughly chop the cucumbers and add them to a blender.",
+    "Add the mint leaves, ginger, lemon juice, honey (or stevia), black salt, roasted cumin powder, black pepper, and cold water.",
+    "Blend until completely smooth.",
+    "Strain through a fine mesh sieve if you prefer a smoother drink, or leave unstrained for extra fiber.",
+    "Taste and adjust the sweetness, lemon juice, or salt as needed.",
+    "Pour over ice and garnish with cucumber slices and fresh mint leaves."
+  ],
+  "notes": [
+    "Chill the cucumbers before blending for an extra-refreshing drink.",
+    "Replace half the water with sparkling water just before serving for a fizzy cooler.",
+    "Add a green chili while blending for a spicy Indian-style twist.",
+    "For extra protein, blend in 2–3 tablespoons of Greek yogurt to make a creamy cucumber cooler."
+  ],
+  "updated": "2026-07-18"
+}
