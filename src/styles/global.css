@@ -1658,3 +1658,39 @@ body {
 [hidden] {
   display: none !important;
 }
+/* Keep search and sorting on one compact desktop row. */
+@media (min-width: 801px) {
+  .controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 16px;
+    row-gap: 14px;
+    align-items: center;
+  }
+
+  .controls > .search {
+    grid-column: 1;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .controls > .sort-row {
+    grid-column: 2;
+    margin: 0;
+    justify-content: flex-end;
+  }
+
+  .controls > #tag-filters,
+  .controls > .filter-summary {
+    grid-column: 1 / -1;
+  }
+
+  .sort-control {
+    white-space: nowrap;
+  }
+
+  .sort-control select {
+    min-width: 190px;
+  }
+}
