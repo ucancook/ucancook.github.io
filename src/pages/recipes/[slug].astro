@@ -2,16 +2,19 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import { recipes } from '../../lib/recipes';
+import '../../styles/photo-upload.css';
 
 export function getStaticPaths() {
   return recipes.map((recipe) => ({ params: { slug: recipe.slug }, props: { recipe } }));
 }
 
 const { recipe } = Astro.props;
-const repo = import.meta.env.PUBLIC_GITHUB_REPO || 'youcancook/youcancook.github.io';
+const repo = import.meta.env.PUBLIC_GITHUB_REPO || 'ucancook/ucancook.github.io';
 const base = import.meta.env.BASE_URL;
 const canonicalUrl = new URL(`${base}recipes/${recipe.slug}/`, Astro.site || Astro.url.origin).toString();
 const imageUrls = recipe.photos?.map((photo) => new URL(photo.src, Astro.site || Astro.url.origin).toString()) || [];
+const suggestedPhotoFilename = `${recipe.slug}.jpg`;
+const photoUploadUrl = `https://github.com/${repo}/upload/main/public/images/recipes`;
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Recipe',
@@ -90,6 +93,25 @@ const schema = {
     </aside>
   </div>
 
+  <section class="panel photo-upload-panel" aria-labelledby="photo-upload-title">
+    <div class="photo-upload-copy">
+      <div class="eyebrow">Cooked it?</div>
+      <h2 id="photo-upload-title">Add a photo here</h2>
+      <p>Rename the image exactly as shown below, then upload it to the recipe image folder on GitHub.</p>
+      <div class="photo-filename-row">
+        <code id="photo-filename">{suggestedPhotoFilename}</code>
+        <button class="btn secondary photo-copy-button" id="copy-photo-filename" type="button" aria-label={`Copy ${suggestedPhotoFilename}`}>
+          <Icon name="copy" />
+          <span>Copy filename</span>
+        </button>
+      </div>
+      <p class="photo-upload-note">Use a JPG image. The filename must match exactly, including lowercase letters and <strong>.jpg</strong>.</p>
+    </div>
+    <a class="btn primary photo-upload-link" href={photoUploadUrl} target="_blank" rel="noreferrer">
+      Add photo here
+    </a>
+  </section>
+
   <div class="recipe-footer-actions">
     <a class="edit" href={`https://github.com/${repo}/edit/main/src/content/recipes/${recipe.slug}.json`} target="_blank"><Icon name="edit" />Edit this recipe on GitHub</a>
   </div>
@@ -122,9 +144,11 @@ const schema = {
   </dialog>
 </BaseLayout>
 
-<script define:vars={{ recipeTitle: recipe.title, recipeDescription: recipe.description, recipeSlug: recipe.slug }}>
+<script define:vars={{ recipeTitle: recipe.title, recipeDescription: recipe.description, recipeSlug: recipe.slug, suggestedPhotoFilename }}>
   const shareButton = document.querySelector('#share-recipe');
   const printButton = document.querySelector('#print-recipe');
+  const photoCopyButton = document.querySelector('#copy-photo-filename');
+
   shareButton?.addEventListener('click', async () => {
     const data = { title: recipeTitle, text: recipeDescription, url: window.location.href };
     try {
@@ -133,6 +157,24 @@ const schema = {
     } catch (error) { if (error?.name !== 'AbortError') shareButton.textContent = 'Could not share'; }
   });
   printButton?.addEventListener('click', () => window.print());
+
+  photoCopyButton?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(suggestedPhotoFilename);
+      const label = photoCopyButton.querySelector('span');
+      if (label) label.textContent = 'Copied';
+      window.setTimeout(() => { if (label) label.textContent = 'Copy filename'; }, 1800);
+    } catch {
+      const filename = document.querySelector('#photo-filename');
+      const selection = window.getSelection();
+      const range = document.createRange();
+      if (filename && selection) {
+        range.selectNodeContents(filename);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+    }
+  });
 
   const dialog = document.querySelector('#cook-mode');
   const openButton = document.querySelector('#cook-mode-open');
