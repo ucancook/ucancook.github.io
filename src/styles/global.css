@@ -1742,3 +1742,145 @@ body {
   border-color: color-mix(in srgb, var(--accent) 72%, var(--line));
   background: color-mix(in srgb, var(--accent) 18%, var(--solid));
 }
+/* Refined Terracotta theme: deeper contrast, clearer surfaces, restrained accent. */
+:root[data-theme='warm'] {
+  --bg: #1b1310;
+  --s: #281b17e8;
+  --solid: #30211b;
+  --text: #fff7ef;
+  --muted: #c8aa98;
+  --line: #f2cbb329;
+  --accent: #ef8648;
+  color-scheme: dark;
+}
+
+:root[data-theme='warm'] body {
+  background:
+    radial-gradient(circle at 12% -8%, #8d3f252e, transparent 34rem),
+    radial-gradient(circle at 88% 10%, #ef864814, transparent 28rem),
+    var(--bg);
+}
+
+:root[data-theme='warm'] body::before {
+  background: linear-gradient(180deg, #ef86480a, transparent 24rem);
+}
+
+:root[data-theme='warm'] .site-header {
+  background: #1a120fef;
+  border-bottom-color: #f2cbb31f;
+}
+
+:root[data-theme='warm'] .panel,
+:root[data-theme='warm'] .featured-recipe,
+:root[data-theme='warm'] .controls,
+:root[data-theme='warm'] .recipe-photo,
+:root[data-theme='warm'] .cook-mode {
+  background: linear-gradient(180deg, #33231d, #2b1d18);
+  border-color: #f2cbb326;
+  box-shadow: 0 18px 48px #0000002e;
+}
+
+:root[data-theme='warm'] .featured-copy,
+:root[data-theme='warm'] .card-copy {
+  background: transparent;
+}
+
+:root[data-theme='warm'] .search,
+:root[data-theme='warm'] .sort-control select,
+:root[data-theme='warm'] input,
+:root[data-theme='warm'] textarea {
+  background: #211713;
+  border-color: #f2cbb32b;
+  color: var(--text);
+}
+
+:root[data-theme='warm'] .search:focus-within,
+:root[data-theme='warm'] .sort-control select:focus,
+:root[data-theme='warm'] input:focus,
+:root[data-theme='warm'] textarea:focus {
+  border-color: #ef8648a8;
+  box-shadow: 0 0 0 3px #ef86481f;
+  outline: none;
+}
+
+:root[data-theme='warm'] .tag,
+:root[data-theme='warm'] .pill,
+:root[data-theme='warm'] .more-tags {
+  background: #251915;
+  border-color: #f2cbb326;
+  color: #d6b8a7;
+}
+
+:root[data-theme='warm'] .tag:hover,
+:root[data-theme='warm'] .more-tags:hover {
+  border-color: #ef864875;
+  color: #fff7ef;
+}
+
+:root[data-theme='warm'] .tag.active,
+:root[data-theme='warm'] .tag-choice.active,
+:root[data-theme='warm'] .tag-choice[aria-pressed='true'],
+:root[data-theme='warm'] .primary,
+:root[data-theme='warm'] .fab {
+  background: #ef8648;
+  color: #21130d;
+  border-color: transparent;
+}
+
+:root[data-theme='warm'] .surprise-button {
+  background: #fff2e5;
+  color: #241610;
+  border-color: #fff2e5;
+}
+
+:root[data-theme='warm'] .round,
+:root[data-theme='warm'] .header-search,
+:root[data-theme='warm'] .secondary {
+  background: #241814;
+  color: #fff7ef;
+  border-color: #f2cbb32e;
+}
+
+:root[data-theme='warm'] .theme-toggle {
+  background: #3a241b;
+  color: #ffab75;
+  border-color: #ef86489a;
+}
+
+:root[data-theme='warm'] .brand-logo {
+  box-shadow: 0 5px 20px #00000055;
+}
+
+:root[data-theme='warm'] .favorite-button {
+  background: #211612d9;
+  border-color: #f2cbb338;
+}
+
+:root[data-theme='warm'] .favorite-button.active,
+:root[data-theme='warm'] .favorite-button[aria-pressed='true'] {
+  background: #ef8648;
+  color: #21130d;
+}
+
+:root[data-theme='warm'] .card:hover,
+:root[data-theme='warm'] .featured-recipe:hover {
+  border-color: #ef86486b;
+  box-shadow: 0 24px 64px #00000040;
+}
+
+:root[data-theme='warm'] .eyebrow {
+  color: #d59a79;
+}
+
+:root[data-theme='warm'] .meta,
+:root[data-theme='warm'] .community-line,
+:root[data-theme='warm'] .site-footer,
+:root[data-theme='warm'] .featured-copy p,
+:root[data-theme='warm'] .card-copy p {
+  color: #bea08f;
+}
+
+:root[data-theme='warm'] .featured-footer,
+:root[data-theme='warm'] .site-footer {
+  border-color: #f2cbb324;
+}
