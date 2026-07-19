@@ -1,3 +1,6 @@
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
 export type RecipePhoto = {
   src: string;
   alt?: string;
@@ -36,11 +39,35 @@ const consolidateTags = (tags: string[]) => {
   return [...new Set(consolidated)];
 };
 
+const localPhotoExtensions = ['jpg', 'jpeg', 'png', 'webp'] as const;
+
+const findLocalRecipePhoto = (recipe: Recipe): RecipePhoto[] | undefined => {
+  if (recipe.photos?.length) return recipe.photos;
+
+  for (const extension of localPhotoExtensions) {
+    const filename = `${recipe.slug}.${extension}`;
+    const diskUrl = new URL(`../../public/images/recipes/${filename}`, import.meta.url);
+
+    if (existsSync(fileURLToPath(diskUrl))) {
+      return [{
+        src: `${import.meta.env.BASE_URL}images/recipes/${filename}`,
+        alt: recipe.title,
+      }];
+    }
+  }
+
+  return undefined;
+};
+
 const recipeModules = import.meta.glob('../content/recipes/*.json', { eager: true });
 
 export const recipes: Recipe[] = Object.values(recipeModules)
   .map((module: any) => module.default as Recipe)
-  .map((recipe) => ({ ...recipe, tags: consolidateTags(recipe.tags) }))
+  .map((recipe) => ({
+    ...recipe,
+    tags: consolidateTags(recipe.tags),
+    photos: findLocalRecipePhoto(recipe),
+  }))
   .sort((a, b) => a.title.localeCompare(b.title));
 
 const tagCatalog = [
