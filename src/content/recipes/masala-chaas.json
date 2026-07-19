@@ -1,0 +1,38 @@
+{
+  "slug": "masala-chaas",
+  "title": "Masala Chaas",
+  "description": "A cooling yogurt-based buttermilk flavored with roasted cumin, ginger, mint, and cilantro.",
+  "prepMinutes": 10,
+  "cookMinutes": 0,
+  "servings": 4,
+  "tags": [
+    "Indian",
+    "Drink",
+    "Healthy",
+    "High protein",
+    "Vegetarian",
+    "Quick",
+    "Gluten-free"
+  ],
+  "ingredients": [
+    { "amount": "1 cup", "item": "plain yogurt" },
+    { "amount": "3 cups", "item": "cold water" },
+    { "amount": "2 tbsp", "item": "mint leaves" },
+    { "amount": "2 tbsp", "item": "cilantro" },
+    { "amount": "1 inch", "item": "ginger" },
+    { "amount": "1 tsp", "item": "roasted cumin powder" },
+    { "amount": "1/2 tsp", "item": "black salt" },
+    { "amount": "to taste", "item": "salt" },
+    { "amount": "1", "item": "green chili", "note": "optional" }
+  ],
+  "steps": [
+    "Blend all ingredients until frothy.",
+    "Adjust salt and water to your preferred consistency.",
+    "Serve chilled with a sprinkle of roasted cumin."
+  ],
+  "notes": [
+    "Freshly whisked yogurt produces the creamiest chaas.",
+    "For a Gujarati-style version, omit the chili and add a pinch of sugar."
+  ],
+  "updated": "2026-07-18"
+}
