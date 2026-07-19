@@ -5,7 +5,7 @@ import { recipes, allTags, normalizeTag } from '../lib/recipes';
 
 const base = import.meta.env.BASE_URL;
 const initialBatchSize = 12;
-const recipeDate = (recipe) => Date.parse(recipe.added || recipe.updated || '1970-01-01') || 0;
+const recipeDate = (recipe: (typeof recipes)[number]) => Date.parse(recipe.added || recipe.updated || '1970-01-01') || 0;
 const recentlyAddedRecipes = [...recipes].sort(
   (a, b) => recipeDate(b) - recipeDate(a) || a.title.localeCompare(b.title),
 );
@@ -295,4 +295,5 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
   };
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', initRecipeBrowser, { once: true }) : initRecipeBrowser();
 </script>
+
 
