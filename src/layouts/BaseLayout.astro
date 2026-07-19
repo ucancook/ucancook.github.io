@@ -21,9 +21,20 @@ const base = import.meta.env.BASE_URL;
     <link rel="apple-touch-icon" href={`${base}icons/icon-192.png`} />
     <title>{title}</title>
     <script is:inline>
-      document.documentElement.dataset.theme =
-        localStorage.getItem('theme') ||
-        (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      (() => {
+        const allowedThemes = ['light', 'warm', 'dark'];
+        const storedTheme = localStorage.getItem('theme');
+        const systemTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const theme = allowedThemes.includes(storedTheme) ? storedTheme : systemTheme;
+        const themeColors = {
+          light: '#c7ff57',
+          warm: '#c96f3b',
+          dark: '#baf64f',
+        };
+
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', themeColors[theme]);
+      })();
     </script>
   </head>
   <body>

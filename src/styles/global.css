@@ -1694,3 +1694,51 @@ body {
     min-width: 190px;
   }
 }
+/* Warm Cookbook theme: parchment, terracotta, and deep brown. */
+:root[data-theme='warm'] {
+  --bg: #f3eadb;
+  --s: #fff8ecdd;
+  --solid: #fff8ec;
+  --text: #2b241c;
+  --muted: #756858;
+  --line: #5a463526;
+  --accent: #c96f3b;
+  color-scheme: light;
+}
+
+:root[data-theme='warm'] body {
+  background:
+    radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 28rem),
+    var(--bg);
+}
+
+:root[data-theme='warm'] body::before {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 7%, transparent), transparent 22rem);
+}
+
+:root[data-theme='warm'] .primary,
+:root[data-theme='warm'] .surprise-button,
+:root[data-theme='warm'] .tag.active,
+:root[data-theme='warm'] .tag-choice.active,
+:root[data-theme='warm'] .tag-choice[aria-pressed='true'],
+:root[data-theme='warm'] .favorite-button.active,
+:root[data-theme='warm'] .favorite-button[aria-pressed='true'] {
+  color: #fff8ec;
+}
+
+.theme-symbol {
+  display: none;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+:root[data-theme='light'] .theme-symbol-light,
+:root[data-theme='warm'] .theme-symbol-warm,
+:root[data-theme='dark'] .theme-symbol-dark {
+  display: inline;
+}
+
+:root[data-theme='warm'] .theme-toggle {
+  border-color: color-mix(in srgb, var(--accent) 58%, var(--line));
+  background: color-mix(in srgb, var(--accent) 13%, var(--solid));
+}

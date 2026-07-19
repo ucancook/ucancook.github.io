@@ -35,19 +35,48 @@ const recipeUrls = recipes.map((recipe) => `${base}recipes/${recipe.slug}/`);
         <span>Add</span>
       </a>
 
-      <button class="round" id="theme" type="button" aria-label="Toggle theme">
-        <Icon name="sun" />
+      <button class="round theme-toggle" id="theme" type="button" aria-label="Theme: Light. Activate for Warm Cookbook." title="Theme: Light">
+        <span class="theme-symbol theme-symbol-light" aria-hidden="true">&#9728;</span>
+        <span class="theme-symbol theme-symbol-warm" aria-hidden="true">&#9680;</span>
+        <span class="theme-symbol theme-symbol-dark" aria-hidden="true">&#9790;</span>
       </button>
     </nav>
   </div>
 </header>
 
 <script is:inline>
-  document.querySelector('#theme')?.addEventListener('click', () => {
-    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.dataset.theme = next;
-    localStorage.setItem('theme', next);
-  });
+  (() => {
+    const themes = ['light', 'warm', 'dark'];
+    const labels = {
+      light: 'Light',
+      warm: 'Warm Cookbook',
+      dark: 'Dark',
+    };
+    const themeColors = {
+      light: '#c7ff57',
+      warm: '#c96f3b',
+      dark: '#baf64f',
+    };
+    const button = document.querySelector('#theme');
+
+    const paintThemeButton = () => {
+      const current = document.documentElement.dataset.theme || 'light';
+      const next = themes[(themes.indexOf(current) + 1) % themes.length];
+      button?.setAttribute('title', `Theme: ${labels[current]}`);
+      button?.setAttribute('aria-label', `Theme: ${labels[current]}. Activate for ${labels[next]}.`);
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', themeColors[current]);
+    };
+
+    button?.addEventListener('click', () => {
+      const current = document.documentElement.dataset.theme || 'light';
+      const next = themes[(themes.indexOf(current) + 1) % themes.length];
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('theme', next);
+      paintThemeButton();
+    });
+
+    paintThemeButton();
+  })();
 
   document.querySelector('.header-search')?.addEventListener('click', (event) => {
     const searchInput = document.querySelector('#q');
