@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs';
+﻿import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 export type RecipePhoto = {
@@ -20,6 +20,7 @@ export type Recipe = {
   ingredients: { amount: string; item: string; note?: string }[];
   steps: string[];
   notes?: string[];
+  added?: string;
   updated: string;
 };
 
@@ -81,3 +82,4 @@ export const allTags = [
   ...tagCatalog,
   ...[...new Set(recipes.flatMap((recipe) => recipe.tags))].filter((tag) => !tagCatalog.includes(tag)),
 ];
+

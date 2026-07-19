@@ -1,4 +1,4 @@
-import type { APIRoute } from 'astro';
+﻿import type { APIRoute } from 'astro';
 import { recipes, normalizeTag } from '../lib/recipes';
 
 export const prerender = true;
@@ -9,6 +9,8 @@ export const GET: APIRoute = () => {
     slug: recipe.slug,
     title: recipe.title,
     description: recipe.description,
+    added: recipe.added ?? recipe.updated,
+    updated: recipe.updated,
     prepMinutes: recipe.prepMinutes,
     cookMinutes: recipe.cookMinutes,
     ingredientCount: recipe.ingredients.length,
@@ -27,3 +29,4 @@ export const GET: APIRoute = () => {
     },
   });
 };
+

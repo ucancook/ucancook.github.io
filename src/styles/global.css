@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #f5f2ea;
   --s: #fffdf9cc;
   --solid: #fffdfa;
@@ -1591,4 +1591,14 @@ body {
     height: 34px;
     min-height: 34px;
   }
+}
+
+/* Recipe sorting */
+.sort-row { display: flex; justify-content: flex-end; margin-top: 12px; }
+.sort-control { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); font-size: 0.88rem; font-weight: 750; }
+.sort-control select { min-height: 42px; max-width: 100%; padding: 0 38px 0 13px; border: 1px solid var(--line); border-radius: 999px; background: var(--solid); color: var(--text); font: inherit; font-weight: 750; cursor: pointer; }
+@media (max-width: 800px) {
+  .sort-row { justify-content: stretch; }
+  .sort-control { width: 100%; justify-content: space-between; }
+  .sort-control select { flex: 1; min-width: 0; }
 }
