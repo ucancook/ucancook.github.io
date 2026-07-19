@@ -14,6 +14,7 @@ export const GET: APIRoute = () => {
     prepMinutes: recipe.prepMinutes,
     cookMinutes: recipe.cookMinutes,
     ingredientCount: recipe.ingredients.length,
+    ingredients: recipe.ingredients,
     tags: recipe.tags,
     normalizedTags: recipe.tags.map((tag) => normalizeTag(tag)),
     search: `${recipe.title} ${recipe.description} ${recipe.tags.join(' ')} ${recipe.ingredients

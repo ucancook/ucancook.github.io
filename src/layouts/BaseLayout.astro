@@ -205,5 +205,75 @@ const base = import.meta.env.BASE_URL;
         if (isStandalone) hidePrompt();
       })();
     </script>
+    <script is:inline>
+      (() => {
+        const key = 'you-can-cook-shopping-recipes';
+
+        const read = () => {
+          try {
+            const value = JSON.parse(localStorage.getItem(key) || '[]');
+            return Array.isArray(value) ? value : [];
+          } catch {
+            return [];
+          }
+        };
+
+        const save = (recipes) => {
+          localStorage.setItem(key, JSON.stringify(recipes));
+          window.dispatchEvent(new CustomEvent('shopping-list-changed'));
+        };
+
+        const paint = () => {
+          const selected = new Set(read().map((recipe) => recipe.slug));
+
+          document.querySelectorAll('[data-shopping-card-slug]').forEach((button) => {
+            const active = selected.has(button.dataset.shoppingCardSlug);
+            const title = button.dataset.shoppingCardTitle || 'recipe';
+
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-pressed', String(active));
+            button.setAttribute(
+              'aria-label',
+              active
+                ? `Remove ${title} from shopping list`
+                : `Add ${title} to shopping list`
+            );
+            button.setAttribute(
+              'title',
+              active ? 'Remove from shopping list' : 'Add to shopping list'
+            );
+          });
+        };
+
+        document.addEventListener('click', (event) => {
+          const button = event.target.closest('[data-shopping-card-slug]');
+          if (!button) return;
+
+          event.preventDefault();
+          event.stopPropagation();
+
+          const slug = button.dataset.shoppingCardSlug;
+          const title = button.dataset.shoppingCardTitle;
+          const ingredients = JSON.parse(button.dataset.shoppingCardIngredients || '[]');
+          const recipes = read();
+          const existing = recipes.findIndex((recipe) => recipe.slug === slug);
+
+          if (existing >= 0) recipes.splice(existing, 1);
+          else recipes.push({ slug, title, ingredients });
+
+          save(recipes);
+          paint();
+        });
+
+        window.YouCanCookShopping = { read, paint };
+
+        document.readyState === 'loading'
+          ? document.addEventListener('DOMContentLoaded', paint, { once: true })
+          : paint();
+
+        window.addEventListener('shopping-list-changed', paint);
+        window.addEventListener('storage', paint);
+      })();
+    </script>
   </body>
 </html>

@@ -90,9 +90,47 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
           <div class="card-media">
             <img class="card-photo" src={recipe.photos[0].src} alt={recipe.photos[0].alt || recipe.title} loading="lazy" decoding="async" />
             <button class="favorite-button card-favorite" type="button" data-favorite-slug={recipe.slug} aria-pressed="false" aria-label="Add to favorites"><Icon name="heart" /></button>
+            <button
+              class="favorite-button card-shopping-button"
+              type="button"
+              data-shopping-card-slug={recipe.slug}
+              data-shopping-card-title={recipe.title}
+              data-shopping-card-ingredients={JSON.stringify(recipe.ingredients)}
+              aria-pressed="false"
+              aria-label={`Add ${recipe.title} to shopping list`}
+              title="Add to shopping list"
+            >
+              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 6h13" />
+                <path d="M8 12h13" />
+                <path d="M8 18h13" />
+                <path d="m3 6 1 1 2-2" />
+                <path d="m3 12 1 1 2-2" />
+                <path d="m3 18 1 1 2-2" />
+              </svg>
+            </button>
           </div>
         ) : (
           <button class="favorite-button card-favorite" type="button" data-favorite-slug={recipe.slug} aria-pressed="false" aria-label="Add to favorites"><Icon name="heart" /></button>
+          <button
+            class="favorite-button card-shopping-button"
+            type="button"
+            data-shopping-card-slug={recipe.slug}
+            data-shopping-card-title={recipe.title}
+            data-shopping-card-ingredients={JSON.stringify(recipe.ingredients)}
+            aria-pressed="false"
+            aria-label={`Add ${recipe.title} to shopping list`}
+            title="Add to shopping list"
+          >
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 6h13" />
+              <path d="M8 12h13" />
+              <path d="M8 18h13" />
+              <path d="m3 6 1 1 2-2" />
+              <path d="m3 12 1 1 2-2" />
+              <path d="m3 18 1 1 2-2" />
+            </svg>
+          </button>
         )}
         <div class="card-copy">
           <div class="eyebrow">{String(index + 1).padStart(2, '0')}</div>
@@ -166,6 +204,7 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
       return dateValue(b.added || b.updated) - dateValue(a.added || a.updated) || a.title.localeCompare(b.title);
     });
     const heartSvg = () => '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>';
+    const shoppingSvg = () => '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="m3 6 1 1 2-2"/><path d="m3 12 1 1 2-2"/><path d="m3 18 1 1 2-2"/></svg>';
     const clockSvg = () => '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>';
 
     const createCard = (recipe) => {
@@ -183,11 +222,22 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
       favorite.setAttribute('aria-pressed', 'false');
       favorite.setAttribute('aria-label', 'Add to favorites');
       favorite.innerHTML = heartSvg();
+
+      const shopping = document.createElement('button');
+      shopping.className = 'favorite-button card-shopping-button';
+      shopping.type = 'button';
+      shopping.dataset.shoppingCardSlug = recipe.slug;
+      shopping.dataset.shoppingCardTitle = recipe.title;
+      shopping.dataset.shoppingCardIngredients = JSON.stringify(recipe.ingredients || []);
+      shopping.setAttribute('aria-pressed', 'false');
+      shopping.setAttribute('aria-label', `Add ${recipe.title} to shopping list`);
+      shopping.setAttribute('title', 'Add to shopping list');
+      shopping.innerHTML = shoppingSvg();
       if (recipe.photo?.src) {
         media = document.createElement('div');
         media.className = 'card-media';
         media.innerHTML = `<img class="card-photo" src="${recipe.photo.src}" alt="${recipe.photo.alt || recipe.title}" loading="lazy" decoding="async">`;
-        media.append(favorite);
+        media.append(favorite, shopping);
       }
       const copy = document.createElement('div');
       copy.className = 'card-copy';
@@ -206,7 +256,7 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
       meta.append(document.createTextNode(`${recipe.prepMinutes + recipe.cookMinutes} min · ${recipe.ingredientCount} ingredients`));
       footer.append(tags, meta);
       if (media) card.append(media, copy, footer);
-      else card.append(favorite, copy, footer);
+      else card.append(favorite, shopping, copy, footer);
       return card;
     };
 
@@ -227,7 +277,7 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
     const appendRecipes = (items) => {
       const known = existingSlugs(); const fragment = document.createDocumentFragment();
       items.forEach((recipe) => { if (!known.has(recipe.slug)) { fragment.append(createCard(recipe)); known.add(recipe.slug); } });
-      grid.insertBefore(fragment, emptyState); window.YouCanCookFavorites?.paint?.();
+      grid.insertBefore(fragment, emptyState); window.YouCanCookFavorites?.paint?.(); window.YouCanCookShopping?.paint?.();
     };
     const updateSummary = (shown, matched = totalRecipes) => {
       const label = filterButtons.find((button) => button.dataset.tag === activeTag)?.textContent?.trim() || 'All';

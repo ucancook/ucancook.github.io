@@ -31,8 +31,14 @@ const recipeUrls = recipes.map((recipe) => `${base}recipes/${recipe.slug}/`);
       </button>
 
       <a class="round shopping-header" href={`${base}shopping-list/`} aria-label="Shopping list" title="Shopping list">
-        <span class="shopping-header-symbol" aria-hidden="true">&#9783;</span>
-        <span class="shopping-header-text">List</span>
+        <svg class="shopping-header-icon" aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 6h13" />
+          <path d="M8 12h13" />
+          <path d="M8 18h13" />
+          <path d="m3 6 1 1 2-2" />
+          <path d="m3 12 1 1 2-2" />
+          <path d="m3 18 1 1 2-2" />
+        </svg>
         <span class="shopping-header-count" data-shopping-count hidden>0</span>
       </a>
       <a class="round add-header" href={`${base}new/`} aria-label="Add recipe">

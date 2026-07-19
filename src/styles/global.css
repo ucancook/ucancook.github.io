@@ -2480,3 +2480,54 @@ body {
     grid-template-columns: 1fr 1fr;
   }
 }
+/* Recipe-card shopping action v2 */
+.card-shopping-button {
+  right: 66px !important;
+}
+
+.card-shopping-button.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #17130f;
+}
+
+.card-shopping-button svg,
+.shopping-header-icon {
+  display: block;
+  pointer-events: none;
+}
+
+.shopping-header {
+  position: relative;
+  width: 44px;
+  min-width: 44px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+
+.shopping-header-icon {
+  width: 21px;
+  height: 21px;
+}
+
+.shopping-header-symbol,
+.shopping-header-text {
+  display: none !important;
+}
+
+.shopping-header-count {
+  top: -4px;
+  right: -4px;
+}
+
+@media (max-width: 680px) {
+  .card-shopping-button {
+    right: 60px !important;
+  }
+
+  .shopping-header {
+    width: 40px;
+    min-width: 40px;
+  }
+}
