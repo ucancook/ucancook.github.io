@@ -1694,26 +1694,26 @@ body {
     min-width: 190px;
   }
 }
-/* Warm Cookbook theme: parchment, terracotta, and deep brown. */
+/* Terracotta theme: espresso, burnt orange, and warm cream. */
 :root[data-theme='warm'] {
-  --bg: #f3eadb;
-  --s: #fff8ecdd;
-  --solid: #fff8ec;
-  --text: #2b241c;
-  --muted: #756858;
-  --line: #5a463526;
-  --accent: #c96f3b;
-  color-scheme: light;
+  --bg: #241914;
+  --s: #33221bdd;
+  --solid: #33221b;
+  --text: #fff4e8;
+  --muted: #c7aa96;
+  --line: #f1c6a326;
+  --accent: #e57a3f;
+  color-scheme: dark;
 }
 
 :root[data-theme='warm'] body {
   background:
-    radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 28rem),
+    radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 30rem),
     var(--bg);
 }
 
 :root[data-theme='warm'] body::before {
-  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 7%, transparent), transparent 22rem);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 24rem);
 }
 
 :root[data-theme='warm'] .primary,
@@ -1723,7 +1723,7 @@ body {
 :root[data-theme='warm'] .tag-choice[aria-pressed='true'],
 :root[data-theme='warm'] .favorite-button.active,
 :root[data-theme='warm'] .favorite-button[aria-pressed='true'] {
-  color: #fff8ec;
+  color: #241914;
 }
 
 .theme-symbol {
@@ -1739,6 +1739,6 @@ body {
 }
 
 :root[data-theme='warm'] .theme-toggle {
-  border-color: color-mix(in srgb, var(--accent) 58%, var(--line));
-  background: color-mix(in srgb, var(--accent) 13%, var(--solid));
+  border-color: color-mix(in srgb, var(--accent) 72%, var(--line));
+  background: color-mix(in srgb, var(--accent) 18%, var(--solid));
 }

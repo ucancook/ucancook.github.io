@@ -35,7 +35,7 @@ const recipeUrls = recipes.map((recipe) => `${base}recipes/${recipe.slug}/`);
         <span>Add</span>
       </a>
 
-      <button class="round theme-toggle" id="theme" type="button" aria-label="Theme: Light. Activate for Warm Cookbook." title="Theme: Light">
+      <button class="round theme-toggle" id="theme" type="button" aria-label="Theme: Light. Activate for Terracotta." title="Theme: Light">
         <span class="theme-symbol theme-symbol-light" aria-hidden="true">&#9728;</span>
         <span class="theme-symbol theme-symbol-warm" aria-hidden="true">&#9680;</span>
         <span class="theme-symbol theme-symbol-dark" aria-hidden="true">&#9790;</span>
@@ -49,12 +49,12 @@ const recipeUrls = recipes.map((recipe) => `${base}recipes/${recipe.slug}/`);
     const themes = ['light', 'warm', 'dark'];
     const labels = {
       light: 'Light',
-      warm: 'Warm Cookbook',
+      warm: 'Terracotta',
       dark: 'Dark',
     };
     const themeColors = {
       light: '#c7ff57',
-      warm: '#c96f3b',
+      warm: '#e57a3f',
       dark: '#baf64f',
     };
     const button = document.querySelector('#theme');
