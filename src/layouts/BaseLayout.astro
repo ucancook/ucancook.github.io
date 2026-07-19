@@ -5,7 +5,18 @@ import '../styles/global.css';
 const {
   title = 'You can Cook',
   description = 'Ingredient-first personal recipes that are easy to browse, save, and cook.',
+  image,
+  canonical,
+  type = 'website',
 } = Astro.props;
+
+const absoluteCanonical = canonical
+  ? new URL(canonical, Astro.site || Astro.url.origin).toString()
+  : Astro.url.toString();
+
+const absoluteImage = image
+  ? new URL(image, Astro.site || Astro.url.origin).toString()
+  : new URL(`${import.meta.env.BASE_URL}brand/chef-logo.png`, Astro.site || Astro.url.origin).toString();
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -15,6 +26,22 @@ const base = import.meta.env.BASE_URL;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={absoluteCanonical} />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="You can Cook" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={absoluteCanonical} />
+    <meta property="og:image" content={absoluteImage} />
+    <meta property="og:image:secure_url" content={absoluteImage} />
+    <meta property="og:image:alt" content={title} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteImage} />
+    <meta name="twitter:image:alt" content={title} />
     <meta name="theme-color" content="#c7ff57" />
     <link rel="manifest" href={`${base}manifest.webmanifest`} />
     <link rel="icon" href={`${base}favicon.png`} sizes="32x32" type="image/png" />

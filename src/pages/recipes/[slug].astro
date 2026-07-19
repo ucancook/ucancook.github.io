@@ -12,6 +12,7 @@ const { recipe } = Astro.props;
 const repo = import.meta.env.PUBLIC_GITHUB_REPO || 'ucancook/ucancook.github.io';
 const base = import.meta.env.BASE_URL;
 const canonicalUrl = new URL(`${base}recipes/${recipe.slug}/`, Astro.site || Astro.url.origin).toString();
+const socialImage = recipe.photos?.[0]?.src || `${base}brand/chef-logo.png`;
 const imageUrls = recipe.photos?.map((photo) => new URL(photo.src, Astro.site || Astro.url.origin).toString()) || [];
 const suggestedPhotoFilename = `${recipe.slug}.jpg`;
 const photoUploadUrl = `https://github.com/${repo}/upload/main/public/images/recipes`;
@@ -36,7 +37,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title={`${recipe.title} — You can Cook`} description={recipe.description}>
+<BaseLayout title={`${recipe.title} - You can Cook`} description={recipe.description} image={socialImage} canonical={canonicalUrl} type="article">
   <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
 
   <section class="hero recipe-hero">
