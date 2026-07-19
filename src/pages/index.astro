@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import { recipes, allTags, normalizeTag } from '../lib/recipes';
@@ -13,12 +13,12 @@ const initialRecipes = recentlyAddedRecipes.slice(0, initialBatchSize);
 const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0]) || recentlyAddedRecipes[0];
 ---
 
-<BaseLayout title="You can Cook â€” personal recipes">
+<BaseLayout title="You can Cook — personal recipes">
   <section class="hero editorial-hero">
     <div class="hero-copy">
       <div class="eyebrow">Personal recipe library</div>
       <h1>Start with Ingredients<br />and love.</h1>
-      <p class="lede">A fast, searchable collection built around what goes into the foodâ€”not a wall of backstory.</p>
+      <p class="lede">A fast, searchable collection built around what goes into the food—not a wall of backstory.</p>
       <p class="community-line">Initiated by Chahat Singh. Built by food lovers, for everyone.</p>
     </div>
 
@@ -39,7 +39,7 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
           </div>
           <div class="featured-footer">
             <span>{featuredRecipe.prepMinutes + featuredRecipe.cookMinutes} min</span>
-            <span>Cook this â†’</span>
+            <span>Cook this →</span>
           </div>
         </div>
       </a>
@@ -49,7 +49,7 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
   <section class="panel controls" id="recipe-search">
     <label class="search">
       <Icon name="search" />
-      <input id="q" type="search" placeholder="Search ingredients, recipes, or tagsâ€¦" />
+      <input id="q" type="search" placeholder="Search ingredients, recipes, or tags…" />
     </label>
 
     <div class="sort-row">
@@ -57,7 +57,7 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
         <span>Sort</span>
         <select id="recipe-sort">
           <option value="recent">Recently added</option>
-          <option value="name">Name: Aâ€“Z</option>
+          <option value="name">Name: A to Z</option>
           <option value="quickest">Quickest first</option>
           <option value="ingredients">Fewest ingredients</option>
         </select>
@@ -66,7 +66,7 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
 
     <div class="tags" id="tag-filters" aria-label="Recipe filters">
       <button class="tag active" type="button" data-tag="all" aria-pressed="true">All</button>
-      <button class="tag favorites-filter" type="button" data-tag="__favorites__" aria-pressed="false">â™¥ Favorites</button>
+      <button class="tag favorites-filter" type="button" data-tag="__favorites__" aria-pressed="false">♥ Favorites</button>
       {allTags.map((tag) => (
         <button class="tag" type="button" data-tag={normalizeTag(tag)} aria-pressed="false">{tag}</button>
       ))}
@@ -104,13 +104,13 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
             {recipe.tags.slice(0, 3).map((tag) => <span class="pill">{tag}</span>)}
             {recipe.tags.length > 3 && <span class="pill more-tags">+{recipe.tags.length - 3}</span>}
           </div>
-          <div class="meta" style="margin-top:14px"><Icon name="clock" size={16} />{recipe.prepMinutes + recipe.cookMinutes} min Â· {recipe.ingredients.length} ingredients</div>
+          <div class="meta" style="margin-top:14px"><Icon name="clock" size={16} />{recipe.prepMinutes + recipe.cookMinutes} min · {recipe.ingredients.length} ingredients</div>
         </div>
       </a>
     ))}
 
     <div id="empty" class="panel box empty-state" hidden>
-      <div class="empty-icon">âŒ•</div>
+      <div class="empty-icon">⌕</div>
       <h2>No recipes found</h2>
       <p>Try another search, remove a filter, or add the recipe you were hoping to find.</p>
       <div class="actions"><button class="btn secondary" id="clear-filters" type="button">Clear filters</button><a class="btn primary" href={`${base}new/`}>Add recipe</a></div>
@@ -202,7 +202,7 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
       meta.className = 'meta';
       meta.style.marginTop = '14px';
       meta.innerHTML = clockSvg();
-      meta.append(document.createTextNode(`${recipe.prepMinutes + recipe.cookMinutes} min Â· ${recipe.ingredientCount} ingredients`));
+      meta.append(document.createTextNode(`${recipe.prepMinutes + recipe.cookMinutes} min · ${recipe.ingredientCount} ingredients`));
       footer.append(tags, meta);
       if (media) card.append(media, copy, footer);
       else card.append(favorite, copy, footer);
@@ -212,7 +212,7 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
     const setLoading = (value) => { loading = value; spinner.hidden = !value; };
     const fetchIndex = async () => {
       if (fullIndex) return fullIndex;
-      setLoading(true); retryButton.hidden = true; loadStatus.textContent = 'Loading recipe collectionâ€¦';
+      setLoading(true); retryButton.hidden = true; loadStatus.textContent = 'Loading recipe collection…';
       const response = await fetch(`${base}recipe-index.json`);
       if (!response.ok) throw new Error('The recipe collection could not be loaded.');
       fullIndex = sortRecipes(await response.json());
@@ -228,7 +228,7 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
       const label = filterButtons.find((button) => button.dataset.tag === activeTag)?.textContent?.trim() || 'All';
       const search = searchInput.value.trim();
       if (activeTag === 'all' && !search) summary.textContent = shown >= totalRecipes ? `Showing all ${totalRecipes} recipes` : `Showing ${shown} of ${totalRecipes} recipes`;
-      else summary.textContent = [`${matched} recipe${matched === 1 ? '' : 's'}`, ...(activeTag !== 'all' ? [label] : []), ...(search ? [`search: â€œ${search}â€`] : [])].join(' Â· ');
+      else summary.textContent = [`${matched} recipe${matched === 1 ? '' : 's'}`, ...(activeTag !== 'all' ? [label] : []), ...(search ? [`search: “${search}”`] : [])].join(' · ');
     };
     const updateLoader = () => {
       const source = filteredResults || fullIndex;

@@ -1,4 +1,4 @@
-﻿import type { APIRoute } from 'astro';
+import type { APIRoute } from 'astro';
 import { recipes, normalizeTag } from '../lib/recipes';
 
 export const prerender = true;
