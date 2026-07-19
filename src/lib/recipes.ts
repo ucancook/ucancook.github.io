@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 export type RecipePhoto = {
   src: string;
@@ -46,9 +46,9 @@ const findLocalRecipePhoto = (recipe: Recipe): RecipePhoto[] | undefined => {
 
   for (const extension of localPhotoExtensions) {
     const filename = `${recipe.slug}.${extension}`;
-    const diskUrl = new URL(`../../public/images/recipes/${filename}`, import.meta.url);
+    const diskPath = join(process.cwd(), 'public', 'images', 'recipes', filename);
 
-    if (existsSync(fileURLToPath(diskUrl))) {
+    if (existsSync(diskPath)) {
       return [{
         src: `${import.meta.env.BASE_URL}images/recipes/${filename}`,
         alt: recipe.title,
