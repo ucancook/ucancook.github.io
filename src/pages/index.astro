@@ -140,7 +140,8 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
     const clearFilters = document.querySelector('#clear-filters');
     const summary = document.querySelector('#filter-summary');
     const sentinel = document.querySelector('#load-sentinel');
-    const loadStatus = document.querySelector('#load-status');
+    const loadStatus = document.querySelector('#load-status');
+    const recipeLoader = document.querySelector('#recipe-loader');
     const loadMoreButton = document.querySelector('#load-more');
     const retryButton = document.querySelector('#retry-load');
     const spinner = document.querySelector('#loader-spinner');
@@ -209,7 +210,11 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
       return card;
     };
 
-    const setLoading = (value) => { loading = value; spinner.hidden = !value; };
+    const setLoading = (value) => {
+      loading = value;
+      spinner.hidden = !value;
+      if (recipeLoader && value) recipeLoader.hidden = false;
+    };
     const fetchIndex = async () => {
       if (fullIndex) return fullIndex;
       setLoading(true); retryButton.hidden = true; loadStatus.textContent = 'Loading recipe collection…';
@@ -232,9 +237,20 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
     };
     const updateLoader = () => {
       const source = filteredResults || fullIndex;
-      const complete = source ? renderedCount >= source.length : renderedCount >= totalRecipes;
-      sentinel.hidden = complete; loadMoreButton.hidden = complete;
-      if (!loading) loadStatus.textContent = complete ? (source?.length ? 'All matching recipes are loaded' : '') : 'Scroll for more recipes';
+      const complete = source
+        ? renderedCount >= source.length
+        : renderedCount >= totalRecipes;
+
+      sentinel.hidden = complete;
+      loadMoreButton.hidden = complete;
+
+      if (recipeLoader) {
+        recipeLoader.hidden = complete && !loading;
+      }
+
+      if (!loading && !complete) {
+        loadStatus.textContent = 'Scroll for more recipes';
+      }
     };
     const loadNextBatch = async () => {
       if (loading) return;
@@ -245,6 +261,7 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
         appendRecipes(next); renderedCount += next.length;
         updateSummary(renderedCount, source.length); emptyState.hidden = source.length > 0; updateLoader();
       } catch (error) {
+        if (recipeLoader) recipeLoader.hidden = false;
         loadStatus.textContent = error instanceof Error ? error.message : 'Could not load more recipes.';
         retryButton.hidden = false; loadMoreButton.hidden = true;
       } finally { setLoading(false); updateLoader(); }
@@ -266,6 +283,7 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
         emptyState.hidden = filteredResults.length > 0;
         updateSummary(renderedCount, filteredResults.length); updateLoader();
       } catch (error) {
+        if (recipeLoader) recipeLoader.hidden = false;
         loadStatus.textContent = error instanceof Error ? error.message : 'Could not filter recipes.'; retryButton.hidden = false;
       } finally { setLoading(false); }
     };

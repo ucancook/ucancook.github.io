@@ -1654,3 +1654,7 @@ body {
     padding-top: 14px;
   }
 }
+/* Native hidden state must override component display declarations. */
+[hidden] {
+  display: none !important;
+}
