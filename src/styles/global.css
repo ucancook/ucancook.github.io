@@ -1884,3 +1884,13 @@ body {
 :root[data-theme='warm'] .site-footer {
   border-color: #f2cbb324;
 }
+/* On phones, show the shopping/checklist information before the method. */
+@media (max-width: 800px) {
+  .recipe-grid > .ingredients {
+    order: 1;
+  }
+
+  .recipe-grid > .method-panel {
+    order: 2;
+  }
+}
