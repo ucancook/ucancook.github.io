@@ -60,7 +60,6 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
           <option value="name">Name: Aâ€“Z</option>
           <option value="quickest">Quickest first</option>
           <option value="ingredients">Fewest ingredients</option>
-          <option value="updated">Recently updated</option>
         </select>
       </label>
     </div>
@@ -295,5 +294,6 @@ const featuredRecipe = recentlyAddedRecipes.find((recipe) => recipe.photos?.[0])
   };
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', initRecipeBrowser, { once: true }) : initRecipeBrowser();
 </script>
+
 
 
