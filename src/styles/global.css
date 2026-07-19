@@ -645,7 +645,7 @@ pre {
   align-content: flex-start;
   overflow-x: visible;
   overflow-y: auto;
-  max-height: 88px;
+  max-height: 116px;
   padding-right: 6px;
   scrollbar-width: thin;
   scrollbar-color: var(--line) transparent;
