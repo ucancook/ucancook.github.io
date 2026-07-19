@@ -86,40 +86,37 @@ const recipeIndex = recipes.map((recipe) => ({
     preferences[slug] = servings;
     localStorage.setItem(servingKey, JSON.stringify(preferences));
   };
-  const fractionGlyphs = {
-    'Â¼': 1 / 4, 'Â½': 1 / 2, 'Â¾': 3 / 4,
-    'â…“': 1 / 3, 'â…”': 2 / 3,
-    'â…›': 1 / 8, 'â…œ': 3 / 8, 'â…': 5 / 8, 'â…ž': 7 / 8,
-  };
 
   const parseNumberToken = (token) => {
     const value = String(token || '').trim();
-    if (!value) return null;
-
-    if (fractionGlyphs[value] != null) return fractionGlyphs[value];
-
-    const glyphMatch = value.match(/^(\d+)?([Â¼Â½Â¾â…“â…”â…›â…œâ…â…ž])$/);
-    if (glyphMatch) {
-      return Number(glyphMatch[1] || 0) + fractionGlyphs[glyphMatch[2]];
-    }
 
     const mixed = value.match(/^(\d+)\s+(\d+)\/(\d+)$/);
-    if (mixed) return Number(mixed[1]) + Number(mixed[2]) / Number(mixed[3]);
+    if (mixed) {
+      return Number(mixed[1]) + Number(mixed[2]) / Number(mixed[3]);
+    }
 
     const fraction = value.match(/^(\d+)\/(\d+)$/);
-    if (fraction) return Number(fraction[1]) / Number(fraction[2]);
+    if (fraction) {
+      return Number(fraction[1]) / Number(fraction[2]);
+    }
 
     const number = Number(value);
     return Number.isFinite(number) ? number : null;
   };
 
-  const gcd = (a, b) => b ? gcd(b, a % b) : Math.abs(a);
+  const gcd = (a, b) => {
+    return b ? gcd(b, a % b) : Math.abs(a);
+  };
 
   const formatScaledNumber = (value) => {
     if (!Number.isFinite(value)) return '';
-    if (Math.abs(value - Math.round(value)) < 0.001) return String(Math.round(value));
+
+    if (Math.abs(value - Math.round(value)) < 0.001) {
+      return String(Math.round(value));
+    }
 
     const sixteenths = Math.round(value * 16);
+
     if (Math.abs(value - sixteenths / 16) < 0.015) {
       const whole = Math.floor(sixteenths / 16);
       const numerator = sixteenths % 16;
@@ -127,220 +124,234 @@ const recipeIndex = recipes.map((recipe) => ({
       if (!numerator) return String(whole);
 
       const divisor = gcd(numerator, 16);
-      const fraction = `${numerator / divisor}/${16 / divisor}`;
-      return whole ? `${whole} ${fraction}` : fraction;
+      const fraction = String(numerator / divisor) + '/' + String(16 / divisor);
+
+      return whole ? String(whole) + ' ' + fraction : fraction;
     }
 
     return String(Math.round(value * 100) / 100);
   };
 
-  const numericTokenPattern = String.raw`(?:\d+\s+\d+\/\d+|\d+\/\d+|\d+[Â¼Â½Â¾â…“â…”â…›â…œâ…â…ž]|\d*\.\d+|\d+)`;
+  const numericTokenPattern =
+    '(?:\\d+\\s+\\d+\\/\\d+|\\d+\\/\\d+|\\d*\\.\\d+|\\d+)';
 
   const scaleAmount = (amount, factor) => {
     const original = String(amount || '').trim();
-    if (!original || Math.abs(factor - 1) < 0.001) return original;
+
+    if (!original || Math.abs(factor - 1) < 0.001) {
+      return original;
+    }
 
     const rangePattern = new RegExp(
-      `^(${numericTokenPattern})\\s*([â€“-])\\s*(${numericTokenPattern})(.*)---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { recipes } from '../../lib/recipes';
-
-const base = import.meta.env.BASE_URL;
-const recipeIndex = recipes.map((recipe) => ({
-  slug: recipe.slug,
-  title: recipe.title,
-  servings: recipe.servings,
-  ingredients: recipe.ingredients,
-}));
----
-
-<BaseLayout
-  title="Shopping list - You can Cook"
-  description="A combined shopping checklist made from one or more recipes."
->
-  <section class="hero shopping-list-hero">
-    <a class="eyebrow" href={base}>&larr; All recipes</a>
-    <h1>Shopping list</h1>
-    <p class="lede">Combine ingredients from several recipes into one practical checklist.</p>
-  </section>
-
-  <section class="shopping-list-shell" data-recipe-index={JSON.stringify(recipeIndex)}>
-    <div class="shopping-list-toolbar">
-      <div>
-        <div class="eyebrow">Selected recipes</div>
-        <p class="shopping-list-summary" id="shopping-list-summary">No recipes added yet.</p>
-      </div>
-
-      <div class="shopping-list-toolbar-actions">
-        <button class="btn secondary" id="shopping-copy" type="button">Copy list</button>
-        <button class="btn secondary" id="shopping-clear-checked" type="button">Clear checked</button>
-        <button class="btn secondary shopping-clear-all" id="shopping-clear-all" type="button">Clear all</button>
-      </div>
-    </div>
-
-    <div class="shopping-selected-recipes" id="shopping-selected-recipes"></div>
-
-    <div class="shopping-empty panel box" id="shopping-empty">
-      <div class="shopping-empty-icon" aria-hidden="true">&#9783;</div>
-      <h2>Your list is empty</h2>
-      <p>Add ingredients from any recipe page. Recipes can be combined and matching ingredient names will be grouped together.</p>
-      <a class="btn primary" href={base}>Browse recipes</a>
-    </div>
-
-    <div class="shopping-groups" id="shopping-groups" hidden></div>
-  </section>
-</BaseLayout>
-
-<script define:vars={{ base }}>
-  const storageKey = 'you-can-cook-shopping-recipes';
-  const checkedKey = 'you-can-cook-shopping-checked';
-  const servingKey = 'you-can-cook-serving-preferences';
-  const shell = document.querySelector('.shopping-list-shell');
-  const recipeIndex = JSON.parse(shell?.dataset.recipeIndex || '[]');
-  const groupsRoot = document.querySelector('#shopping-groups');
-  const emptyState = document.querySelector('#shopping-empty');
-  const summary = document.querySelector('#shopping-list-summary');
-  const recipeChips = document.querySelector('#shopping-selected-recipes');
-  const copyButton = document.querySelector('#shopping-copy');
-  const clearCheckedButton = document.querySelector('#shopping-clear-checked');
-  const clearAllButton = document.querySelector('#shopping-clear-all');
-
-  const normalizeIngredient = (value) =>
-    String(value || '')
-      .toLowerCase()
-      .replace(/\([^)]*\)/g, ' ')
-      .replace(/[^a-z0-9]+/g, ' ')
-      .trim()
-      .replace(/\s+/g, ' ');
-
-  const titleCase = (value) =>
-    String(value || '').replace(/\b\w/g, (letter) => letter.toUpperCase());
-  const readServingPreferences = () => {
-    try {
-      const value = JSON.parse(localStorage.getItem(servingKey) || '{}');
-      return value && typeof value === 'object' ? value : {};
-    } catch {
-      return {};
-    }
-  };
-
-  const saveServingPreference = (slug, servings) => {
-    const preferences = readServingPreferences();
-    preferences[slug] = servings;
-    localStorage.setItem(servingKey, JSON.stringify(preferences));
-  };
-
+      '^(' + numericTokenPattern + ')\\s*[-\u2013]\\s*(' +
+      numericTokenPattern + ')(.*)$'
     );
+
     const range = original.match(rangePattern);
 
     if (range) {
-      const first = parseNumberToken(range[1]);
-      const second = parseNumberToken(range[3]);
+      const low = parseNumberToken(range[1]);
+      const high = parseNumberToken(range[2]);
 
-      if (first != null && second != null) {
-        return `${formatScaledNumber(first * factor)}${range[2]}${formatScaledNumber(second * factor)}${range[4]}`;
+      if (low != null && high != null) {
+        return (
+          formatScaledNumber(low * factor) +
+          '-' +
+          formatScaledNumber(high * factor) +
+          range[3]
+        );
       }
     }
 
-    const leadingPattern = new RegExp(`^(${numericTokenPattern})(.*)---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { recipes } from '../../lib/recipes';
+    const leadingPattern = new RegExp(
+      '^(' + numericTokenPattern + ')(.*)$'
+    );
 
-const base = import.meta.env.BASE_URL;
-const recipeIndex = recipes.map((recipe) => ({
-  slug: recipe.slug,
-  title: recipe.title,
-  servings: recipe.servings,
-  ingredients: recipe.ingredients,
-}));
----
-
-<BaseLayout
-  title="Shopping list - You can Cook"
-  description="A combined shopping checklist made from one or more recipes."
->
-  <section class="hero shopping-list-hero">
-    <a class="eyebrow" href={base}>&larr; All recipes</a>
-    <h1>Shopping list</h1>
-    <p class="lede">Combine ingredients from several recipes into one practical checklist.</p>
-  </section>
-
-  <section class="shopping-list-shell" data-recipe-index={JSON.stringify(recipeIndex)}>
-    <div class="shopping-list-toolbar">
-      <div>
-        <div class="eyebrow">Selected recipes</div>
-        <p class="shopping-list-summary" id="shopping-list-summary">No recipes added yet.</p>
-      </div>
-
-      <div class="shopping-list-toolbar-actions">
-        <button class="btn secondary" id="shopping-copy" type="button">Copy list</button>
-        <button class="btn secondary" id="shopping-clear-checked" type="button">Clear checked</button>
-        <button class="btn secondary shopping-clear-all" id="shopping-clear-all" type="button">Clear all</button>
-      </div>
-    </div>
-
-    <div class="shopping-selected-recipes" id="shopping-selected-recipes"></div>
-
-    <div class="shopping-empty panel box" id="shopping-empty">
-      <div class="shopping-empty-icon" aria-hidden="true">&#9783;</div>
-      <h2>Your list is empty</h2>
-      <p>Add ingredients from any recipe page. Recipes can be combined and matching ingredient names will be grouped together.</p>
-      <a class="btn primary" href={base}>Browse recipes</a>
-    </div>
-
-    <div class="shopping-groups" id="shopping-groups" hidden></div>
-  </section>
-</BaseLayout>
-
-<script define:vars={{ base }}>
-  const storageKey = 'you-can-cook-shopping-recipes';
-  const checkedKey = 'you-can-cook-shopping-checked';
-  const servingKey = 'you-can-cook-serving-preferences';
-  const shell = document.querySelector('.shopping-list-shell');
-  const recipeIndex = JSON.parse(shell?.dataset.recipeIndex || '[]');
-  const groupsRoot = document.querySelector('#shopping-groups');
-  const emptyState = document.querySelector('#shopping-empty');
-  const summary = document.querySelector('#shopping-list-summary');
-  const recipeChips = document.querySelector('#shopping-selected-recipes');
-  const copyButton = document.querySelector('#shopping-copy');
-  const clearCheckedButton = document.querySelector('#shopping-clear-checked');
-  const clearAllButton = document.querySelector('#shopping-clear-all');
-
-  const normalizeIngredient = (value) =>
-    String(value || '')
-      .toLowerCase()
-      .replace(/\([^)]*\)/g, ' ')
-      .replace(/[^a-z0-9]+/g, ' ')
-      .trim()
-      .replace(/\s+/g, ' ');
-
-  const titleCase = (value) =>
-    String(value || '').replace(/\b\w/g, (letter) => letter.toUpperCase());
-  const readServingPreferences = () => {
-    try {
-      const value = JSON.parse(localStorage.getItem(servingKey) || '{}');
-      return value && typeof value === 'object' ? value : {};
-    } catch {
-      return {};
-    }
-  };
-
-  const saveServingPreference = (slug, servings) => {
-    const preferences = readServingPreferences();
-    preferences[slug] = servings;
-    localStorage.setItem(servingKey, JSON.stringify(preferences));
-  };
-);
     const leading = original.match(leadingPattern);
-
     if (!leading) return original;
 
     const numeric = parseNumberToken(leading[1]);
+
     return numeric == null
       ? original
-      : `${formatScaledNumber(numeric * factor)}${leading[2]}`;
+      : formatScaledNumber(numeric * factor) + leading[2];
   };
 
+  const normalizeUnit = (unitText) => {
+    const cleaned = String(unitText || '')
+      .toLowerCase()
+      .replace(/\([^)]*\)/g, ' ')
+      .replace(/\./g, '')
+      .trim()
+      .replace(/\s+/g, ' ');
+
+    const unitMap = {
+      tsp: { family: 'volume-us', factor: 1, label: 'tsp' },
+      teaspoon: { family: 'volume-us', factor: 1, label: 'tsp' },
+      teaspoons: { family: 'volume-us', factor: 1, label: 'tsp' },
+
+      tbsp: { family: 'volume-us', factor: 3, label: 'tbsp' },
+      tablespoon: { family: 'volume-us', factor: 3, label: 'tbsp' },
+      tablespoons: { family: 'volume-us', factor: 3, label: 'tbsp' },
+
+      cup: { family: 'volume-us', factor: 48, label: 'cup' },
+      cups: { family: 'volume-us', factor: 48, label: 'cup' },
+
+      ml: { family: 'volume-metric', factor: 1, label: 'ml' },
+      milliliter: { family: 'volume-metric', factor: 1, label: 'ml' },
+      milliliters: { family: 'volume-metric', factor: 1, label: 'ml' },
+      millilitre: { family: 'volume-metric', factor: 1, label: 'ml' },
+      millilitres: { family: 'volume-metric', factor: 1, label: 'ml' },
+
+      l: { family: 'volume-metric', factor: 1000, label: 'l' },
+      liter: { family: 'volume-metric', factor: 1000, label: 'l' },
+      liters: { family: 'volume-metric', factor: 1000, label: 'l' },
+      litre: { family: 'volume-metric', factor: 1000, label: 'l' },
+      litres: { family: 'volume-metric', factor: 1000, label: 'l' },
+
+      g: { family: 'mass-metric', factor: 1, label: 'g' },
+      gram: { family: 'mass-metric', factor: 1, label: 'g' },
+      grams: { family: 'mass-metric', factor: 1, label: 'g' },
+
+      kg: { family: 'mass-metric', factor: 1000, label: 'kg' },
+      kilogram: { family: 'mass-metric', factor: 1000, label: 'kg' },
+      kilograms: { family: 'mass-metric', factor: 1000, label: 'kg' },
+    };
+
+    return unitMap[cleaned] || {
+      family: 'exact:' + cleaned,
+      factor: 1,
+      label: cleaned,
+    };
+  };
+
+  const parseCombinableAmount = (amount) => {
+    const original = String(amount || '').trim();
+    if (!original) return null;
+
+    const rangePattern = new RegExp(
+      '^(' + numericTokenPattern + ')\\s*[-\u2013]\\s*(' +
+      numericTokenPattern + ')(.*)$'
+    );
+
+    if (rangePattern.test(original)) {
+      return null;
+    }
+
+    const leadingPattern = new RegExp(
+      '^(' + numericTokenPattern + ')\\s*(.*)$'
+    );
+
+    const match = original.match(leadingPattern);
+    if (!match) return null;
+
+    const value = parseNumberToken(match[1]);
+    if (value == null) return null;
+
+    const unit = normalizeUnit(match[2]);
+
+    return {
+      baseValue: value * unit.factor,
+      family: unit.family,
+      label: unit.label,
+      original: original,
+    };
+  };
+
+  const formatUsVolume = (totalTeaspoons) => {
+    let remaining = Math.round(totalTeaspoons * 16) / 16;
+    const parts = [];
+
+    const quarterCups = Math.floor((remaining + 0.001) / 12);
+
+    if (quarterCups > 0) {
+      const cups = quarterCups / 4;
+      parts.push(formatScaledNumber(cups) + ' cup');
+      remaining -= quarterCups * 12;
+    }
+
+    const tablespoons = Math.floor((remaining + 0.001) / 3);
+
+    if (tablespoons > 0) {
+      parts.push(formatScaledNumber(tablespoons) + ' tbsp');
+      remaining -= tablespoons * 3;
+    }
+
+    if (remaining > 0.01) {
+      parts.push(formatScaledNumber(remaining) + ' tsp');
+    }
+
+    return parts.length ? parts.join(' + ') : '0 tsp';
+  };
+
+  const formatMetricVolume = (totalMl) => {
+    if (totalMl >= 1000) {
+      return formatScaledNumber(totalMl / 1000) + ' l';
+    }
+
+    return formatScaledNumber(totalMl) + ' ml';
+  };
+
+  const formatMetricMass = (totalGrams) => {
+    if (totalGrams >= 1000) {
+      return formatScaledNumber(totalGrams / 1000) + ' kg';
+    }
+
+    return formatScaledNumber(totalGrams) + ' g';
+  };
+
+  const combineAmounts = (amounts) => {
+    const totals = new Map();
+    const remaining = [];
+
+    amounts
+      .map((amount) => String(amount || '').trim())
+      .filter(Boolean)
+      .forEach((amount) => {
+        const parsed = parseCombinableAmount(amount);
+
+        if (!parsed) {
+          if (!remaining.includes(amount)) {
+            remaining.push(amount);
+          }
+          return;
+        }
+
+        const existing = totals.get(parsed.family) || {
+          value: 0,
+          label: parsed.label,
+        };
+
+        existing.value += parsed.baseValue;
+        totals.set(parsed.family, existing);
+      });
+
+    const combined = [];
+
+    totals.forEach((group, family) => {
+      if (family === 'volume-us') {
+        combined.push(formatUsVolume(group.value));
+        return;
+      }
+
+      if (family === 'volume-metric') {
+        combined.push(formatMetricVolume(group.value));
+        return;
+      }
+
+      if (family === 'mass-metric') {
+        combined.push(formatMetricMass(group.value));
+        return;
+      }
+
+      combined.push(
+        formatScaledNumber(group.value) +
+        (group.label ? ' ' + group.label : '')
+      );
+    });
+
+    return combined.concat(remaining).join(' + ');
+  };
   const readRecipes = () => {
     try {
       const stored = JSON.parse(localStorage.getItem(storageKey) || '[]');
@@ -372,60 +383,6 @@ const recipeIndex = recipes.map((recipe) => ({
 
   const saveChecked = (checked) => {
     localStorage.setItem(checkedKey, JSON.stringify([...checked]));
-  };
-  const parseAmountForCombination = (amount) => {
-    const original = String(amount || '').trim();
-    if (!original) return null;
-
-    const rangePattern = new RegExp(
-      `^(${numericTokenPattern})\\s*[â€“-]\\s*(${numericTokenPattern})(.*)$`
-    );
-    if (rangePattern.test(original)) return null;
-
-    const leadingPattern = new RegExp(`^(${numericTokenPattern})(.*)$`);
-    const match = original.match(leadingPattern);
-    if (!match) return null;
-
-    const value = parseNumberToken(match[1]);
-    if (value == null) return null;
-
-    const suffix = match[2].trim();
-    return {
-      value,
-      suffix,
-      key: suffix.toLowerCase().replace(/\s+/g, ' '),
-    };
-  };
-
-  const combineAmounts = (amounts) => {
-    const grouped = new Map();
-    const unparsed = [];
-
-    amounts
-      .map((amount) => String(amount || '').trim())
-      .filter(Boolean)
-      .forEach((amount) => {
-        const parsed = parseAmountForCombination(amount);
-
-        if (!parsed) {
-          if (!unparsed.includes(amount)) unparsed.push(amount);
-          return;
-        }
-
-        const current = grouped.get(parsed.key) || {
-          value: 0,
-          suffix: parsed.suffix,
-        };
-
-        current.value += parsed.value;
-        grouped.set(parsed.key, current);
-      });
-
-    const combined = [...grouped.values()].map(({ value, suffix }) =>
-      `${formatScaledNumber(value)}${suffix ? ` ${suffix}` : ''}`
-    );
-
-    return [...combined, ...unparsed].join(' + ');
   };
 
   const buildGroups = (selectedRecipes) => {
