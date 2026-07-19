@@ -1602,3 +1602,16 @@ body {
   .sort-control { width: 100%; justify-content: space-between; }
   .sort-control select { flex: 1; min-width: 0; }
 }
+
+/* Force desktop homepage hero to top-align both columns. */
+@media (min-width: 901px) {
+  .editorial-hero {
+    align-items: start !important;
+  }
+
+  .editorial-hero .hero-copy {
+    align-self: start !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
