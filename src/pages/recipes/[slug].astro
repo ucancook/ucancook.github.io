@@ -13,6 +13,22 @@ const repo = import.meta.env.PUBLIC_GITHUB_REPO || 'ucancook/ucancook.github.io'
 const base = import.meta.env.BASE_URL;
 const canonicalUrl = new URL(`${base}recipes/${recipe.slug}/`, Astro.site || Astro.url.origin).toString();
 const socialImage = recipe.photos?.[0]?.src || `${base}brand/chef-logo.png`;
+const relatedRecipes = recipes
+  .filter((candidate) => candidate.slug !== recipe.slug)
+  .map((candidate) => {
+    const sharedTags = candidate.tags.filter((tag) => recipe.tags.includes(tag));
+    const sharedPrimaryTag = candidate.tags[0] === recipe.tags[0] ? 1 : 0;
+    const hasPhoto = candidate.photos?.length ? 1 : 0;
+    const score = sharedTags.length * 10 + sharedPrimaryTag * 3 + hasPhoto;
+
+    return { recipe: candidate, sharedTags, score };
+  })
+  .filter((item) => item.sharedTags.length > 0)
+  .sort((a, b) =>
+    b.score - a.score ||
+    a.recipe.title.localeCompare(b.recipe.title)
+  )
+  .slice(0, 3);
 const imageUrls = recipe.photos?.map((photo) => new URL(photo.src, Astro.site || Astro.url.origin).toString()) || [];
 const suggestedPhotoFilename = `${recipe.slug}.jpg`;
 const photoUploadUrl = `https://github.com/${repo}/upload/main/public/images/recipes`;
@@ -94,6 +110,50 @@ const schema = {
     </aside>
   </div>
 
+  {relatedRecipes.length > 0 && (
+    <section class="related-recipes" aria-labelledby="related-recipes-title">
+      <div class="related-recipes-heading">
+        <div>
+          <div class="eyebrow">Keep cooking</div>
+          <h2 id="related-recipes-title">Related recipes</h2>
+        </div>
+        <a class="text-link" href={base}>Browse all recipes</a>
+      </div>
+
+      <div class="related-recipes-grid">
+        {relatedRecipes.map(({ recipe: related, sharedTags }) => (
+          <article class="related-recipe-card">
+            <a class="related-recipe-link" href={`${base}recipes/${related.slug}/`}>
+              {related.photos?.[0] ? (
+                <img
+                  class="related-recipe-photo"
+                  src={related.photos[0].src}
+                  alt={related.photos[0].alt || related.title}
+                  loading="lazy"
+                />
+              ) : (
+                <div class="related-recipe-placeholder" aria-hidden="true">
+                  <img src={`${base}brand/chef-logo.png`} alt="" loading="lazy" />
+                </div>
+              )}
+
+              <div class="related-recipe-copy">
+                <div class="related-recipe-tags">
+                  {sharedTags.slice(0, 2).map((tag) => <span>{tag}</span>)}
+                </div>
+                <h3>{related.title}</h3>
+                <p>{related.description}</p>
+                <div class="related-recipe-meta">
+                  <span>{related.prepMinutes + related.cookMinutes} min</span>
+                  <span>{related.ingredients.length} ingredients</span>
+                </div>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
   <section class="panel photo-upload-panel" aria-labelledby="photo-upload-title">
     <div class="photo-upload-copy">
       <div class="eyebrow">Cooked it?</div>
