@@ -30,6 +30,11 @@ const recipeUrls = recipes.map((recipe) => `${base}recipes/${recipe.slug}/`);
         <span>Surprise me</span>
       </button>
 
+      <a class="round shopping-header" href={`${base}shopping-list/`} aria-label="Shopping list" title="Shopping list">
+        <span class="shopping-header-symbol" aria-hidden="true">&#9783;</span>
+        <span class="shopping-header-text">List</span>
+        <span class="shopping-header-count" data-shopping-count hidden>0</span>
+      </a>
       <a class="round add-header" href={`${base}new/`} aria-label="Add recipe">
         <Icon name="plus" />
         <span>Add</span>
@@ -86,6 +91,23 @@ const recipeUrls = recipes.map((recipe) => `${base}recipes/${recipe.slug}/`);
     window.setTimeout(() => searchInput.focus({ preventScroll: true }), 350);
   });
 
+  const paintShoppingCount = () => {
+    const count = document.querySelector('[data-shopping-count]');
+    if (!count) return;
+
+    let total = 0;
+    try {
+      const recipes = JSON.parse(localStorage.getItem('you-can-cook-shopping-recipes') || '[]');
+      total = Array.isArray(recipes) ? recipes.length : 0;
+    } catch {}
+
+    count.textContent = String(total);
+    count.hidden = total === 0;
+  };
+
+  paintShoppingCount();
+  window.addEventListener('shopping-list-changed', paintShoppingCount);
+  window.addEventListener('storage', paintShoppingCount);
   document.querySelector('#surprise-me')?.addEventListener('click', (event) => {
     const button = event.currentTarget;
     const recipeUrls = JSON.parse(button.dataset.recipes || '[]');

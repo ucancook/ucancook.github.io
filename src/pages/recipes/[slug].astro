@@ -67,6 +67,18 @@ const schema = {
     <div class="tags recipe-tags">{recipe.tags.map((tag) => <span class="pill">{tag}</span>)}</div>
     <div class="recipe-actions">
       <button class="btn primary" id="cook-mode-open" type="button"><Icon name="cook" /> Cooking mode</button>
+      <button
+        class="btn secondary shopping-list-toggle"
+        id="shopping-list-toggle"
+        type="button"
+        data-recipe-slug={recipe.slug}
+        data-recipe-title={recipe.title}
+        data-recipe-ingredients={JSON.stringify(recipe.ingredients)}
+        aria-pressed="false"
+      >
+        <span aria-hidden="true">+</span>
+        <span data-shopping-label>Add to shopping list</span>
+      </button>
       <button class="btn secondary" id="share-recipe" type="button"><Icon name="share" /> Share</button>
       <button class="btn secondary" id="print-recipe" type="button"><Icon name="print" /> Print</button>
     </div>
@@ -206,6 +218,52 @@ const schema = {
 </BaseLayout>
 
 <script define:vars={{ recipeTitle: recipe.title, recipeDescription: recipe.description, recipeSlug: recipe.slug, suggestedPhotoFilename }}>
+  const shoppingKey = 'you-can-cook-shopping-recipes';
+  const shoppingButton = document.querySelector('#shopping-list-toggle');
+
+  const getShoppingRecipes = () => {
+    try {
+      const stored = JSON.parse(localStorage.getItem(shoppingKey) || '[]');
+      return Array.isArray(stored) ? stored : [];
+    } catch {
+      return [];
+    }
+  };
+
+  const saveShoppingRecipes = (items) => {
+    localStorage.setItem(shoppingKey, JSON.stringify(items));
+    window.dispatchEvent(new CustomEvent('shopping-list-changed'));
+  };
+
+  const paintShoppingButton = () => {
+    if (!shoppingButton) return;
+    const slug = shoppingButton.dataset.recipeSlug;
+    const added = getShoppingRecipes().some((item) => item.slug === slug);
+    const label = shoppingButton.querySelector('[data-shopping-label]');
+    shoppingButton.classList.toggle('active', added);
+    shoppingButton.setAttribute('aria-pressed', String(added));
+    if (label) label.textContent = added ? 'Remove from shopping list' : 'Add to shopping list';
+  };
+
+  shoppingButton?.addEventListener('click', () => {
+    const slug = shoppingButton.dataset.recipeSlug;
+    const title = shoppingButton.dataset.recipeTitle;
+    const ingredients = JSON.parse(shoppingButton.dataset.recipeIngredients || '[]');
+    const items = getShoppingRecipes();
+    const existingIndex = items.findIndex((item) => item.slug === slug);
+
+    if (existingIndex >= 0) {
+      items.splice(existingIndex, 1);
+    } else {
+      items.push({ slug, title, ingredients });
+    }
+
+    saveShoppingRecipes(items);
+    paintShoppingButton();
+  });
+
+  paintShoppingButton();
+  window.addEventListener('shopping-list-changed', paintShoppingButton);
   const shareButton = document.querySelector('#share-recipe');
   const printButton = document.querySelector('#print-recipe');
   const photoCopyButton = document.querySelector('#copy-photo-filename');

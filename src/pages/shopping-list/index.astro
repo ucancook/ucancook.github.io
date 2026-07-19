@@ -1,0 +1,299 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { recipes } from '../../lib/recipes';
+
+const base = import.meta.env.BASE_URL;
+const recipeIndex = recipes.map((recipe) => ({
+  slug: recipe.slug,
+  title: recipe.title,
+  ingredients: recipe.ingredients,
+}));
+---
+
+<BaseLayout
+  title="Shopping list - You can Cook"
+  description="A combined shopping checklist made from one or more recipes."
+>
+  <section class="hero shopping-list-hero">
+    <a class="eyebrow" href={base}>&larr; All recipes</a>
+    <h1>Shopping list</h1>
+    <p class="lede">Combine ingredients from several recipes into one practical checklist.</p>
+  </section>
+
+  <section class="shopping-list-shell" data-recipe-index={JSON.stringify(recipeIndex)}>
+    <div class="shopping-list-toolbar">
+      <div>
+        <div class="eyebrow">Selected recipes</div>
+        <p class="shopping-list-summary" id="shopping-list-summary">No recipes added yet.</p>
+      </div>
+
+      <div class="shopping-list-toolbar-actions">
+        <button class="btn secondary" id="shopping-copy" type="button">Copy list</button>
+        <button class="btn secondary" id="shopping-clear-checked" type="button">Clear checked</button>
+        <button class="btn secondary shopping-clear-all" id="shopping-clear-all" type="button">Clear all</button>
+      </div>
+    </div>
+
+    <div class="shopping-selected-recipes" id="shopping-selected-recipes"></div>
+
+    <div class="shopping-empty panel box" id="shopping-empty">
+      <div class="shopping-empty-icon" aria-hidden="true">&#9783;</div>
+      <h2>Your list is empty</h2>
+      <p>Add ingredients from any recipe page. Recipes can be combined and matching ingredient names will be grouped together.</p>
+      <a class="btn primary" href={base}>Browse recipes</a>
+    </div>
+
+    <div class="shopping-groups" id="shopping-groups" hidden></div>
+  </section>
+</BaseLayout>
+
+<script define:vars={{ base }}>
+  const storageKey = 'you-can-cook-shopping-recipes';
+  const checkedKey = 'you-can-cook-shopping-checked';
+  const shell = document.querySelector('.shopping-list-shell');
+  const recipeIndex = JSON.parse(shell?.dataset.recipeIndex || '[]');
+  const groupsRoot = document.querySelector('#shopping-groups');
+  const emptyState = document.querySelector('#shopping-empty');
+  const summary = document.querySelector('#shopping-list-summary');
+  const recipeChips = document.querySelector('#shopping-selected-recipes');
+  const copyButton = document.querySelector('#shopping-copy');
+  const clearCheckedButton = document.querySelector('#shopping-clear-checked');
+  const clearAllButton = document.querySelector('#shopping-clear-all');
+
+  const normalizeIngredient = (value) =>
+    String(value || '')
+      .toLowerCase()
+      .replace(/\([^)]*\)/g, ' ')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim()
+      .replace(/\s+/g, ' ');
+
+  const titleCase = (value) =>
+    String(value || '').replace(/\b\w/g, (letter) => letter.toUpperCase());
+
+  const readRecipes = () => {
+    try {
+      const stored = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      if (!Array.isArray(stored)) return [];
+
+      return stored
+        .map((storedRecipe) => {
+          const fresh = recipeIndex.find((recipe) => recipe.slug === storedRecipe.slug);
+          return fresh || storedRecipe;
+        })
+        .filter((recipe) => recipe?.slug && Array.isArray(recipe.ingredients));
+    } catch {
+      return [];
+    }
+  };
+
+  const readChecked = () => {
+    try {
+      return new Set(JSON.parse(localStorage.getItem(checkedKey) || '[]'));
+    } catch {
+      return new Set();
+    }
+  };
+
+  const saveRecipes = (recipes) => {
+    localStorage.setItem(storageKey, JSON.stringify(recipes));
+    window.dispatchEvent(new CustomEvent('shopping-list-changed'));
+  };
+
+  const saveChecked = (checked) => {
+    localStorage.setItem(checkedKey, JSON.stringify([...checked]));
+  };
+
+  const buildGroups = (selectedRecipes) => {
+    const grouped = new Map();
+
+    selectedRecipes.forEach((recipe) => {
+      recipe.ingredients.forEach((ingredient) => {
+        const key = normalizeIngredient(ingredient.item);
+        if (!key) return;
+
+        if (!grouped.has(key)) {
+          grouped.set(key, { key, name: ingredient.item, entries: [] });
+        }
+
+        grouped.get(key).entries.push({
+          amount: ingredient.amount || '',
+          note: ingredient.note || '',
+          recipeTitle: recipe.title,
+        });
+      });
+    });
+
+    const categories = {
+      Produce: [],
+      'Dairy and refrigerated': [],
+      'Pantry and dry goods': [],
+      'Spices and seasonings': [],
+      Other: [],
+    };
+
+    const produceWords = /spinach|palak|onion|garlic|ginger|tomato|cauliflower|broccoli|carrot|pepper|chilli|chili|mint|cilantro|coriander|lemon|lime|beet|potato|mushroom|pea|corn|cabbage|zucchini|cucumber|lettuce|avocado|fruit|apple|banana/;
+    const dairyWords = /milk|yogurt|yoghurt|paneer|cheese|cream|butter|tofu/;
+    const spiceWords = /salt|pepper|cumin|cummin|turmeric|paprika|garam|masala|oregano|basil|thyme|cinnamon|cardamom|clove|spice|seasoning/;
+    const pantryWords = /oil|rice|flour|oat|seed|nut|almond|sauce|vinegar|sugar|honey|lentil|bean|chickpea|bread|pasta|noodle|stock|broth/;
+
+    [...grouped.values()]
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .forEach((group) => {
+        const key = group.key;
+        if (produceWords.test(key)) categories.Produce.push(group);
+        else if (dairyWords.test(key)) categories['Dairy and refrigerated'].push(group);
+        else if (spiceWords.test(key)) categories['Spices and seasonings'].push(group);
+        else if (pantryWords.test(key)) categories['Pantry and dry goods'].push(group);
+        else categories.Other.push(group);
+      });
+
+    return categories;
+  };
+
+  const render = () => {
+    const selectedRecipes = readRecipes();
+    const checked = readChecked();
+    const categories = buildGroups(selectedRecipes);
+    const totalIngredients = Object.values(categories).reduce((sum, items) => sum + items.length, 0);
+
+    if (summary) {
+      summary.textContent = selectedRecipes.length
+        ? `${selectedRecipes.length} recipe${selectedRecipes.length === 1 ? '' : 's'} - ${totalIngredients} grouped ingredient${totalIngredients === 1 ? '' : 's'}`
+        : 'No recipes added yet.';
+    }
+
+    if (recipeChips) {
+      recipeChips.innerHTML = selectedRecipes
+        .map((recipe) => `
+          <div class="shopping-recipe-chip">
+            <a href="${base}recipes/${recipe.slug}/">${recipe.title}</a>
+            <button type="button" data-remove-recipe="${recipe.slug}" aria-label="Remove ${recipe.title} from shopping list">&times;</button>
+          </div>
+        `)
+        .join('');
+    }
+
+    const hasItems = selectedRecipes.length > 0 && totalIngredients > 0;
+    if (emptyState) emptyState.hidden = hasItems;
+    if (groupsRoot) groupsRoot.hidden = !hasItems;
+    if (!groupsRoot || !hasItems) {
+      if (groupsRoot) groupsRoot.innerHTML = '';
+      return;
+    }
+
+    groupsRoot.innerHTML = Object.entries(categories)
+      .filter(([, items]) => items.length)
+      .map(([category, items]) => `
+        <section class="shopping-group panel box">
+          <div class="shopping-group-heading">
+            <h2>${category}</h2>
+            <span>${items.length}</span>
+          </div>
+          <ul>
+            ${items.map((group) => {
+              const isChecked = checked.has(group.key);
+              const amounts = group.entries.map((entry) => entry.amount).filter(Boolean).join(' + ');
+              const sources = [...new Set(group.entries.map((entry) => entry.recipeTitle))];
+              const notes = [...new Set(group.entries.map((entry) => entry.note).filter(Boolean))];
+
+              return `
+                <li class="shopping-item ${isChecked ? 'checked' : ''}">
+                  <label>
+                    <input type="checkbox" data-shopping-item="${group.key}" ${isChecked ? 'checked' : ''} />
+                    <span class="shopping-item-main">
+                      <strong>${titleCase(group.name)}</strong>
+                      ${amounts ? `<span class="shopping-item-amount">${amounts}</span>` : ''}
+                      ${notes.length ? `<small>${notes.join('; ')}</small>` : ''}
+                      <small>For: ${sources.join(', ')}</small>
+                    </span>
+                  </label>
+                </li>
+              `;
+            }).join('')}
+          </ul>
+        </section>
+      `)
+      .join('');
+  };
+
+  document.addEventListener('change', (event) => {
+    const checkbox = event.target.closest('[data-shopping-item]');
+    if (!checkbox) return;
+
+    const checked = readChecked();
+    checkbox.checked ? checked.add(checkbox.dataset.shoppingItem) : checked.delete(checkbox.dataset.shoppingItem);
+    saveChecked(checked);
+    checkbox.closest('.shopping-item')?.classList.toggle('checked', checkbox.checked);
+  });
+
+  document.addEventListener('click', async (event) => {
+    const removeButton = event.target.closest('[data-remove-recipe]');
+    if (removeButton) {
+      const next = readRecipes().filter((recipe) => recipe.slug !== removeButton.dataset.removeRecipe);
+      saveRecipes(next);
+      render();
+      return;
+    }
+
+    if (event.target === clearCheckedButton) {
+      const checked = readChecked();
+      if (!checked.size) return;
+
+      const selectedRecipes = readRecipes();
+      const keep = new Set(
+        Object.values(buildGroups(selectedRecipes))
+          .flat()
+          .map((group) => group.key)
+          .filter((key) => !checked.has(key))
+      );
+
+      const filteredRecipes = selectedRecipes
+        .map((recipe) => ({
+          ...recipe,
+          ingredients: recipe.ingredients.filter((ingredient) =>
+            keep.has(normalizeIngredient(ingredient.item))
+          ),
+        }))
+        .filter((recipe) => recipe.ingredients.length);
+
+      saveRecipes(filteredRecipes);
+      localStorage.removeItem(checkedKey);
+      render();
+      return;
+    }
+
+    if (event.target === clearAllButton) {
+      localStorage.removeItem(storageKey);
+      localStorage.removeItem(checkedKey);
+      window.dispatchEvent(new CustomEvent('shopping-list-changed'));
+      render();
+      return;
+    }
+
+    if (event.target === copyButton) {
+      const categories = buildGroups(readRecipes());
+      const text = Object.entries(categories)
+        .filter(([, items]) => items.length)
+        .map(([category, items]) => {
+          const lines = items.map((group) => {
+            const amounts = group.entries.map((entry) => entry.amount).filter(Boolean).join(' + ');
+            return `- ${amounts ? `${amounts} ` : ''}${group.name}`;
+          });
+          return `${category}\n${lines.join('\n')}`;
+        })
+        .join('\n\n');
+
+      try {
+        await navigator.clipboard.writeText(text);
+        copyButton.textContent = 'Copied';
+        window.setTimeout(() => { copyButton.textContent = 'Copy list'; }, 1600);
+      } catch {
+        copyButton.textContent = 'Could not copy';
+      }
+    }
+  });
+
+  render();
+  window.addEventListener('storage', render);
+</script>
