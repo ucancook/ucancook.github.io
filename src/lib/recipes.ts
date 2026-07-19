@@ -31,6 +31,8 @@ const cuisineAliases = new Set(['chinese', 'japanese', 'japenese', 'thai']);
 const removedTags = new Set([
   'brunch', 'lunch', 'snack', 'high fiber', 'one pot', 'meal prep',
   'kid friendly', 'dairy free', 'gluten free', 'gluten-free', 'mid calorie', 'high calorie',
+  'restaurant style',
+  'resturant style',
 ]);
 
 const consolidateTags = (tags: string[]) => {
