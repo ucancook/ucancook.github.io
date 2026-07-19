@@ -1,0 +1,41 @@
+{
+  "slug": "jaljeera",
+  "title": "Jaljeera",
+  "description": "A refreshing North Indian cumin and mint cooler with a tangy, spicy kick. Perfect before meals or on hot summer days.",
+  "prepMinutes": 10,
+  "cookMinutes": 5,
+  "servings": 6,
+  "tags": [
+    "Indian",
+    "Drink",
+    "Summer",
+    "Healthy",
+    "Vegetarian",
+    "Quick",
+    "Gluten-free"
+  ],
+  "ingredients": [
+    { "amount": "1 cup", "item": "fresh mint leaves" },
+    { "amount": "1/2 cup", "item": "fresh cilantro" },
+    { "amount": "2 tsp", "item": "roasted cumin powder" },
+    { "amount": "1 tsp", "item": "black salt" },
+    { "amount": "1/2 tsp", "item": "regular salt" },
+    { "amount": "1 tsp", "item": "chaat masala" },
+    { "amount": "1 inch", "item": "ginger" },
+    { "amount": "2 tbsp", "item": "lemon juice" },
+    { "amount": "1", "item": "green chili", "note": "optional" },
+    { "amount": "4 cups", "item": "cold water" },
+    { "amount": "as needed", "item": "ice cubes" }
+  ],
+  "steps": [
+    "Blend the mint, cilantro, ginger, green chili, lemon juice, cumin powder, black salt, salt, and chaat masala with a little water until smooth.",
+    "Strain if desired.",
+    "Mix with the remaining cold water.",
+    "Serve over ice and garnish with mint leaves."
+  ],
+  "notes": [
+    "Serve very cold.",
+    "A pinch of boondi makes it even more authentic."
+  ],
+  "updated": "2026-07-18"
+}
