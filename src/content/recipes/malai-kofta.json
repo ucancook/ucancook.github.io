@@ -1,0 +1,148 @@
+{
+  "slug": "malai-kofta",
+  "title": "Restaurant-Style Malai Kofta",
+  "description": "Soft paneer and potato koftas served in a silky, buttery tomato-cashew gravy finished with cream and Kasoori methi.",
+  "prepMinutes": 35,
+  "cookMinutes": 50,
+  "servings": 6,
+  "tags": [
+    "Indian",
+    "Dinner",
+    "Special",
+    "Vegetarian",
+    "Restaurant Style"
+  ],
+  "ingredients": [
+    {
+      "amount": "250 g",
+      "item": "paneer",
+      "note": "grated"
+    },
+    {
+      "amount": "3 medium",
+      "item": "potatoes",
+      "note": "boiled and mashed"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "cornstarch"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "raisins",
+      "note": "optional"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "cashews",
+      "note": "finely chopped; optional kofta filling"
+    },
+    {
+      "amount": "oil",
+      "item": "for frying"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "butter"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "oil"
+    },
+    {
+      "amount": "2 medium",
+      "item": "yellow onions",
+      "note": "roughly chopped"
+    },
+    {
+      "amount": "8 cloves",
+      "item": "garlic"
+    },
+    {
+      "amount": "1 inch",
+      "item": "ginger"
+    },
+    {
+      "amount": "700 g",
+      "item": "tomatoes",
+      "note": "fresh or canned"
+    },
+    {
+      "amount": "20",
+      "item": "cashews"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "tomato paste",
+      "note": "optional, for richer color"
+    },
+    {
+      "amount": "2",
+      "item": "green cardamom pods"
+    },
+    {
+      "amount": "2",
+      "item": "cloves"
+    },
+    {
+      "amount": "1",
+      "item": "bay leaf"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "Kashmiri red chilli powder"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "coriander powder"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "turmeric"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "Kasoori methi"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "garam masala"
+    },
+    {
+      "amount": "3/4 cup",
+      "item": "heavy cream"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "sugar",
+      "note": "only if the tomatoes are acidic"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    }
+  ],
+  "steps": [
+    "Mix the mashed potatoes, grated paneer, cornstarch, and salt until smooth. If using, place a few chopped cashews and raisins in the center of each kofta before shaping into balls.",
+    "Deep-fry (or air-fry) until evenly golden brown. Remove and set aside.",
+    "Heat the butter and oil in a heavy-bottomed pan.",
+    "Add the bay leaf, cloves, and green cardamom. Cook for about 30 seconds until fragrant.",
+    "Add the onions and cook slowly for 12–15 minutes until deep golden brown.",
+    "Add the garlic and ginger and sauté for another minute.",
+    "Add the tomatoes, tomato paste (if using), cashews, Kashmiri chilli powder, coriander powder, turmeric, and salt. Cook for 20–25 minutes until the tomatoes completely break down and the butter starts separating.",
+    "Remove the whole spices and blend the gravy until completely smooth. For a restaurant-style finish, strain through a fine mesh sieve.",
+    "Return the gravy to the pan. Add the cream and simmer gently for 8–10 minutes.",
+    "Crush the Kasoori methi between your palms and stir it into the gravy. Finish with the garam masala and a small knob of butter.",
+    "Taste and adjust the seasoning. Add sugar only if needed to balance the tomatoes.",
+    "Pour the hot gravy into serving bowls. Add the koftas just before serving so they remain crisp on the outside.",
+    "Finish with a swirl of cream, a small dollop of cream in the center, and garnish with fresh cilantro."
+  ],
+  "notes": [
+    "The smoother the gravy, the more restaurant-like the final dish. Blend thoroughly and strain if possible.",
+    "Always add the koftas at the last minute; leaving them in the gravy too long makes them soft.",
+    "Kashmiri chilli powder provides the characteristic orange color without excessive heat.",
+    "Kasoori methi should always be added near the end to preserve its aroma.",
+    "Serve with butter naan, garlic naan, laccha paratha, or jeera rice."
+  ],
+  "updated": "2026-07-23"
+}
