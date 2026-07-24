@@ -1,0 +1,93 @@
+{
+  "slug": "creamy-tomato-basil-soup",
+  "title": "Creamy Tomato Basil Soup with Grilled Cheese",
+  "description": "A rich, velvety tomato soup made with slow-cooked onions, garlic, basil, and tomatoes, finished with cream and milk. Best served with a crispy, buttery grilled cheese sandwich.",
+  "prepMinutes": 15,
+  "cookMinutes": 45,
+  "servings": 6,
+  "tags": [
+    "Soup",
+    "Dinner",
+    "Vegetarian",
+    "Healthy",
+    "Meal Prep",
+    "Comfort Food"
+  ],
+  "ingredients": [
+    {
+      "amount": "2 kg",
+      "item": "crushed tomatoes or whole tomatoes"
+    },
+    {
+      "amount": "500 g",
+      "item": "yellow onions",
+      "note": "roughly chopped (1:4 onion-to-tomato ratio)"
+    },
+    {
+      "amount": "8 cloves",
+      "item": "garlic"
+    },
+    {
+      "amount": "15-20",
+      "item": "fresh basil leaves"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "olive oil or butter"
+    },
+    {
+      "amount": "1 cup",
+      "item": "milk"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "heavy cream"
+    },
+    {
+      "amount": "1-2 tsp",
+      "item": "sugar",
+      "note": "only to balance tomato acidity"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "freshly ground black pepper"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    },
+    {
+      "amount": "12 slices",
+      "item": "sandwich bread"
+    },
+    {
+      "amount": "12 slices",
+      "item": "cheddar, mozzarella, or American cheese"
+    },
+    {
+      "amount": "2-3 tbsp",
+      "item": "butter",
+      "note": "for grilling the sandwiches"
+    }
+  ],
+  "steps": [
+    "Heat the olive oil or butter in a large pot over medium heat.",
+    "Add the onions with a pinch of salt and cook for 10–15 minutes until soft and lightly golden.",
+    "Add the garlic and sauté for about a minute until fragrant.",
+    "Add the tomatoes and basil. Simmer uncovered for 25–30 minutes until thick and flavorful.",
+    "Blend the soup until completely smooth using an immersion blender or countertop blender.",
+    "Return the soup to the pot. Stir in the milk and heavy cream.",
+    "Season with salt, black pepper, and sugar as needed to balance the acidity. Simmer gently for another 5–10 minutes. Do not boil after adding the dairy.",
+    "Meanwhile, butter both sides of each bread slice. Add cheese between two slices and toast in a skillet over medium-low heat until golden brown and crisp on both sides and the cheese has fully melted.",
+    "Slice each grilled cheese diagonally and serve alongside the hot tomato soup.",
+    "Finish the soup with a swirl of cream, freshly cracked black pepper, and chopped basil."
+  ],
+  "notes": [
+    "Use good-quality canned tomatoes such as San Marzano for the best flavor.",
+    "Roasting the tomatoes and garlic before cooking adds even more depth.",
+    "Strain the soup after blending for an ultra-smooth restaurant-style texture.",
+    "Gruyère, sharp cheddar, Havarti, or a cheddar-mozzarella blend make excellent grilled cheese sandwiches.",
+    "The sugar should only soften the acidity of the tomatoes—it should never make the soup taste sweet."
+  ],
+  "updated": "2026-07-18"
+}
