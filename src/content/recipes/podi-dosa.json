@@ -1,0 +1,105 @@
+{
+  "slug": "podi-dosa",
+  "title": "Podi Dosa with Coconut Chutney",
+  "description": "A crispy South Indian dosa made from a fermented rice and urad dal batter, served with coconut chutney and podi masala.",
+  "prepMinutes": 20,
+  "cookMinutes": 8,
+  "servings": 8,
+  "tags": [
+    "Breakfast",
+    "Indian",
+    "Vegetarian",
+    "Meal Prep",
+    "South Indian"
+  ],
+  "ingredients": [
+    {
+      "amount": "320 g",
+      "item": "rice"
+    },
+    {
+      "amount": "125 g",
+      "item": "urad dal"
+    },
+    {
+      "amount": "35 g",
+      "item": "thick poha"
+    },
+    {
+      "amount": "10 g",
+      "item": "chana dal",
+      "note": "optional"
+    },
+    {
+      "amount": "8 g",
+      "item": "fenugreek seeds"
+    },
+    {
+      "amount": "3 g",
+      "item": "salt"
+    },
+    {
+      "amount": "as required",
+      "item": "water"
+    },
+    {
+      "amount": "as needed",
+      "item": "oil or ghee",
+      "note": "for cooking"
+    },
+    {
+      "amount": "to serve",
+      "item": "podi masala"
+    }
+  ],
+  "steps": [
+    "Rinse the rice and urad dal thoroughly.",
+    "Soak the rice, poha, chana dal (if using), and fenugreek seeds together in one bowl. Soak the urad dal separately. Let both soak for 6-8 hours.",
+    "Grind the soaked urad dal with a little water into a smooth, light, and fluffy batter.",
+    "Grind the soaked rice mixture into a smooth batter.",
+    "Combine both batters, add the salt, and mix well. Cover and ferment for 8-10 hours or overnight until the batter has risen.",
+    "Heat a non-stick or cast-iron dosa tawa over medium-high heat.",
+    "Pour one ladle of batter in the center and spread it outward in a circular motion to form a thin dosa.",
+    "Drizzle oil or ghee around the edges and cook until the bottom is golden brown and crisp. Fold or roll the dosa.",
+    "Serve hot with podi masala and coconut chutney."
+  ],
+  "notes": [
+    "A well-fermented batter is the key to crisp dosas.",
+    "Use a cast-iron tawa for the best texture.",
+    "Spread the batter immediately after pouring before it begins to set."
+  ],
+  "chutney": {
+    "title": "Coconut Chutney",
+    "ingredients": [
+      {
+        "amount": "1",
+        "item": "fresh coconut"
+      },
+      {
+        "amount": "20 g",
+        "item": "urad dal"
+      },
+      {
+        "amount": "4",
+        "item": "green chilies"
+      },
+      {
+        "amount": "10 g",
+        "item": "fresh coriander"
+      },
+      {
+        "amount": "1 tsp",
+        "item": "salt"
+      },
+      {
+        "amount": "as required",
+        "item": "water"
+      }
+    ],
+    "steps": [
+      "Blend all the ingredients with enough water until smooth.",
+      "Adjust the consistency and salt before serving."
+    ]
+  },
+  "updated": "2026-07-30"
+}
