@@ -3268,3 +3268,46 @@ body {
     align-self: center;
   }
 }
+
+/* Final mobile header geometry fix */
+.site-header nav {
+  flex-shrink: 0;
+}
+
+.site-header .round,
+.site-header .shopping-header,
+.site-header .header-search,
+.site-header .surprise-button {
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
+}
+
+@media (max-width: 480px) {
+  .site-header .round,
+  .site-header .shopping-header,
+  .site-header .header-search,
+  .site-header .surprise-button {
+    width: 36px;
+    min-width: 36px;
+    max-width: 36px;
+    height: 36px;
+    min-height: 36px;
+    max-height: 36px;
+    padding: 0;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 350px) {
+  .site-header .round,
+  .site-header .shopping-header,
+  .site-header .header-search,
+  .site-header .surprise-button {
+    width: 34px;
+    min-width: 34px;
+    max-width: 34px;
+    height: 34px;
+    min-height: 34px;
+    max-height: 34px;
+  }
+}
