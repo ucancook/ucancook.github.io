@@ -3269,45 +3269,62 @@ body {
   }
 }
 
-/* Final mobile header geometry fix */
+/* Final header geometry correction.
+   Only circular icon controls are prevented from shrinking.
+   The text-based Surprise button remains a pill on desktop. */
 .site-header nav {
   flex-shrink: 0;
 }
 
-.site-header .round,
-.site-header .shopping-header,
-.site-header .header-search,
-.site-header .surprise-button {
-  flex: 0 0 auto;
+.site-header .round {
+  flex-shrink: 0;
+}
+
+.site-header .shopping-header.round {
+  flex: 0 0 44px !important;
+  width: 44px !important;
+  min-width: 44px !important;
+  max-width: 44px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
   aspect-ratio: 1 / 1;
 }
 
+@media (max-width: 800px) {
+  .site-header .shopping-header.round {
+    flex-basis: 40px !important;
+    width: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+  }
+}
+
 @media (max-width: 480px) {
-  .site-header .round,
-  .site-header .shopping-header,
-  .site-header .header-search,
-  .site-header .surprise-button {
-    width: 36px;
-    min-width: 36px;
-    max-width: 36px;
-    height: 36px;
-    min-height: 36px;
-    max-height: 36px;
-    padding: 0;
-    border-radius: 50%;
+  .site-header .shopping-header.round {
+    flex-basis: 36px !important;
+    width: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
   }
 }
 
 @media (max-width: 350px) {
-  .site-header .round,
-  .site-header .shopping-header,
-  .site-header .header-search,
-  .site-header .surprise-button {
-    width: 34px;
-    min-width: 34px;
-    max-width: 34px;
-    height: 34px;
-    min-height: 34px;
-    max-height: 34px;
+  .site-header .shopping-header.round {
+    flex-basis: 34px !important;
+    width: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
   }
 }
