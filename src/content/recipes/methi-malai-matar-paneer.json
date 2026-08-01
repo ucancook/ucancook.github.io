@@ -1,0 +1,168 @@
+{
+  "slug": "methi-malai-matar-paneer",
+  "title": "Methi Malai Matar Paneer",
+  "description": "A luxurious restaurant-style curry featuring paneer, green peas, fresh fenugreek leaves, and a silky onion-cashew cream sauce finished with a fragrant roasted methi masala and ghee tadka.",
+  "prepMinutes": 20,
+  "cookMinutes": 35,
+  "servings": 4,
+  "tags": [
+    "Indian",
+    "Dinner",
+    "Vegetarian",
+    "Paneer",
+    "Restaurant Style",
+    "Special"
+  ],
+  "ingredients": [
+    {
+      "amount": "250 g",
+      "item": "paneer",
+      "note": "cubed"
+    },
+    {
+      "amount": "1 cup",
+      "item": "green peas"
+    },
+    {
+      "amount": "2 cups",
+      "item": "fresh fenugreek (methi) leaves",
+      "note": "preferred; if unavailable, substitute with 3–4 tbsp Kasoori methi"
+    },
+    {
+      "amount": "3 tbsp",
+      "item": "Kasoori methi",
+      "note": "divided"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "ghee"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "oil"
+    },
+    {
+      "amount": "1 inch",
+      "item": "ginger",
+      "note": "roughly chopped"
+    },
+    {
+      "amount": "2",
+      "item": "white onions",
+      "note": "thinly sliced"
+    },
+    {
+      "amount": "1½ cups",
+      "item": "plain yogurt"
+    },
+    {
+      "amount": "20",
+      "item": "cashews",
+      "note": "blanched"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "heavy cream"
+    },
+    {
+      "amount": "2",
+      "item": "green chilies",
+      "note": "slit"
+    },
+    {
+      "amount": "2",
+      "item": "green cardamom"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "asafoetida (hing)"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    }
+  ],
+  "steps": [
+    "Blanch the cashews in boiling salted water for 5 minutes. Drain and set aside.",
+    "Heat the oil in a saucepan. Add the ginger and sliced onions with a pinch of salt. Cook over medium heat until soft and translucent without browning.",
+    "Reduce the heat and stir in the yogurt gradually. Cook gently for 3–4 minutes until smooth.",
+    "Add the blanched cashews and 1/2 cup water. Simmer for 5 minutes.",
+    "Blend everything into a completely smooth puree, then strain for an ultra-silky restaurant-style gravy.",
+    "In the same pan, heat the ghee. Add the hing and lightly crushed green cardamom seeds.",
+    "Pour in the strained gravy and simmer for 8–10 minutes until slightly thickened.",
+    "Meanwhile, melt a little butter in another pan. Sauté the peas with the fresh methi leaves for about 4 minutes until the methi just wilts. If using Kasoori methi instead, simply crush it between your palms and add it directly to the gravy during the final simmer.",
+    "Add the sautéed peas, methi, paneer cubes, slit green chilies, and half of the roasted methi masala to the gravy.",
+    "Pour in the heavy cream and gently simmer for another 3–4 minutes. Avoid boiling vigorously after adding the cream.",
+    "Taste and adjust the salt.",
+    "Finish by crushing the remaining Kasoori methi between your palms directly into the curry.",
+    "Serve with the hot ghee tadka, another drizzle of fresh cream, a sprinkle of roasted methi masala, fresh coriander, and a few peas on top."
+  ],
+  "components": {
+    "roastedMethiMasala": {
+      "ingredients": [
+        {
+          "amount": "2",
+          "item": "green cardamom"
+        },
+        {
+          "amount": "1/2 tsp",
+          "item": "cumin seeds"
+        },
+        {
+          "amount": "1 tsp",
+          "item": "black peppercorns"
+        },
+        {
+          "amount": "2 tbsp",
+          "item": "Kasoori methi"
+        },
+        {
+          "amount": "1/2 tsp",
+          "item": "salt"
+        }
+      ],
+      "steps": [
+        "Dry roast all ingredients over low heat for about 1 minute.",
+        "Cool completely and grind into a fine powder."
+      ]
+    },
+    "gheeTadka": {
+      "ingredients": [
+        {
+          "amount": "2 tbsp",
+          "item": "ghee"
+        },
+        {
+          "amount": "2",
+          "item": "whole dried red chilies"
+        },
+        {
+          "amount": "8",
+          "item": "cashews"
+        },
+        {
+          "amount": "1/2 tsp",
+          "item": "Kashmiri red chilli powder"
+        }
+      ],
+      "steps": [
+        "Heat the ghee.",
+        "Fry the cashews until lightly golden.",
+        "Add the dried red chilies.",
+        "Turn off the heat and stir in the Kashmiri red chilli powder.",
+        "Immediately pour over the finished curry."
+      ]
+    }
+  },
+  "notes": [
+    "Using white onions keeps the gravy naturally pale and sweet.",
+    "Fresh methi gives the curry its signature texture and slightly bitter freshness. If you can't find fresh leaves, substitute with 3–4 tablespoons of Kasoori methi. The flavor won't be exactly the same, but it still makes an excellent curry.",
+    "Fresh methi provides body while Kasoori methi gives the signature restaurant aroma—using both creates a much richer flavor.",
+    "Straining the gravy is the key to achieving a silky restaurant-style texture.",
+    "For an even richer version, replace half of the yogurt with fresh cream.",
+    "Paneer should only simmer for a few minutes to remain soft.",
+    "A small pinch of sugar can be added if the methi tastes more bitter than desired.",
+    "Serve with butter naan, garlic naan, laccha paratha, or jeera rice."
+  ],
+  "updated": "2026-08-01"
+}
