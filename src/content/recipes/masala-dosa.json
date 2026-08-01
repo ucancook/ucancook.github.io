@@ -1,0 +1,249 @@
+{
+  "slug": "masala-dosa",
+  "title": "Crispy Masala Dosa with Coconut and Onion-Tomato Chutney",
+  "description": "Crisp fermented rice-and-lentil dosas filled with a lightly spiced potato masala and served with coconut chutney and a tangy onion-tomato chutney.",
+  "prepMinutes": 45,
+  "cookMinutes": 50,
+  "servings": 8,
+  "tags": [
+    "Breakfast",
+    "Indian",
+    "South Indian",
+    "Vegetarian",
+    "Meal Prep"
+  ],
+  "ingredients": [
+    {
+      "amount": "3 cups",
+      "item": "idli rice or sona masoori rice",
+      "note": "for the dosa batter"
+    },
+    {
+      "amount": "1 cup",
+      "item": "urad dal",
+      "note": "for the dosa batter"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "chana dal",
+      "note": "helps produce a golden, crisp dosa"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "fenugreek seeds"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "thick poha"
+    },
+    {
+      "amount": "as required",
+      "item": "water",
+      "note": "for soaking, grinding, and adjusting the batter"
+    },
+    {
+      "amount": "1 1/2 tsp",
+      "item": "salt",
+      "note": "for the fermented batter"
+    },
+    {
+      "amount": "as needed",
+      "item": "oil, ghee, or butter",
+      "note": "for cooking the dosas"
+    },
+    {
+      "amount": "5 medium",
+      "item": "potatoes",
+      "note": "boiled, peeled, and lightly mashed"
+    },
+    {
+      "amount": "2 medium",
+      "item": "onions",
+      "note": "thinly sliced; for the potato masala"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "oil",
+      "note": "for the potato masala"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "mustard seeds",
+      "note": "for the potato masala"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "urad dal",
+      "note": "for tempering the potato masala"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "chana dal",
+      "note": "for tempering the potato masala"
+    },
+    {
+      "amount": "12–15",
+      "item": "curry leaves",
+      "note": "for the potato masala"
+    },
+    {
+      "amount": "3",
+      "item": "green chilies",
+      "note": "finely chopped"
+    },
+    {
+      "amount": "1 inch",
+      "item": "ginger",
+      "note": "finely chopped"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "turmeric"
+    },
+    {
+      "amount": "1/4 tsp",
+      "item": "asafoetida",
+      "note": "optional"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "water",
+      "note": "for loosening the potato masala"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "fresh cilantro",
+      "note": "chopped"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "lemon juice",
+      "note": "for finishing the potato masala"
+    },
+    {
+      "amount": "1 cup",
+      "item": "fresh or frozen grated coconut",
+      "note": "for the coconut chutney"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "roasted chana dal",
+      "note": "for the coconut chutney"
+    },
+    {
+      "amount": "2",
+      "item": "green chilies",
+      "note": "for the coconut chutney"
+    },
+    {
+      "amount": "1/2 inch",
+      "item": "ginger",
+      "note": "for the coconut chutney"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "water",
+      "note": "adjust for the desired chutney consistency"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "oil",
+      "note": "for tempering the coconut chutney"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "mustard seeds",
+      "note": "for tempering the coconut chutney"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "urad dal",
+      "note": "for tempering the coconut chutney"
+    },
+    {
+      "amount": "1",
+      "item": "dried red chili",
+      "note": "for tempering the coconut chutney"
+    },
+    {
+      "amount": "5–6",
+      "item": "curry leaves",
+      "note": "for tempering the coconut chutney"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "oil",
+      "note": "for the onion-tomato chutney"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "chana dal",
+      "note": "for the onion-tomato chutney"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "urad dal",
+      "note": "for the onion-tomato chutney"
+    },
+    {
+      "amount": "4",
+      "item": "dried red chilies",
+      "note": "adjust to taste"
+    },
+    {
+      "amount": "1 medium",
+      "item": "onion",
+      "note": "roughly chopped; for the onion-tomato chutney"
+    },
+    {
+      "amount": "2 medium",
+      "item": "tomatoes",
+      "note": "roughly chopped"
+    },
+    {
+      "amount": "2 cloves",
+      "item": "garlic"
+    },
+    {
+      "amount": "1 small piece",
+      "item": "tamarind",
+      "note": "or 1/2 tsp tamarind paste"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    }
+  ],
+  "steps": [
+    "Rinse the rice thoroughly and soak it with the fenugreek seeds for 4–6 hours.",
+    "Rinse the urad dal and chana dal, then soak them separately for 4–6 hours. Soak the poha for approximately 20 minutes before grinding.",
+    "Drain the urad dal mixture and grind it with cold water added gradually until the batter becomes very smooth, light, and fluffy.",
+    "Drain the rice and grind it with the soaked poha into a smooth but slightly grainy batter. Avoid adding excessive water.",
+    "Combine both batters in a large vessel and mix vigorously by hand for 2–3 minutes. The batter should be thick but pourable.",
+    "Cover loosely and ferment in a warm place for 8–12 hours, or until the batter has risen noticeably and smells mildly sour.",
+    "After fermentation, gently mix in the salt. Add a little water as required; the batter should spread easily without becoming watery.",
+    "For the potato masala, heat the oil and add the mustard seeds. Once they crackle, add the urad dal, chana dal, curry leaves, asafoetida, green chilies, and ginger.",
+    "Add the sliced onions and a pinch of salt. Cook until the onions soften but do not become deeply browned.",
+    "Add the turmeric, boiled potatoes, and water. Break the potatoes into uneven pieces while mixing and cook until the masala is moist but not watery.",
+    "Turn off the heat and finish the potato masala with cilantro and lemon juice. Keep it warm.",
+    "For the coconut chutney, blend the coconut, roasted chana dal, green chilies, ginger, salt, and water until smooth.",
+    "Heat the oil for the coconut chutney tempering. Add mustard seeds, urad dal, dried red chili, and curry leaves. Pour the tempering over the chutney.",
+    "For the onion-tomato chutney, heat the oil and roast the chana dal, urad dal, and dried red chilies until aromatic and lightly golden.",
+    "Add the onion and garlic and cook until softened. Add the tomatoes, tamarind, and salt, then cook until the tomatoes collapse and excess moisture evaporates.",
+    "Cool the onion-tomato mixture slightly and blend it into a smooth or slightly coarse chutney. Add a small amount of water only if necessary.",
+    "Heat a cast-iron or non-stick dosa tawa over medium-high heat. Sprinkle a few drops of water on it; they should evaporate immediately.",
+    "Lightly grease the tawa and wipe away the excess. Pour one ladle of batter in the center and spread it rapidly outward in concentric circles.",
+    "Drizzle oil, ghee, or butter around the edge and over the surface. Cook until the dosa becomes golden, crisp, and releases easily from the pan.",
+    "Place a portion of potato masala in the center, spread it slightly, and fold or roll the dosa.",
+    "Serve immediately with coconut chutney and onion-tomato chutney."
+  ],
+  "notes": [
+    "Fermentation time depends heavily on room temperature. In a cold climate, place the batter in an oven with only the light switched on.",
+    "Do not use excess water while grinding. A thin batter ferments poorly and produces soft dosas.",
+    "The tawa must be hot enough to prevent sticking but not so hot that the batter sets before it can be spread.",
+    "Cool an overheated tawa by wiping it with a damp cloth or a cut onion before making the next dosa.",
+    "Salt the full batter only after fermentation unless your kitchen is very warm and fermentation is rapid.",
+    "Use oil instead of ghee or butter for a vegan version."
+  ],
+  "updated": "2026-08-01"
+}
