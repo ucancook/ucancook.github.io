@@ -1,17 +1,17 @@
 {
   "slug": "grilled-chicken-ravioli-alfredo",
-  "title": "Grilled Chicken Ravioli Alfredo",
-  "description": "Cheese ravioli served in a rich garlic Parmesan cream sauce with grilled chicken, mushrooms, cherry tomatoes, fresh basil, and Parmesan.",
+  "title": "Grilled Chicken Ravioli in Creamy Basil Ricotta Sauce",
+  "description": "Cheese ravioli served in a silky basil-ricotta-Parmesan cream sauce with grilled chicken, mushrooms, cherry tomatoes, mozzarella pearls, and fresh basil.",
   "prepMinutes": 15,
-  "cookMinutes": 25,
+  "cookMinutes": 20,
   "servings": 2,
   "tags": [
     "Italian",
     "Dinner",
     "Chicken",
     "High protein",
-    "Comfort Food",
-    "Restaurant Style"
+    "Restaurant Style",
+    "Comfort Food"
   ],
   "ingredients": [
     {
@@ -48,9 +48,31 @@
       "item": "butter"
     },
     {
-      "amount": "5 cloves",
+      "amount": "4 cloves",
       "item": "garlic",
       "note": "finely minced"
+    },
+    {
+      "amount": "1 cup",
+      "item": "heavy cream"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "whole milk ricotta cheese"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "Parmesan cheese",
+      "note": "freshly grated"
+    },
+    {
+      "amount": "1/4 cup",
+      "item": "fresh basil leaves",
+      "note": "packed"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "Italian seasoning"
     },
     {
       "amount": "150 g",
@@ -58,78 +80,57 @@
       "note": "sliced"
     },
     {
-      "amount": "1 cup",
-      "item": "heavy cream"
-    },
-    {
-      "amount": "1/4 cup",
-      "item": "whole milk"
-    },
-    {
-      "amount": "3/4 cup",
-      "item": "Parmesan cheese",
-      "note": "freshly grated"
-    },
-    {
-      "amount": "1 tbsp",
-      "item": "cream cheese",
-      "note": "optional; for extra richness"
-    },
-    {
-      "amount": "1 tsp",
-      "item": "Italian seasoning"
-    },
-    {
-      "amount": "1/2 tsp",
-      "item": "red chili flakes",
-      "note": "optional"
-    },
-    {
       "amount": "8",
       "item": "cherry tomatoes",
       "note": "halved"
     },
     {
-      "amount": "6-8",
-      "item": "fresh basil leaves"
+      "amount": "75 g",
+      "item": "fresh mozzarella pearls"
     },
     {
       "amount": "2 tbsp",
-      "item": "fresh parsley",
-      "note": "finely chopped"
+      "item": "fresh Parmesan",
+      "note": "for garnish"
+    },
+    {
+      "amount": "6-8",
+      "item": "fresh basil leaves",
+      "note": "for garnish"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "basil pesto",
+      "note": "optional; for finishing"
     },
     {
       "amount": "2",
       "item": "green olives",
       "note": "optional"
-    },
-    {
-      "amount": "1 tbsp",
-      "item": "extra virgin olive oil",
-      "note": "for finishing"
     }
   ],
   "steps": [
-    "Season the chicken with salt, black pepper, garlic powder, and Italian seasoning.",
-    "Heat the olive oil in a skillet over medium-high heat and cook the chicken for 5–6 minutes per side until golden and fully cooked. Rest for 5 minutes before slicing.",
-    "Bring a large pot of salted water to a boil and cook the ravioli according to the package instructions until al dente. Reserve 1/4 cup pasta water before draining.",
-    "In the same skillet, melt the butter over medium heat.",
-    "Add the mushrooms and sauté until lightly browned.",
-    "Add the garlic and cook for about 30 seconds until fragrant.",
-    "Pour in the heavy cream and milk, then simmer gently for 3–4 minutes.",
-    "Stir in the Parmesan cheese and optional cream cheese until the sauce is smooth and velvety.",
-    "Season with Italian seasoning, black pepper, salt, and red chili flakes if using.",
-    "Add the cooked ravioli and gently toss to coat. Add a splash of reserved pasta water if the sauce becomes too thick.",
-    "Plate the ravioli with plenty of sauce.",
-    "Top with sliced grilled chicken, sautéed mushrooms, cherry tomatoes, basil leaves, parsley, and optional green olives.",
-    "Finish with freshly grated Parmesan, cracked black pepper, and a drizzle of extra virgin olive oil."
+    "Season the chicken with salt, black pepper, garlic powder, and Italian seasoning. Grill or pan-sear over medium-high heat until golden and cooked through, about 5–6 minutes per side. Rest for 5 minutes before slicing.",
+    "Bring a large pot of salted water to a boil and cook the ravioli until just al dente. Reserve 1/4 cup pasta water before draining.",
+    "Meanwhile, melt the butter in a large skillet over medium heat.",
+    "Sauté the mushrooms until lightly browned. Remove and set aside.",
+    "In the same pan, add the garlic and cook for about 30 seconds until fragrant.",
+    "Pour in the heavy cream and simmer gently for 2–3 minutes.",
+    "Whisk in the ricotta cheese until completely smooth.",
+    "Add the Parmesan cheese and stir until melted.",
+    "Blend the fresh basil into the sauce using an immersion blender (or blend separately and return to the pan) until the sauce is smooth and lightly green.",
+    "Season with Italian seasoning, salt, and freshly cracked black pepper.",
+    "Add the cooked ravioli and gently toss to coat. Add a splash of reserved pasta water if needed to loosen the sauce.",
+    "Fold in the sautéed mushrooms and half of the mozzarella pearls.",
+    "Transfer to serving bowls and top with sliced grilled chicken.",
+    "Garnish with cherry tomatoes, remaining mozzarella pearls, fresh basil leaves, extra Parmesan, optional green olives, and a few small dollops of basil pesto."
   ],
   "notes": [
-    "Do not overcook the ravioli—they become delicate once coated in the sauce.",
-    "Freshly grated Parmesan melts much better than pre-shredded cheese.",
-    "A small amount of cream cheese makes the sauce extra silky and stable.",
-    "For an even richer flavor, substitute half of the butter with garlic herb butter.",
-    "Serve with warm garlic bread and a simple Caesar salad."
+    "Whole milk ricotta produces the creamiest sauce.",
+    "Fresh basil should be blended into the sauce rather than cooked for a long time to preserve its vibrant flavor and color.",
+    "Use freshly grated Parmesan; pre-shredded cheese does not melt as smoothly.",
+    "A spoonful of basil pesto just before serving intensifies the basil flavor.",
+    "Serve with garlic bread, focaccia, or a simple arugula salad."
   ],
   "updated": "2026-08-01"
 }
