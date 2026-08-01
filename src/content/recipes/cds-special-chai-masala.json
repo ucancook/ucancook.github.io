@@ -1,0 +1,65 @@
+{
+  "slug": "cds-special-chai-masala",
+  "title": "CDS Special Chai Masala",
+  "description": "A warm, aromatic chai masala with a strong cardamom-forward flavor, balanced by fennel, ginger, cinnamon, cloves, and black pepper. Perfect for everyday masala chai.",
+  "prepMinutes": 5,
+  "cookMinutes": 5,
+  "servings": 8,
+  "tags": [
+    "Indian",
+    "Spice Blend",
+    "Tea",
+    "Vegetarian",
+    "Meal Prep"
+  ],
+  "ingredients": [
+    {
+      "amount": "2 tbsp",
+      "item": "fennel seeds"
+    },
+    {
+      "amount": "1/2 tbsp",
+      "item": "dried ginger powder (saunth)"
+    },
+    {
+      "amount": "1/3",
+      "item": "cinnamon stick"
+    },
+    {
+      "amount": "1/2",
+      "item": "whole nutmeg",
+      "note": "freshly grated"
+    },
+    {
+      "amount": "3",
+      "item": "cloves"
+    },
+    {
+      "amount": "8",
+      "item": "black peppercorns"
+    },
+    {
+      "amount": "10-12",
+      "item": "green cardamom pods"
+    },
+    {
+      "amount": "1 pinch",
+      "item": "salt"
+    }
+  ],
+  "steps": [
+    "Lightly dry roast the fennel seeds, green cardamom, cloves, black peppercorns, and cinnamon over low heat for 2-3 minutes until fragrant.",
+    "Allow the spices to cool completely.",
+    "Transfer the roasted spices to a spice grinder.",
+    "Add the dried ginger powder, freshly grated nutmeg, and a pinch of salt.",
+    "Grind into a fine powder.",
+    "Store in an airtight glass jar away from heat and moisture."
+  ],
+  "notes": [
+    "Use about 1/2 teaspoon per 2 cups (500 ml) of chai.",
+    "Add the masala while the tea is simmering to fully extract the flavors.",
+    "Freshly grinding the spice blend produces a much brighter aroma than pre-ground spices.",
+    "This blend is intentionally cardamom-forward, giving the chai a sweeter and more fragrant profile."
+  ],
+  "updated": "2026-08-01"
+}
