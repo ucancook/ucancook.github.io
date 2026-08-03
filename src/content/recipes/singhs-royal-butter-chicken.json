@@ -1,0 +1,209 @@
+{
+  "slug": "singhs-royal-butter-chicken",
+  "title": "Singh's Royal Butter Chicken",
+  "description": "A rich, velvety butter chicken made from scratch with our family's signature recipe. Tandoori-marinated chicken is simmered in a silky tomato-onion gravy finished with butter, cream, honey, and kasuri methi.",
+  "prepMinutes": 45,
+  "cookMinutes": 75,
+  "servings": 6,
+  "tags": [
+    "Indian",
+    "Dinner",
+    "Chicken",
+    "Restaurant Style",
+    "High protein",
+    "Special"
+  ],
+  "ingredients": [
+    {
+      "amount": "1 kg",
+      "item": "chicken",
+      "note": "boneless thighs preferred"
+    },
+    {
+      "amount": "5-6 large",
+      "item": "red tomatoes"
+    },
+    {
+      "amount": "3-4 large",
+      "item": "yellow onions"
+    },
+    {
+      "amount": "12-14 cloves",
+      "item": "garlic"
+    },
+    {
+      "amount": "1 inch",
+      "item": "ginger"
+    },
+    {
+      "amount": "5-6",
+      "item": "black peppercorns"
+    },
+    {
+      "amount": "4-5",
+      "item": "cloves"
+    },
+    {
+      "amount": "1/2 inch",
+      "item": "cinnamon stick"
+    },
+    {
+      "amount": "1/2 tbsp",
+      "item": "cumin seeds"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "coriander powder"
+    },
+    {
+      "amount": "1/2 tbsp",
+      "item": "Kashmiri red chilli powder"
+    },
+    {
+      "amount": "2",
+      "item": "green chilies"
+    },
+    {
+      "amount": "5-6",
+      "item": "green cardamom pods"
+    },
+    {
+      "amount": "1/2 tbsp",
+      "item": "chicken masala"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "butter"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "desi ghee"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "olive oil"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "kasuri methi",
+      "note": "plus extra for garnish"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "honey"
+    },
+    {
+      "amount": "1/2 tbsp",
+      "item": "tomato ketchup"
+    },
+    {
+      "amount": "1 cup",
+      "item": "heavy cream"
+    }
+  ],
+  "components": {
+    "firstMarination": {
+      "ingredients": [
+        {
+          "amount": "1 tbsp",
+          "item": "ginger-garlic paste"
+        },
+        {
+          "amount": "1",
+          "item": "lemon",
+          "note": "juiced"
+        },
+        {
+          "amount": "to taste",
+          "item": "salt"
+        }
+      ]
+    },
+    "secondMarination": {
+      "ingredients": [
+        {
+          "amount": "2 tbsp",
+          "item": "Kashmiri red chilli powder"
+        },
+        {
+          "amount": "1/2 tsp",
+          "item": "cumin powder"
+        },
+        {
+          "amount": "1/4 tsp",
+          "item": "cardamom powder"
+        },
+        {
+          "amount": "1 pinch",
+          "item": "cinnamon powder"
+        },
+        {
+          "amount": "1/2 tsp",
+          "item": "black pepper powder"
+        },
+        {
+          "amount": "1 tsp",
+          "item": "coriander powder"
+        },
+        {
+          "amount": "1/2 cup",
+          "item": "hung curd"
+        },
+        {
+          "amount": "20 g",
+          "item": "processed cheese",
+          "note": "softened"
+        },
+        {
+          "amount": "1/2 tbsp",
+          "item": "roasted gram flour (besan)"
+        },
+        {
+          "amount": "1/2 tbsp",
+          "item": "chicken masala"
+        },
+        {
+          "amount": "1/2 tbsp",
+          "item": "meat masala"
+        },
+        {
+          "amount": "1 tbsp",
+          "item": "mustard oil"
+        },
+        {
+          "amount": "to taste",
+          "item": "salt"
+        }
+      ]
+    }
+  },
+  "steps": [
+    "Wash and pat the chicken dry.",
+    "Combine the chicken with the ginger-garlic paste, lemon juice, and a little salt. Marinate for 3-4 hours.",
+    "Mix together all the ingredients for the second marination until smooth.",
+    "Coat the chicken thoroughly and marinate for at least 4 hours, preferably overnight.",
+    "Cook the chicken in a tandoor, oven, grill, or air fryer until about 90% cooked. Set aside.",
+    "Meanwhile, combine the tomatoes, onions, garlic, ginger, black peppercorns, cloves, cinnamon, cumin seeds, coriander powder, Kashmiri red chilli powder, green chilies, green cardamom, and chicken masala in a large pot.",
+    "Add enough water to cover everything and bring to a boil.",
+    "Cook for about 30 minutes, or until the onions and tomatoes become completely soft.",
+    "Allow the mixture to cool slightly, then blend until completely smooth.",
+    "Pass the gravy through a fine-mesh sieve for an ultra-silky restaurant-style texture.",
+    "Heat the butter, desi ghee, and olive oil in a large heavy-bottomed pan.",
+    "Add the coriander powder, Kashmiri red chilli powder, and kasuri methi. Cook for about 30 seconds until fragrant.",
+    "Pour in the strained gravy and simmer for 5 minutes.",
+    "Add the honey and tomato ketchup and mix well.",
+    "Add the cooked tandoori chicken and simmer for 5-7 minutes so the chicken absorbs the gravy.",
+    "Pour in the heavy cream and continue cooking over low heat for another 5-10 minutes until the curry becomes rich, glossy, and velvety.",
+    "Finish with another pinch of freshly crushed kasuri methi.",
+    "Garnish with a swirl of fresh cream, a small cube of butter, and a light sprinkle of kasuri methi before serving."
+  ],
+  "notes": [
+    "Chicken thighs remain much juicier than breast meat and are recommended for this recipe.",
+    "Straining the gravy is essential for achieving a smooth, restaurant-style butter chicken.",
+    "For an even deeper flavor, let the finished curry simmer gently for an additional 20-30 minutes on very low heat.",
+    "Do not boil the curry after adding the cream; keep it at a gentle simmer to prevent splitting.",
+    "The small amount of honey and ketchup balances the natural acidity of the tomatoes without making the curry noticeably sweet.",
+    "This butter chicken pairs beautifully with butter naan, garlic naan, tandoori roti, laccha paratha, or jeera rice."
+  ],
+  "updated": "2026-08-03"
+}
