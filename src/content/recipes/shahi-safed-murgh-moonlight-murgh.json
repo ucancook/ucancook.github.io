@@ -1,0 +1,125 @@
+{
+  "slug": "shahi-safed-murgh-moonlight-murgh",
+  "title": "Shahi Safed Murgh (Moonlight Murgh)",
+  "description": "A rich North Indian white chicken curry made with a silky onion-almond-yogurt gravy, aromatic whole spices, white pepper, and kasuri methi. Mildly spiced, creamy, and perfect with naan or rice.",
+  "prepMinutes": 20,
+  "cookMinutes": 40,
+  "servings": 4,
+  "tags": [
+    "Indian",
+    "Chicken",
+    "Dinner",
+    "Restaurant Style",
+    "Special",
+    "High protein"
+  ],
+  "ingredients": [
+    {
+      "amount": "1 kg",
+      "item": "boneless chicken thighs",
+      "note": "cut into large pieces"
+    },
+    {
+      "amount": "4-5 large",
+      "item": "white onions",
+      "note": "roughly chopped"
+    },
+    {
+      "amount": "20-25",
+      "item": "almonds"
+    },
+    {
+      "amount": "4-5 cloves",
+      "item": "garlic"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "plain yogurt"
+    },
+    {
+      "amount": "1-2 tsp",
+      "item": "coriander powder"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "olive oil or neutral cooking oil"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "fresh garlic",
+      "note": "finely minced"
+    },
+    {
+      "amount": "1 tbsp",
+      "item": "ginger-garlic paste"
+    },
+    {
+      "amount": "2-3",
+      "item": "green chilies",
+      "note": "slit"
+    },
+    {
+      "amount": "1/2 tbsp",
+      "item": "white pepper powder"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "garam masala"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "Kasoori methi"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    }
+  ],
+  "components": {
+    "wholeSpices": {
+      "ingredients": [
+        {
+          "amount": "3",
+          "item": "green cardamom pods"
+        },
+        {
+          "amount": "6",
+          "item": "black peppercorns"
+        },
+        {
+          "amount": "3",
+          "item": "cloves"
+        },
+        {
+          "amount": "1 inch",
+          "item": "cinnamon stick"
+        }
+      ]
+    }
+  },
+  "steps": [
+    "Boil the onions, almonds, and garlic cloves in enough water until the onions become completely soft, about 12–15 minutes.",
+    "Drain and allow the mixture to cool slightly.",
+    "Blend the onions, almonds, garlic, yogurt, coriander powder, a little salt, and a splash of water until completely smooth and creamy.",
+    "Heat the oil in a heavy-bottomed pan over medium-high heat.",
+    "Add the minced garlic and sauté for about 30 seconds until fragrant but not browned.",
+    "Add the chicken pieces and cook until lightly golden and about halfway cooked, 5–6 minutes. Remove and set aside.",
+    "In the same pan, add the green cardamom, black peppercorns, cloves, and cinnamon stick. Toast for about 30 seconds until aromatic.",
+    "Add the ginger-garlic paste and cook for 1–2 minutes until the raw smell disappears.",
+    "Pour in the prepared onion-almond gravy and cook over medium heat for 6–8 minutes, stirring frequently until it thickens slightly.",
+    "Return the chicken and any accumulated juices to the pan.",
+    "Season with salt, white pepper powder, slit green chilies, and garam masala.",
+    "Cover and simmer gently for 8–10 minutes, or until the chicken is fully cooked and the gravy becomes rich and creamy. If it becomes too thick, add a little hot water.",
+    "When the oil begins to separate slightly around the edges, crush the Kasoori methi between your palms and stir it into the curry.",
+    "Rest for 5 minutes before serving to allow the flavors to meld."
+  ],
+  "notes": [
+    "White onions are preferred because they produce a naturally pale, sweeter gravy.",
+    "Blanching the almonds removes any raw taste and creates a smoother texture.",
+    "Blend and strain the gravy for an ultra-silky restaurant-style finish.",
+    "For an even richer version, stir in 2–3 tablespoons of fresh cream during the final minute of cooking.",
+    "Do not overcook the chicken after adding it back to the gravy, as boneless thighs remain juiciest when just cooked through.",
+    "Serve with butter naan, garlic naan, tandoori roti, roomali roti, or steamed basmati rice."
+  ],
+  "updated": "2026-08-02"
+}
