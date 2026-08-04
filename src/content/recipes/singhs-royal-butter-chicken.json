@@ -202,5 +202,12 @@
     "The small amount of honey and ketchup balances the natural acidity of the tomatoes without making the curry noticeably sweet.",
     "This butter chicken pairs beautifully with butter naan, garlic naan, tandoori roti, laccha paratha, or jeera rice."
   ],
-  "updated": "2026-08-03"
+  "updated": "2026-08-03",
+  "nutrition": {
+    "calories": 640,
+    "proteinG": 48,
+    "carbsG": 22,
+    "fatG": 40,
+    "fiberG": 4
+  }
 }

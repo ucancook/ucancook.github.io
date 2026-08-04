@@ -114,5 +114,12 @@
     "Add chili flakes or sliced bird's-eye chilies for additional heat.",
     "For more protein, increase the tofu to 250 g or add edamame."
   ],
-  "updated": "2026-07-18"
+  "updated": "2026-07-18",
+  "nutrition": {
+    "calories": 250,
+    "proteinG": 9,
+    "carbsG": 31,
+    "fatG": 11,
+    "fiberG": 8
+  }
 }

@@ -88,5 +88,12 @@
     "Grind the masala as finely as possible for smooth restaurant-style gravies and biryanis.",
     "Use about 2–3 tablespoons per kilogram of chicken, lamb, paneer, or vegetables."
   ],
-  "updated": "2026-08-01"
+  "updated": "2026-08-01",
+  "nutrition": {
+    "calories": 12,
+    "proteinG": 1,
+    "carbsG": 2,
+    "fatG": 0,
+    "fiberG": 1
+  }
 }

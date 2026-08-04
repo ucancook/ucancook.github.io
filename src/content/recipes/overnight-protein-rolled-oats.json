@@ -61,5 +61,12 @@
     "Cover and refrigerate overnight or for at least 6 hours.",
     "Top with walnuts and fresh berries before serving. Add a splash of milk if you prefer a thinner consistency."
   ],
-  "updated": "2026-07-18"
+  "updated": "2026-07-18",
+  "nutrition": {
+    "calories": 430,
+    "proteinG": 30,
+    "carbsG": 52,
+    "fatG": 12,
+    "fiberG": 10
+  }
 }

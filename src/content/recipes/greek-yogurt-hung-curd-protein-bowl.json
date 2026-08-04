@@ -31,12 +31,12 @@
       "item": "pumpkin seeds"
     },
     {
-      "amount": "1 tbps",
-      "item": "hemp seeds"
+      "amount": "1 pinch",
+      "item": "cinnamon"
     },
     {
       "amount": "1 small portion",
-      "item": "berries"
+      "item": "papaya or berries"
     },
     {
       "amount": "to taste",
@@ -50,5 +50,12 @@
     "Add a small portion of papaya or berries.",
     "Let the bowl rest for five minutes if using chia seeds, then serve."
   ],
-  "updated": "2026-07-17"
+  "updated": "2026-07-17",
+  "nutrition": {
+    "calories": 310,
+    "proteinG": 28,
+    "carbsG": 26,
+    "fatG": 11,
+    "fiberG": 6
+  }
 }

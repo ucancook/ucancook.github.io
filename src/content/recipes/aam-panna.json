@@ -92,5 +92,12 @@
     "The concentrate can also be frozen into ice cubes for quick servings.",
     "For a smoky flavor, roast the raw mangoes over an open flame instead of pressure cooking before extracting the pulp."
   ],
-  "updated": "2026-07-18"
+  "updated": "2026-07-18",
+  "nutrition": {
+    "calories": 115,
+    "proteinG": 1,
+    "carbsG": 29,
+    "fatG": 0,
+    "fiberG": 2
+  }
 }

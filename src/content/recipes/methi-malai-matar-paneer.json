@@ -162,5 +162,12 @@
     "A small pinch of sugar can be added if the methi tastes more bitter than desired.",
     "Serve with butter naan, garlic naan, laccha paratha, or jeera rice."
   ],
-  "updated": "2026-08-01"
+  "updated": "2026-08-01",
+  "nutrition": {
+    "calories": 560,
+    "proteinG": 24,
+    "carbsG": 29,
+    "fatG": 39,
+    "fiberG": 8
+  }
 }

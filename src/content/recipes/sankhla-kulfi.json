@@ -49,5 +49,12 @@
   "notes": [
     "Imported from the original Singh's Connoisseur Corner recipe collection."
   ],
-  "updated": "2026-07-17"
+  "updated": "2026-07-17",
+  "nutrition": {
+    "calories": 260,
+    "proteinG": 7,
+    "carbsG": 30,
+    "fatG": 13,
+    "fiberG": 1
+  }
 }

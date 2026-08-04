@@ -69,5 +69,12 @@
     "Keep all utensils and mangoes moisture-free to prevent spoilage.",
     "Imported from the original Singh's Connoisseur Corner recipe collection."
   ],
-  "updated": "2026-07-17"
+  "updated": "2026-07-17",
+  "nutrition": {
+    "calories": 50,
+    "proteinG": 1,
+    "carbsG": 5,
+    "fatG": 3,
+    "fiberG": 2
+  }
 }

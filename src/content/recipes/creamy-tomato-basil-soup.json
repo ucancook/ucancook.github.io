@@ -89,5 +89,12 @@
     "Gruyère, sharp cheddar, Havarti, or a cheddar-mozzarella blend make excellent grilled cheese sandwiches.",
     "The sugar should only soften the acidity of the tomatoes—it should never make the soup taste sweet."
   ],
-  "updated": "2026-07-18"
+  "updated": "2026-07-18",
+  "nutrition": {
+    "calories": 520,
+    "proteinG": 20,
+    "carbsG": 56,
+    "fatG": 24,
+    "fiberG": 7
+  }
 }

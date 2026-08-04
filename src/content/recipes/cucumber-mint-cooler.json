@@ -75,5 +75,12 @@
     "Add a green chili while blending for a spicy Indian-style twist.",
     "For extra protein, blend in 2–3 tablespoons of Greek yogurt to make a creamy cucumber cooler."
   ],
-  "updated": "2026-07-18"
+  "updated": "2026-07-18",
+  "nutrition": {
+    "calories": 35,
+    "proteinG": 1,
+    "carbsG": 8,
+    "fatG": 0,
+    "fiberG": 1
+  }
 }

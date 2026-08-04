@@ -102,5 +102,12 @@
     "The mint yogurt sauce is cool and refreshing and pairs especially well with a squeeze of lemon.",
     "For extra protein, add grilled paneer before topping with mozzarella."
   ],
-  "updated": "2026-07-18"
+  "updated": "2026-07-18",
+  "nutrition": {
+    "calories": 280,
+    "proteinG": 12,
+    "carbsG": 28,
+    "fatG": 15,
+    "fiberG": 9
+  }
 }

@@ -245,5 +245,12 @@
     "Salt the full batter only after fermentation unless your kitchen is very warm and fermentation is rapid.",
     "Use oil instead of ghee or butter for a vegan version."
   ],
-  "updated": "2026-08-01"
+  "updated": "2026-08-01",
+  "nutrition": {
+    "calories": 430,
+    "proteinG": 11,
+    "carbsG": 67,
+    "fatG": 14,
+    "fiberG": 8
+  }
 }

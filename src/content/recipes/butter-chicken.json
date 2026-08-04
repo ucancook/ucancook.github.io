@@ -116,5 +116,12 @@
     "For the best flavor, prepare the curry a day ahead and gently reheat before serving.",
     "Garlic naan is highly recommended."
   ],
-  "updated": "2026-07-18"
+  "updated": "2026-07-18",
+  "nutrition": {
+    "calories": 540,
+    "proteinG": 38,
+    "carbsG": 18,
+    "fatG": 35,
+    "fiberG": 4
+  }
 }

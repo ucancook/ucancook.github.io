@@ -101,5 +101,12 @@
       "Adjust the consistency and salt before serving."
     ]
   },
-  "updated": "2026-07-30"
+  "updated": "2026-07-30",
+  "nutrition": {
+    "calories": 380,
+    "proteinG": 10,
+    "carbsG": 53,
+    "fatG": 15,
+    "fiberG": 6
+  }
 }

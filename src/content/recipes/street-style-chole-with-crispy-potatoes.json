@@ -179,5 +179,12 @@
     "The bowl pairs well with toasted pita, kulcha, naan, or even basmati rice.",
     "A final sprinkle of chaat masala and a squeeze of fresh lemon just before serving brightens all the flavors."
   ],
-  "updated": "2026-08-01"
+  "updated": "2026-08-01",
+  "nutrition": {
+    "calories": 520,
+    "proteinG": 18,
+    "carbsG": 75,
+    "fatG": 18,
+    "fiberG": 16
+  }
 }

@@ -58,5 +58,12 @@
     "Cook until the filling is fairly dry.",
     "Spoon the tofu mixture into the lettuce leaves and serve immediately."
   ],
-  "updated": "2026-07-17"
+  "updated": "2026-07-17",
+  "nutrition": {
+    "calories": 240,
+    "proteinG": 17,
+    "carbsG": 18,
+    "fatG": 12,
+    "fiberG": 6
+  }
 }

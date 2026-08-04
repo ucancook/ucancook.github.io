@@ -15,15 +15,43 @@
     "Gluten-free"
   ],
   "ingredients": [
-    { "amount": "1 cup", "item": "plain yogurt" },
-    { "amount": "3 cups", "item": "cold water" },
-    { "amount": "2 tbsp", "item": "mint leaves" },
-    { "amount": "2 tbsp", "item": "cilantro" },
-    { "amount": "1 inch", "item": "ginger" },
-    { "amount": "1 tsp", "item": "roasted cumin powder" },
-    { "amount": "1/2 tsp", "item": "black salt" },
-    { "amount": "to taste", "item": "salt" },
-    { "amount": "1", "item": "green chili", "note": "optional" }
+    {
+      "amount": "1 cup",
+      "item": "plain yogurt"
+    },
+    {
+      "amount": "3 cups",
+      "item": "cold water"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "mint leaves"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "cilantro"
+    },
+    {
+      "amount": "1 inch",
+      "item": "ginger"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "roasted cumin powder"
+    },
+    {
+      "amount": "1/2 tsp",
+      "item": "black salt"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    },
+    {
+      "amount": "1",
+      "item": "green chili",
+      "note": "optional"
+    }
   ],
   "steps": [
     "Blend all ingredients until frothy.",
@@ -34,5 +62,12 @@
     "Freshly whisked yogurt produces the creamiest chaas.",
     "For a Gujarati-style version, omit the chili and add a pinch of sugar."
   ],
-  "updated": "2026-07-18"
+  "updated": "2026-07-18",
+  "nutrition": {
+    "calories": 70,
+    "proteinG": 4,
+    "carbsG": 7,
+    "fatG": 3,
+    "fiberG": 0
+  }
 }

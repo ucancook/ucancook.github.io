@@ -79,5 +79,12 @@
     "Excellent toppings include cherry tomatoes, caramelized onions, roasted garlic, Parmesan, mozzarella, olives, rosemary, thyme, or pesto.",
     "Slice horizontally for outstanding sandwiches with prosciutto, mozzarella, pesto, grilled vegetables, or chicken."
   ],
-  "updated": "2026-08-01"
+  "updated": "2026-08-01",
+  "nutrition": {
+    "calories": 250,
+    "proteinG": 7,
+    "carbsG": 41,
+    "fatG": 7,
+    "fiberG": 2
+  }
 }

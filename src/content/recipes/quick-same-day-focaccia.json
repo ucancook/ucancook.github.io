@@ -86,5 +86,12 @@
     "For an even softer crumb, substitute up to half of the bread flour with all-purpose flour.",
     "This quick version is excellent for sandwiches, garlic bread, or dipping into soups and olive oil."
   ],
-  "updated": "2026-08-01"
+  "updated": "2026-08-01",
+  "nutrition": {
+    "calories": 240,
+    "proteinG": 7,
+    "carbsG": 38,
+    "fatG": 7,
+    "fiberG": 2
+  }
 }

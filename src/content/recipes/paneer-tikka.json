@@ -66,5 +66,12 @@
     "Heat the oil on a tawa or skillet and cook until browned on all sides.",
     "Serve hot with mint-curd dip."
   ],
-  "updated": "2026-07-17"
+  "updated": "2026-07-17",
+  "nutrition": {
+    "calories": 290,
+    "proteinG": 18,
+    "carbsG": 12,
+    "fatG": 19,
+    "fiberG": 3
+  }
 }

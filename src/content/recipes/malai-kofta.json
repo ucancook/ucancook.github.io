@@ -144,5 +144,12 @@
     "Kasoori methi should always be added near the end to preserve its aroma.",
     "Serve with butter naan, garlic naan, laccha paratha, or jeera rice."
   ],
-  "updated": "2026-07-23"
+  "updated": "2026-07-23",
+  "nutrition": {
+    "calories": 610,
+    "proteinG": 18,
+    "carbsG": 49,
+    "fatG": 39,
+    "fiberG": 8
+  }
 }

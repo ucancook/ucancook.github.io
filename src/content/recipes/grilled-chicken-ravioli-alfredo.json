@@ -129,5 +129,12 @@
     "A spoonful of basil pesto just before serving intensifies the basil flavor.",
     "Serve with garlic bread, focaccia, or a simple arugula salad."
   ],
-  "updated": "2026-08-01"
+  "updated": "2026-08-01",
+  "nutrition": {
+    "calories": 820,
+    "proteinG": 55,
+    "carbsG": 66,
+    "fatG": 39,
+    "fiberG": 5
+  }
 }

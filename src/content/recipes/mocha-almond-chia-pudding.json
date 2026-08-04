@@ -30,16 +30,12 @@
       "item": "instant coffee or espresso powder"
     },
     {
-      "amount": "2 tbsp",
+      "amount": "1 tbsp",
       "item": "hemp seeds"
     },
     {
-      "amount": "1 tbps",
-      "item": "flax seeds"
-    },
-    {
       "amount": "1–2 tsp",
-      "item": "maple syrup or stevia/monk fruit",
+      "item": "maple syrup",
       "note": "optional, to taste"
     },
     {
@@ -53,7 +49,7 @@
     },
     {
       "amount": "1/2 cup",
-      "item": "blueberries and/or banana/kiwi"
+      "item": "blueberries"
     }
   ],
   "steps": [
@@ -68,5 +64,12 @@
     "Keep the granola and almonds separate until serving so they remain crisp.",
     "Use decaffeinated coffee powder if preferred."
   ],
-  "updated": "2026-07-17"
+  "updated": "2026-07-17",
+  "nutrition": {
+    "calories": 340,
+    "proteinG": 12,
+    "carbsG": 27,
+    "fatG": 22,
+    "fiberG": 11
+  }
 }

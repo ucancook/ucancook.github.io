@@ -68,5 +68,12 @@
     "Add the soy chunks and vegetables.",
     "Cook for seven to eight minutes, until the curry is thick. Stir in curd at the end if using."
   ],
-  "updated": "2026-07-17"
+  "updated": "2026-07-17",
+  "nutrition": {
+    "calories": 410,
+    "proteinG": 29,
+    "carbsG": 46,
+    "fatG": 13,
+    "fiberG": 11
+  }
 }

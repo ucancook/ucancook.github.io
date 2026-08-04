@@ -146,5 +146,12 @@
     "This recipe is designed to use the CDS Special Biryani Masala instead of commercial biryani masala.",
     "For even more aroma, add a few drops of kewra water and rose water only in the final rice layer."
   ],
-  "updated": "2026-08-01"
+  "updated": "2026-08-01",
+  "nutrition": {
+    "calories": 760,
+    "proteinG": 43,
+    "carbsG": 78,
+    "fatG": 30,
+    "fiberG": 5
+  }
 }

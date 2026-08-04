@@ -118,5 +118,12 @@
     "Do not overcook the chicken after adding it back to the gravy, as boneless thighs remain juiciest when just cooked through.",
     "Serve with butter naan, garlic naan, tandoori roti, roomali roti, or steamed basmati rice."
   ],
-  "updated": "2026-08-02"
+  "updated": "2026-08-02",
+  "nutrition": {
+    "calories": 510,
+    "proteinG": 46,
+    "carbsG": 16,
+    "fatG": 30,
+    "fiberG": 4
+  }
 }

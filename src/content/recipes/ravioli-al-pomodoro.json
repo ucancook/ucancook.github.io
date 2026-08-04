@@ -114,5 +114,12 @@
     "A spoonful of basil pesto stirred in just before serving adds another layer of flavor.",
     "Pair with garlic bread or a simple arugula salad."
   ],
-  "updated": "2026-08-01"
+  "updated": "2026-08-01",
+  "nutrition": {
+    "calories": 520,
+    "proteinG": 21,
+    "carbsG": 67,
+    "fatG": 19,
+    "fiberG": 6
+  }
 }

@@ -67,5 +67,12 @@
     "Add the crumbled paneer and cook for three to four minutes.",
     "Finish with coriander and lemon, if using."
   ],
-  "updated": "2026-07-17"
+  "updated": "2026-07-17",
+  "nutrition": {
+    "calories": 430,
+    "proteinG": 27,
+    "carbsG": 24,
+    "fatG": 26,
+    "fiberG": 6
+  }
 }

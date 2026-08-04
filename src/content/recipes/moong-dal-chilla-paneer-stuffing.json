@@ -71,5 +71,12 @@
   "notes": [
     "The stated cooking time assumes the moong dal is already soaked."
   ],
-  "updated": "2026-07-17"
+  "updated": "2026-07-17",
+  "nutrition": {
+    "calories": 410,
+    "proteinG": 27,
+    "carbsG": 42,
+    "fatG": 15,
+    "fiberG": 10
+  }
 }
