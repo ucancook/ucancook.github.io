@@ -3380,3 +3380,21 @@ body {
     gap: 12px;
   }
 }
+
+/* Active recipe shopping-list button */
+.shopping-list-toggle.active,
+.shopping-list-toggle[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.shopping-list-toggle.active:hover,
+.shopping-list-toggle[aria-pressed="true"]:hover {
+  filter: brightness(0.96);
+}
+
+.shopping-list-toggle.active span,
+.shopping-list-toggle[aria-pressed="true"] span {
+  color: inherit;
+}
