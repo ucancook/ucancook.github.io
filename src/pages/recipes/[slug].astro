@@ -46,7 +46,16 @@ const schema = {
   recipeCategory: recipe.tags[0],
   recipeCuisine: recipe.tags.find((tag) => ['Indian', 'Italian', 'Mexican', 'Asian', 'Mediterranean', 'Middle Eastern', 'American'].includes(tag)),
   keywords: recipe.tags.join(', '),
-  nutrition: recipe.calories ? { '@type': 'NutritionInformation', calories: `${recipe.calories} calories` } : undefined,
+  nutrition: recipe.nutrition
+    ? {
+        '@type': 'NutritionInformation',
+        calories: `${recipe.nutrition.calories} calories`,
+        proteinContent: `${recipe.nutrition.proteinG} g`,
+        carbohydrateContent: `${recipe.nutrition.carbsG} g`,
+        fatContent: `${recipe.nutrition.fatG} g`,
+        fiberContent: `${recipe.nutrition.fiberG} g`,
+      }
+    : undefined,
   recipeIngredient: recipe.ingredients.map((item) => `${item.amount} ${item.item}${item.note ? `, ${item.note}` : ''}`),
   recipeInstructions: recipe.steps.map((step) => ({ '@type': 'HowToStep', text: step })),
   url: canonicalUrl,
@@ -63,8 +72,42 @@ const schema = {
       <button class="favorite-button recipe-favorite" type="button" data-favorite-slug={recipe.slug} aria-pressed="false" aria-label="Add to favorites"><Icon name="heart" size={24} /><span data-favorite-label>Save</span></button>
     </div>
     <p class="lede">{recipe.description}</p>
-    <div class="meta"><Icon name="clock" size={17} />{recipe.prepMinutes + recipe.cookMinutes} minutes · {recipe.servings} servings {recipe.calories && `· ${recipe.calories} kcal`}</div>
+    <div class="meta"><Icon name="clock" size={17} />{recipe.prepMinutes + recipe.cookMinutes} minutes · {recipe.servings} servings</div>
     <div class="tags recipe-tags">{recipe.tags.map((tag) => <span class="pill">{tag}</span>)}</div>
+
+    {recipe.nutrition && (
+      <section class="nutrition-summary" aria-label="Estimated nutrition per serving">
+        <span class="nutrition-label">Estimated per serving</span>
+
+        <div class="nutrition-values">
+          <div>
+            <strong>{recipe.nutrition.calories}</strong>
+            <span>kcal</span>
+          </div>
+
+          <div>
+            <strong>{recipe.nutrition.proteinG}g</strong>
+            <span>protein</span>
+          </div>
+
+          <div>
+            <strong>{recipe.nutrition.carbsG}g</strong>
+            <span>carbs</span>
+          </div>
+
+          <div>
+            <strong>{recipe.nutrition.fatG}g</strong>
+            <span>fat</span>
+          </div>
+
+          <div>
+            <strong>{recipe.nutrition.fiberG}g</strong>
+            <span>fiber</span>
+          </div>
+        </div>
+      </section>
+    )}
+
     <div class="recipe-actions">
       <button class="btn primary" id="cook-mode-open" type="button"><Icon name="cook" /> Cooking mode</button>
       <button
