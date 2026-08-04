@@ -15,6 +15,13 @@ export type Recipe = {
   cookMinutes: number;
   servings: number;
   calories?: number;
+  nutrition?: {
+  calories: number;
+  proteinG: number;
+  carbsG: number;
+  fatG: number;
+  fiberG: number;
+};
   tags: string[];
   photos?: RecipePhoto[];
   ingredients: { amount: string; item: string; note?: string }[];
