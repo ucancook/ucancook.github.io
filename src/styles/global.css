@@ -3385,8 +3385,13 @@ body {
 .shopping-list-toggle.active,
 .shopping-list-toggle[aria-pressed="true"] {
   background: var(--accent);
-  color: var(--text);
+  color: #111;
   border-color: var(--accent);
+}
+
+.shopping-list-toggle.active span,
+.shopping-list-toggle[aria-pressed="true"] span {
+  color: inherit;
 }
 
 .shopping-list-toggle.active:hover,
@@ -3394,7 +3399,9 @@ body {
   filter: brightness(0.96);
 }
 
-.shopping-list-toggle.active span,
-.shopping-list-toggle[aria-pressed="true"] span {
-  color: inherit;
+[data-theme="dark"] .shopping-list-toggle.active,
+[data-theme="dark"] .shopping-list-toggle[aria-pressed="true"] {
+  background: var(--accent);
+  color: #111;
+  border-color: #fff;
 }
