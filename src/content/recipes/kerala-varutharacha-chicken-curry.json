@@ -1,7 +1,7 @@
 {
   "slug": "kerala-varutharacha-chicken-curry",
   "title": "Kerala Varutharacha Chicken Curry",
-  "description": "A deeply flavorful Kerala-style chicken curry made with roasted coconut, whole spices, curry leaves, tomatoes, and green chilies. Finished with a small amount of beaten yogurt or cream to balance the roasted spices and heat.",
+  "description": "A deeply flavorful Kerala-style chicken curry made with roasted coconut, whole spices, curry leaves, tomatoes, and green chilies, finished with a little beaten yogurt or cream to balance the heat and roasted spices.",
   "prepMinutes": 20,
   "cookMinutes": 45,
   "servings": 5,
@@ -88,7 +88,7 @@
     {
       "amount": "1/4 cup",
       "item": "plain yogurt",
-      "note": "beaten until smooth; optional, for balancing the spices"
+      "note": "beaten until completely smooth; preferred for balancing the spices"
     },
     {
       "amount": "2-3 tbsp",
@@ -106,33 +106,43 @@
   ],
   "steps": [
     "Heat about half of the oil in a pan over medium-low heat. Add the green cardamom, cinnamon, cloves, black peppercorns, and half of the fennel seeds. Sauté for about 30 seconds until aromatic.",
-    "Add the grated coconut and roast slowly, stirring frequently, until it becomes a deep golden brown. Do not burn the coconut.",
+    "Add the grated coconut and roast slowly, stirring frequently, until it becomes a deep golden brown. Take your time with this step and do not burn the coconut.",
     "Reduce the heat and add the red chilli powder, coriander powder, and turmeric powder. Roast for another 30-45 seconds, then immediately remove from the heat.",
-    "Allow the roasted coconut mixture to cool slightly. Blend it with a little water into a very smooth, thick paste. Set aside.",
+    "Allow the roasted coconut mixture to cool slightly, then blend it with a little water into a very smooth, thick paste. Set aside.",
     "Blend or crush the ginger and garlic together into a fine paste.",
     "Heat the remaining oil in a heavy-bottomed pan. Add the remaining fennel seeds and let them crackle.",
     "Add the chopped onions with a little salt and sauté for 7-10 minutes until soft and golden.",
     "Add the ginger-garlic paste, slit green chilies, and curry leaves. Sauté for 1-2 minutes until aromatic.",
-    "Add the chopped tomatoes and cook until completely soft and beginning to break down.",
-    "Add the roasted coconut masala paste and mix thoroughly. Cook for 3-4 minutes over medium heat so the masala loses its raw blended texture.",
-    "Add a little water to the blender jar, swirl to collect the remaining coconut masala, and pour it into the pan.",
+    "Add the chopped tomatoes and salt. Cook until the tomatoes become completely soft and begin to break down.",
+    "Add the roasted coconut masala paste and mix thoroughly. Cook for 3-4 minutes over medium heat.",
+    "Add a little water to the blender jar, swirl it around to collect the remaining coconut masala, and pour it into the pan.",
     "Add enough additional water to create a thick curry consistency and bring the gravy to a gentle boil.",
     "Add the chicken pieces and mix thoroughly so every piece is coated with the roasted coconut gravy.",
     "Cover and cook over medium-low heat for 20-25 minutes, stirring occasionally, until the chicken is tender and fully cooked.",
-    "Remove the lid and simmer for another 5-10 minutes until the gravy thickens and a little oil begins to separate around the edges.",
-    "For a slightly mellower curry, reduce the heat to very low and stir in the beaten yogurt. Alternatively, stir in 2-3 tablespoons of heavy cream. Do not use both unless you want a substantially richer curry.",
+    "Remove the lid and simmer for another 5-10 minutes until the gravy thickens and a little oil begins separating around the edges.",
+    "Reduce the heat to very low. Stir in the beaten yogurt to mellow the spices and add a slight tang. Alternatively, use 2-3 tablespoons of heavy cream for a richer finish.",
     "Cook gently for another 1-2 minutes without bringing the curry to a hard boil.",
     "Taste and adjust the salt and consistency. Rest for 5-10 minutes before serving."
   ],
   "notes": [
-    "The roasted coconut is the defining flavor of varutharacha curry. Roast it slowly until genuinely deep golden brown; pale coconut will produce a much flatter curry.",
-    "Coconut oil gives the most characteristic Kerala flavor, although neutral oil also works.",
-    "The original 2 tablespoons of red chilli powder produces a fairly assertive curry. Use 1-1 1/2 tablespoons if your chilli powder is particularly hot.",
-    "Bone-in chicken works particularly well because the longer simmer adds substantially more flavor to the coconut gravy.",
-    "For the yogurt finish, beat the yogurt completely smooth and add it only over very low heat to minimize the chance of splitting.",
-    "Heavy cream gives a smoother, richer finish, while yogurt adds mild acidity and keeps the curry lighter. Yogurt is the better choice if the primary goal is balancing the spices.",
-    "Do not add too much cream or yogurt. This should remain a roasted coconut curry rather than becoming a cream-based curry.",
-    "Serve with Kerala parotta, appam, idiyappam, dosa, chapati, or steamed rice."
+    "The roasted coconut is the defining flavor of varutharacha curry. Roast it slowly until genuinely deep golden brown; pale coconut produces a much flatter curry.",
+    "Coconut oil gives the most characteristic Kerala flavor, although neutral cooking oil also works.",
+    "The original 2 tablespoons of red chilli powder makes a fairly spicy curry. Reduce it to 1-1 1/2 tablespoons if your chilli powder is particularly hot.",
+    "Bone-in chicken works particularly well because the longer simmer adds more flavor to the coconut gravy.",
+    "Beaten yogurt is the preferred finishing option when the goal is to balance the spices without making the curry excessively rich.",
+    "Add yogurt only over very low heat and avoid boiling afterward to reduce the chance of splitting.",
+    "Heavy cream can be used instead of yogurt for a smoother and richer finish.",
+    "Do not use too much yogurt or cream. The dominant character should remain roasted coconut, curry leaves, and spices.",
+    "Serve with Kerala parotta, appam, idiyappam, dosa, chapati, or steamed rice.",
+    "Nutrition values are approximate and depend substantially on the chicken cut, amount of oil retained, and whether yogurt or cream is used."
   ],
+  "nutrition": {
+    "calories": 500,
+    "proteinGrams": 40,
+    "carbsGrams": 18,
+    "fatGrams": 30,
+    "fiberGrams": 4,
+    "sugarGrams": 7
+  },
   "updated": "2026-08-08"
 }
