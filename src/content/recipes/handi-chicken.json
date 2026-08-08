@@ -1,69 +1,116 @@
 {
   "slug": "handi-chicken",
   "title": "Handi Chicken",
-  "description": "A rich North Indian chicken curry cooked with deeply caramelized onions, tomatoes, yogurt, and aromatic spices. This restaurant-style handi chicken develops a naturally thick gravy w[...]",
-  "category": "Dinner",
-  "cuisine": "Indian",
-  "prepTime": 15,
-  "cookTime": 40,
+  "description": "A rich North Indian chicken curry with deeply browned onions, tomatoes, yogurt, coriander, green chilies, kasuri methi, and a creamy finish.",
+  "prepMinutes": 15,
+  "cookMinutes": 40,
   "servings": 4,
-  "difficulty": "Medium",
-  "image": "/recipes/handi-chicken/handi-chicken.jpg",
-  "ingredients": [
-    {
-      "section": "Main",
-      "items": [
-        "750 g boneless chicken thighs, cut into bite-sized pieces",
-        "2 large onions, thinly sliced",
-        "2–3 medium tomatoes, finely chopped",
-        "3 tbsp ghee",
-        "4 garlic cloves, finely chopped",
-        "1½ tsp ginger paste",
-        "1 tsp cumin seeds",
-        "1 tsp coriander seeds, lightly crushed",
-        "3–4 green chilies, slit",
-        "1 tsp turmeric powder",
-        "1 tsp Kashmiri red chili powder",
-        "Salt to taste",
-        "1 cup plain yogurt, whisked",
-        "2 tsp kasuri methi (dried fenugreek leaves)",
-        "1 tsp garam masala",
-        "½ cup heavy cream (optional)"
-      ]
-    }
-  ],
-  "instructions": [
-    "Heat the ghee in a heavy-bottomed handi or deep pan over medium heat.",
-    "Add the sliced onions and cook slowly until they become deep golden brown. Remove and reserve the onions.",
-    "In the same ghee, sauté the chopped garlic for about 30 seconds.",
-    "Add the chopped tomatoes and cook until they completely soften and begin releasing oil.",
-    "Return the caramelized onions to the pan and mix well.",
-    "Stir in the ginger paste and cook for 1 minute.",
-    "Add the cumin seeds, crushed coriander seeds, and slit green chilies.",
-    "Mix in the turmeric, Kashmiri red chili powder, and salt.",
-    "Add the chicken pieces and sauté over medium-high heat until lightly browned on all sides.",
-    "Cover and cook for about 5 minutes, allowing the chicken to release its juices.",
-    "Reduce the heat to low and gradually stir in the whisked yogurt to prevent curdling.",
-    "Cook uncovered for another 8–10 minutes until the gravy thickens and the chicken is fully cooked.",
-    "Finish with crushed kasuri methi and garam masala.",
-    "For a richer restaurant-style finish, stir in the heavy cream during the final 2 minutes of cooking.",
-    "Rest for 5 minutes before serving."
-  ],
-  "notes": [
-    "Chicken thighs stay juicier than breast meat.",
-    "Cook the onions slowly until deep golden for the best flavor.",
-    "Whisk the yogurt well and add it over low heat to avoid splitting.",
-    "The cream is optional but gives a richer restaurant-style finish."
-  ],
-  "nutrition": {
-    "calories": 520,
-    "protein": 35,
-    "carbs": 11,
-    "fat": 37
-  },
   "tags": [
     "Indian",
     "Dinner",
-    "Comfort Food"
-  ]
+    "High protein"
+  ],
+  "ingredients": [
+    {
+      "amount": "750 g",
+      "item": "chicken thighs",
+      "note": "boneless, cut into large pieces"
+    },
+    {
+      "amount": "2 medium",
+      "item": "onions",
+      "note": "thinly sliced"
+    },
+    {
+      "amount": "2-3 medium",
+      "item": "tomatoes",
+      "note": "chopped"
+    },
+    {
+      "amount": "3 tbsp",
+      "item": "ghee"
+    },
+    {
+      "amount": "4 cloves",
+      "item": "garlic",
+      "note": "finely chopped"
+    },
+    {
+      "amount": "1 1/2 tsp",
+      "item": "ginger paste"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "cumin seeds"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "coriander seeds",
+      "note": "lightly crushed"
+    },
+    {
+      "amount": "3-4",
+      "item": "green chilies",
+      "note": "slit or chopped"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "turmeric powder"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "Kashmiri red chilli powder"
+    },
+    {
+      "amount": "1 cup",
+      "item": "plain yogurt",
+      "note": "whisked until smooth"
+    },
+    {
+      "amount": "2 tsp",
+      "item": "Kasoori methi"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "garam masala"
+    },
+    {
+      "amount": "1/2 cup",
+      "item": "heavy cream",
+      "note": "optional"
+    },
+    {
+      "amount": "to taste",
+      "item": "salt"
+    }
+  ],
+  "steps": [
+    "Heat the ghee in a heavy-bottomed handi or deep pan over medium heat.",
+    "Add the sliced onions and cook slowly until they become deep golden brown.",
+    "Remove the browned onions from the pan and set them aside.",
+    "In the same ghee, add the chopped garlic and cook for about 30 seconds without letting it burn.",
+    "Add the chopped tomatoes and cook until completely soft and beginning to release their oil.",
+    "Return the browned onions to the pan and mix well.",
+    "Add the ginger paste and cook for another minute.",
+    "Add the cumin seeds, lightly crushed coriander seeds, and green chilies.",
+    "Add the turmeric powder, Kashmiri red chilli powder, and salt. Mix well.",
+    "Add the chicken thighs and cook over medium-high heat, stirring frequently, until the chicken is lightly browned.",
+    "Cover and cook for about 5 minutes so the chicken releases some of its juices.",
+    "Reduce the heat to low. Gradually add the whisked yogurt while stirring continuously so it does not split.",
+    "Cook for 8-10 minutes until the chicken is fully cooked and the gravy becomes thick and glossy.",
+    "Crush the Kasoori methi between your palms and stir it into the curry.",
+    "Add the garam masala.",
+    "For a richer version, stir in the heavy cream and cook gently for another 2-3 minutes.",
+    "Rest the handi chicken for 5 minutes before serving."
+  ],
+  "notes": [
+    "Cook the onions until genuinely deep golden brown; they provide much of the body and sweetness of the gravy.",
+    "Chicken thighs work particularly well because they remain juicy during the longer cooking process.",
+    "Keep the heat low when adding yogurt to reduce the chance of it splitting.",
+    "Lightly crushing the coriander seeds instead of using coriander powder gives the curry a more distinctive handi-style texture and aroma.",
+    "Add the Kasoori methi and garam masala near the end so their aromas remain prominent.",
+    "Heavy cream is optional. Without it, the yogurt and browned onions still produce a rich gravy.",
+    "Serve with naan, tandoori roti, paratha, or jeera rice."
+  ],
+  "updated": "2026-08-07"
 }
