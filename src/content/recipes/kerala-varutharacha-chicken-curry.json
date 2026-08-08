@@ -10,13 +10,6 @@
     "Dinner",
     "High protein"
   ],
-  "nutrition": {
-    "calories": 500,
-    "protein": 40,
-    "carbs": 18,
-    "fat": 30,
-    "fiber": 4
-  },
   "ingredients": [
     {
       "amount": "1 kg",
@@ -143,5 +136,12 @@
     "Serve with Kerala parotta, appam, idiyappam, dosa, chapati, or steamed rice.",
     "Nutrition values are approximate and calculated per serving."
   ],
-  "updated": "2026-08-08"
+  "updated": "2026-08-08",
+  "nutrition": {
+    "calories": 500,
+    "proteinG": 40,
+    "carbsG": 18,
+    "fatG": 30,
+    "fiberG": 4
+  }
 }
