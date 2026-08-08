@@ -10,6 +10,13 @@
     "Dinner",
     "High protein"
   ],
+  "nutrition": {
+    "calories": 500,
+    "protein": 40,
+    "carbs": 18,
+    "fat": 30,
+    "fiber": 4
+  },
   "ingredients": [
     {
       "amount": "1 kg",
@@ -106,15 +113,15 @@
   ],
   "steps": [
     "Heat about half of the oil in a pan over medium-low heat. Add the green cardamom, cinnamon, cloves, black peppercorns, and half of the fennel seeds. Sauté for about 30 seconds until aromatic.",
-    "Add the grated coconut and roast slowly, stirring frequently, until it becomes a deep golden brown. Take your time with this step and do not burn the coconut.",
+    "Add the grated coconut and roast slowly, stirring frequently, until it becomes deep golden brown. Do not burn the coconut.",
     "Reduce the heat and add the red chilli powder, coriander powder, and turmeric powder. Roast for another 30-45 seconds, then immediately remove from the heat.",
-    "Allow the roasted coconut mixture to cool slightly, then blend it with a little water into a very smooth, thick paste. Set aside.",
+    "Allow the roasted coconut mixture to cool slightly, then blend it with a little water into a very smooth, thick paste.",
     "Blend or crush the ginger and garlic together into a fine paste.",
     "Heat the remaining oil in a heavy-bottomed pan. Add the remaining fennel seeds and let them crackle.",
     "Add the chopped onions with a little salt and sauté for 7-10 minutes until soft and golden.",
     "Add the ginger-garlic paste, slit green chilies, and curry leaves. Sauté for 1-2 minutes until aromatic.",
-    "Add the chopped tomatoes and salt. Cook until the tomatoes become completely soft and begin to break down.",
-    "Add the roasted coconut masala paste and mix thoroughly. Cook for 3-4 minutes over medium heat.",
+    "Add the chopped tomatoes and cook until completely soft and beginning to break down.",
+    "Add the roasted coconut masala paste and cook for 3-4 minutes over medium heat.",
     "Add a little water to the blender jar, swirl it around to collect the remaining coconut masala, and pour it into the pan.",
     "Add enough additional water to create a thick curry consistency and bring the gravy to a gentle boil.",
     "Add the chicken pieces and mix thoroughly so every piece is coated with the roasted coconut gravy.",
@@ -125,24 +132,16 @@
     "Taste and adjust the salt and consistency. Rest for 5-10 minutes before serving."
   ],
   "notes": [
-    "The roasted coconut is the defining flavor of varutharacha curry. Roast it slowly until genuinely deep golden brown; pale coconut produces a much flatter curry.",
+    "The roasted coconut is the defining flavor of varutharacha curry. Roast it slowly until genuinely deep golden brown.",
     "Coconut oil gives the most characteristic Kerala flavor, although neutral cooking oil also works.",
-    "The original 2 tablespoons of red chilli powder makes a fairly spicy curry. Reduce it to 1-1 1/2 tablespoons if your chilli powder is particularly hot.",
-    "Bone-in chicken works particularly well because the longer simmer adds more flavor to the coconut gravy.",
-    "Beaten yogurt is the preferred finishing option when the goal is to balance the spices without making the curry excessively rich.",
+    "The original 2 tablespoons of red chilli powder makes a fairly spicy curry. Reduce it to 1-1 1/2 tablespoons for a milder version.",
+    "Bone-in chicken gives considerably more flavor to the coconut gravy.",
+    "Beaten yogurt is preferred when the goal is to balance the spices without making the curry excessively rich.",
     "Add yogurt only over very low heat and avoid boiling afterward to reduce the chance of splitting.",
-    "Heavy cream can be used instead of yogurt for a smoother and richer finish.",
-    "Do not use too much yogurt or cream. The dominant character should remain roasted coconut, curry leaves, and spices.",
+    "Heavy cream can be used instead of yogurt for a smoother, richer finish.",
+    "Do not use too much yogurt or cream. The dominant flavor should remain roasted coconut, curry leaves, and spices.",
     "Serve with Kerala parotta, appam, idiyappam, dosa, chapati, or steamed rice.",
-    "Nutrition values are approximate and depend substantially on the chicken cut, amount of oil retained, and whether yogurt or cream is used."
+    "Nutrition values are approximate and calculated per serving."
   ],
-  "nutrition": {
-    "calories": 500,
-    "proteinGrams": 40,
-    "carbsGrams": 18,
-    "fatGrams": 30,
-    "fiberGrams": 4,
-    "sugarGrams": 7
-  },
   "updated": "2026-08-08"
 }
