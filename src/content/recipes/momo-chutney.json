@@ -1,0 +1,76 @@
+{
+  "slug": "momo-chutney",
+  "title": "Momo Chutney",
+  "description": "The fiery red dip served with momos: a glossy, garlic-heavy Kashmiri chilli paste that is sweet, sour and savoury.",
+  "prepMinutes": 40,
+  "cookMinutes": 20,
+  "servings": 12,
+  "tags": [
+    "Side dish",
+    "Asian",
+    "Vegan",
+    "Vegetarian"
+  ],
+  "ingredients": [
+    {
+      "amount": "100 g",
+      "item": "dry Kashmiri chillies",
+      "note": "for vibrant colour and mild heat"
+    },
+    {
+      "amount": "½ cup",
+      "item": "oil",
+      "note": "vegetable, or sesame for a more authentic aroma"
+    },
+    {
+      "amount": "1 cup",
+      "item": "garlic",
+      "note": "finely chopped"
+    },
+    {
+      "amount": "½ cup",
+      "item": "ginger",
+      "note": "finely chopped"
+    },
+    {
+      "amount": "3 tbsp",
+      "item": "tomato sauce or ketchup"
+    },
+    {
+      "amount": "2 tsp",
+      "item": "soy sauce"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "white vinegar"
+    },
+    {
+      "amount": "2 tbsp",
+      "item": "sugar"
+    },
+    {
+      "amount": "½ tsp",
+      "item": "black pepper powder"
+    },
+    {
+      "amount": "1 tsp",
+      "item": "salt",
+      "note": "or to taste"
+    }
+  ],
+  "steps": [
+    "Remove the stems from the dry chillies. Soak them in hot water for 30 minutes until soft. Deseed them only if you want it less spicy.",
+    "Drain the chillies and blend them into a smooth, thick red paste using a minimal amount of water.",
+    "Heat the oil in a pan over medium heat. Add the garlic and ginger and sauté until aromatic and light golden. Do not let the garlic turn dark brown.",
+    "Add the chilli paste and mix well. Cook on medium-low heat until the oil begins to separate from the edges.",
+    "Stir in the tomato sauce, soy sauce, vinegar, sugar, black pepper powder and salt.",
+    "Mix thoroughly and cook for another 3–5 minutes, until the oil separates again.",
+    "Turn off the heat and let the chutney cool completely. Transfer to a clean, airtight glass jar."
+  ],
+  "notes": [
+    "Makes about one jar.",
+    "Use a clean, dry spoon for serving so the chutney keeps longer."
+  ],
+  "added": "2026-10-31",
+  "updated": "2026-10-31"
+}
