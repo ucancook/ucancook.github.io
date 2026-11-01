@@ -3,13 +3,20 @@
   "title": "Momo Chutney",
   "description": "The fiery red dip served with momos: a glossy, garlic-heavy Kashmiri chilli paste that is sweet, sour and savoury.",
   "prepMinutes": 40,
-  "cookMinutes": 20,
+  "cookMinutes": 10,
   "servings": 12,
   "tags": [
     "Side dish",
     "Asian",
     "Vegan",
     "Vegetarian"
+  ],
+  "photos": [
+    {
+      "src": "/images/recipes/momo-chutney.jpg",
+      "alt": "Steamed momos on a brass plate with a bowl of red momo chutney",
+      "credit": "Photo: अम्बिका साव, CC BY-SA 4.0, via Wikimedia Commons"
+    }
   ],
   "ingredients": [
     {
